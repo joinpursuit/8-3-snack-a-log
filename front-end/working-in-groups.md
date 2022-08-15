@@ -21,9 +21,9 @@ If the answer to any of these questions is "no," you're probably not working in 
 - Ask your teammates what they struggle with/ what challenges they've had
 - Ask your teammates what they are good at
 - Figure out how you want to approach the project
-- On zoom all day long, co-coding all the time?
-- Checking in a few times a day, but otherwise working on separate tasks?
-- A blend of working together and working independently?
+  - On zoom all day long, co-coding all the time?
+  - Checking in a few times a day, but otherwise working on separate tasks?
+  - A blend of working together and working independently?
 - Understand each other's schedules and outside obligations and make a plan of how the collaboration will work
 - Remember that people often need sympathy before advice
 
