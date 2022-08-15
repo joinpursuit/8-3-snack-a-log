@@ -1,5 +1,12 @@
 # Full Stack Application Pair Project
 
+## Helpful Links
+*You and your partner should include links or images of the following resources in this section:*
+
+- Trello Board
+- Wireframes
+- ERDs
+
 ## Snack-a-log
 
 Create an app that allows users to log their favorite snacks. Add functionality that allows users to see whether or not their snack is healthy based on a simple algorithm.
@@ -14,9 +21,16 @@ For this project there are 40 features or functionality to build. To pass this p
 - Use unit tests to guide the building process
 - Deploy the applications online, so anyone can see them online
 
+## Expecatations
+
+- Each partner should commit and push their work at least once per day (for days we have class)
+- You should edit the *Helpful Links* section of this readme to include links for your relevant project planning resources
+
 ## Submitting Your Work
 
-You and your partner 
+Only one person on your team needs to fork this repo. They should add the other team member(s) as collaborators.
+
+You and your partner should both submit a link to your team's fork of this repo immediately -- do not wait for the due date. That way, your instructors can use your README to access your trello board and other planning resources to check-in on your team's progress.
 
 ## Acceptance Criteria
 
