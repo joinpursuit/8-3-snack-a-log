@@ -4,7 +4,7 @@
 
 Create an app that allows users to log their favorite snacks. Add functionality that allows users to see whether or not their snack is healthy based on a simple algorithm.
 
-For this project there are 40 features or functionality to build. To pass this project a minimum of 28 features must be built.
+For this project there are 40 features or functionality to build. To pass this project a minimum of 28 features must be built. The project will be graded according to the rubric on Canvas.
 
 ## Overview
 
@@ -14,7 +14,11 @@ For this project there are 40 features or functionality to build. To pass this p
 - Use unit tests to guide the building process
 - Deploy the applications online, so anyone can see them online
 
-## User Stories, Acceptance Criteria and Code Quality Rubric
+## Submitting Your Work
+
+You and your partner 
+
+## Acceptance Criteria
 
 ### Back-end
 
@@ -69,12 +73,13 @@ Total: 21 tests
 
 Total: 17 tests
 
-Additional points:
+Additional features:
 
-Back-end hosted and accessible online: 1 point
-Front-end hosted and accessible online: 1 point
+Back-end hosted and accessible online: 1 feature
 
-Grand total: 40 points
+Front-end hosted and accessible online: 1 feature
+
+Grand total: 40 features
 
 ## Getting Started
 
