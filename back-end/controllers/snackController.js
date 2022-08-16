@@ -1,14 +1,14 @@
 //dependencies
 const express = require("express");
-const { getOneSnack } = require("../queries/snacks");
+const { getOneSnack, deleteSnack } = require("../queries/snacks");
 // const { checkSnackId } = require("../validation/snackCheck");
 
 //sub routes
-const snack = express.Router();
+const snacks = express.Router();
 
 //show route
 //get an individual snack with given id
-snack.get("/:snackId", async (req, res) => {
+snacks.get("/:snackId", async (req, res) => {
   const { snackId } = req.params;
 
   try {
@@ -25,4 +25,17 @@ snack.get("/:snackId", async (req, res) => {
   }
 });
 
-module.exports = snack;
+//delete route
+//delete individual snack with given id
+snacks.delete("/:snackId", async (req, res) => {
+  const { snackId } = req.params;
+
+  try {
+    const deletedSnack = await deleteSnack(snackId);
+    res.status(200).json({ success: true, payload: deletedSnack });
+  } catch (error) {
+    res.status(404).json({ success: false, payload: { id: undefined } });
+  }
+});
+
+module.exports = snacks;
