@@ -4,10 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
+    "test": "jest --runInBand",
     "db:init": "psql -U postgres -f db/schema.sql",
     "db:seed": "psql -U postgres -f db/seed.sql",
-    "start": "node server.js",
-    "test": "jest --runInBand"
+    "seed": "psql -U postgres -f db/schema.sql && psql -U postgres -f db/seed.sql"
   },
   "keywords": [],
   "author": "",
