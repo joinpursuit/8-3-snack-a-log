@@ -16,22 +16,38 @@ const getSnack = async (id) => {
   }
 };
 
-const createSnack = async ({
-  name,
-  fiber,
-  protein,
-  added_sugar,
-  is_healthy,
-  image,
-}) => {
+// const createSnack = async ({
+//   name,
+//   fiber,
+//   protein,
+//   added_sugar,
+//   is_healthy,
+//   image,
+// }) => {
+//   try {
+//     return await db.any(
+//       "INSERT INTO snacks (name, fiber, protein, added_sugar, is_healthy, image) VALUES($1, $2, $3, $4, $5, $6) RETURNING *",
+//       [name, fiber, protein, added_sugar, is_healthy, image]
+//     );
+//   } catch (error) {
+//     return error;
+//   }
+// };
+
+const createSnack = async (snack) => {
   try {
-    return await db.one(
-      "INSERT INTO snacks (name, fiber, protein, added_sugar, is_healthy, image) VALUES($1, $2, $3, $4, $5, $6) RETURNING *",
-      [name, fiber, protein, added_sugar, is_healthy, image]
+    return await db.any(
+      "INSERT INTO snacks (name, fiber, protein, added_sugar, is_healthy, image) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+      [
+        snack.name,
+        snack.fiber,
+        snack.protein,
+        snack.added_sugar,
+        snack.is_healthy,
+        snack.image,
+      ]
     );
-  } catch (error) {
-    return error;
-  }
+  } catch (error) {}
 };
 
 const updateSnack = async (
