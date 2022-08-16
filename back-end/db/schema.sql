@@ -7,7 +7,7 @@ CREATE DATABASE snack_a_log;
 --step 3 connect to the db
 \c snack_a_log; 
 
---step 4 create the songs table
+--step 4 create the snacks table
 CREATE TABLE snacks (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
