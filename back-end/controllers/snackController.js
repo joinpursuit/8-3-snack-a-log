@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const snack = express.Router();
 
 const {
@@ -7,24 +7,26 @@ const {
   createSnack,
   updateSnack,
   deleteSnack,
-} = require("../queries/snacks");
+} = require('../queries/snacks');
 
-const { checkName, checkBoolean } = require("../validation/snackValidation");
+const confirmHealth = require('../confirmHealth');
 
-snack.get("/", async (req, res) => {
+const { checkName, checkBoolean } = require('../validation/snackValidation');
+
+snack.get('/', async (req, res) => {
   const allSnacks = await getAllSnacks();
-  console.log("=== GET Snacks", allSnacks, "===");
+  console.log('=== GET Snacks', allSnacks, '===');
   if (allSnacks) {
     res.status(200).json(allSnacks);
   } else {
-    res.status(404).send("Cannot find any snacks");
+    res.status(404).send('Cannot find any snacks');
   }
 });
 
-snack.get("/:id", async (req, res) => {
+snack.get('/:id', async (req, res) => {
   const { id } = req.params;
   const getASnack = await getSnackByID(id);
-  console.log("=== GET snack by ID", getASnack, "===");
+  console.log('=== GET snack by ID', getASnack, '===');
 
   if (getASnack) {
     res.status(200).json(getASnack);
@@ -33,7 +35,7 @@ snack.get("/:id", async (req, res) => {
   }
 });
 
-snack.post("/", checkName, checkBoolean, async (req, res) => {
+snack.post('/', checkName, checkBoolean, async (req, res) => {
   const newSnack = {
     name: req.body.name,
     fiber: req.body.fiber,
@@ -43,7 +45,7 @@ snack.post("/", checkName, checkBoolean, async (req, res) => {
     image: req.body.image,
   };
 
-  console.log("=== CREATE snack", newSnack, "===");
+  console.log('=== CREATE snack', newSnack, '===');
 
   const createdSnack = await createSnack(
     newSnack.name,
@@ -57,11 +59,11 @@ snack.post("/", checkName, checkBoolean, async (req, res) => {
   if (createdSnack) {
     res.status(200).json(createdSnack);
   } else {
-    res.status(404).send("Unable to create snack.");
+    res.status(404).send('Unable to create snack.');
   }
 });
 
-snack.put("/:id", checkName, checkBoolean, async (req, res) => {
+snack.put('/:id', checkName, checkBoolean, async (req, res) => {
   const { id } = req.params;
 
   const updatedSnackData = {
@@ -73,7 +75,7 @@ snack.put("/:id", checkName, checkBoolean, async (req, res) => {
     image: req.body.image,
   };
 
-  console.log("=== UPDATE snack", updatedSnackData, "===");
+  console.log('=== UPDATE snack', updatedSnackData, '===');
 
   const updatedSnack = await updateSnack(
     id,
@@ -92,11 +94,11 @@ snack.put("/:id", checkName, checkBoolean, async (req, res) => {
   }
 });
 
-snack.delete("/:id", async (req, res) => {
+snack.delete('/:id', async (req, res) => {
   const { id } = req.params;
   const deletedSnack = await deleteSnack(id);
 
-  console.log("=== DELETE snack", deletedSnack, "===");
+  console.log('=== DELETE snack', deletedSnack, '===');
   if (deletedSnack) {
     res.status(200).json(deletedSnack);
   } else {
