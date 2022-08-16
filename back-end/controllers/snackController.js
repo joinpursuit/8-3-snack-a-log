@@ -15,9 +15,9 @@ snack.get("/", async (req, res) => {
   const allSnacks = await getAllSnacks();
   console.log("=== GET Snacks", allSnacks, "===");
   if (allSnacks) {
-    res.status(200).json(allSnacks);
+    res.status(200).json({ sucess: true, payload: allSnacks });
   } else {
-    res.status(404).send("Cannot find any snacks");
+    res.status(404).json({ sucess: false, message: "Cannot find any snacks" });
   }
 });
 
@@ -27,9 +27,11 @@ snack.get("/:id", async (req, res) => {
   console.log("=== GET snack by ID", getASnack, "===");
 
   if (getASnack) {
-    res.status(200).json(getASnack);
+    res.status(200).json({ sucess: true, payload: getASnack });
   } else {
-    res.status(404).send(`No snack with this ID${id} exists`);
+    res
+      .status(404)
+      .json({ success: false, message: `No snack with this ID:${id} exists` });
   }
 });
 
@@ -55,9 +57,9 @@ snack.post("/", checkName, checkBoolean, async (req, res) => {
   );
 
   if (createdSnack) {
-    res.status(200).json(createdSnack);
+    res.status(200).json({ success: true, payload: createdSnack });
   } else {
-    res.status(404).send("Unable to create snack.");
+    res.status(404).json({ success: false, message: "Something went wrong." });
   }
 });
 
@@ -86,9 +88,12 @@ snack.put("/:id", checkName, checkBoolean, async (req, res) => {
   );
 
   if (updatedSnack) {
-    res.status(200).json(updatedSnack);
+    res.status(200).json({ success: true, payload: updatedSnack });
   } else {
-    res.status(404).send(`Could not update the snack at the ID${id}.`);
+    res.status(404).json({
+      sucess: false,
+      message: `Could not update the snack at the ID${id}.`,
+    });
   }
 });
 
@@ -98,9 +103,12 @@ snack.delete("/:id", async (req, res) => {
 
   console.log("=== DELETE snack", deletedSnack, "===");
   if (deletedSnack) {
-    res.status(200).json(deletedSnack);
+    res.status(200).json({ sucess: true, payload: deletedSnack });
   } else {
-    res.status(404).send(`Couldn't delete a snack with that ID${id}`);
+    res.status(404).json({
+      sucess: false,
+      message: `Could not delete a snack with that ID${id}`,
+    });
   }
 });
 
