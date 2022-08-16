@@ -13,7 +13,7 @@ const {
 snacks.get("/", async (req, res) => {
   const allSnacks = await getAllSnacks();
   if (allSnacks[0]) {
-    res.status(200).json(allSnacks);
+    res.status(200).json({ payload: allSnacks });
   } else {
     res.status(500).json({ error: "server error" });
   }
@@ -23,10 +23,10 @@ snacks.get("/", async (req, res) => {
 snacks.get("/:id", async (req, res) => {
   const { id } = req.params;
   const snack = await getSnack(id);
-  if (snack) {
-    res.json(snack);
+  if (snack.id) {
+    res.status(200).json({ success: true, payload: snack });
   } else {
-    res.status(404).json({ error: "not found" });
+    res.status(404).json({ success: false, payload: "not found" });
   }
 });
 
@@ -34,7 +34,7 @@ snacks.get("/:id", async (req, res) => {
 snacks.post("/new", async (req, res) => {
   try {
     const snack = await createSnack(req.body);
-    res.json(snack);
+    res.json({ success: true, payload: snack });
   } catch (error) {
     res.status(400).json({ error: error });
   }
@@ -44,9 +44,9 @@ snacks.post("/new", async (req, res) => {
 snacks.put("/:id", async (req, res) => {
   try {
     const snack = await updateSnack(req.params.id, req.body);
-    res.json(snack);
+    res.json({ success: true, payload: snack });
   } catch (error) {
-    res.status(400).json({ error: error });
+    res.status(400).json({ success: false, error: error });
   }
 });
 
@@ -56,12 +56,12 @@ snacks.delete("/:id", async (req, res) => {
   const deletedSnack = await deleteSnack(id);
   if (deletedSnack) {
     if (deletedSnack.id) {
-      res.status(200).json(deletedSnack);
+      res.status(200).json({ success: true, payload: deletedSnack });
     } else {
-      res.status(404).json({ error: "Snack not found" });
+      res.status(404).json({ success: false, payload: deletedSnack });
     }
   } else {
-    res.status(500).json({ error: "server error" });
+    res.status(500).json({ success: false, payload: deletedSnack });
   }
 });
 
