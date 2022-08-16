@@ -8,9 +8,9 @@ const app = express();
 // MIDDLEWARE
 
 // ROUTES
+//basic root route
 app.get("/", (req, res) => {
-  console.log("hi");
-  res.send("Hello World");
+  res.send("Get Snack'n at Snack-a-log!");
 });
 
 // EXPORT
