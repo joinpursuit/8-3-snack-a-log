@@ -1,7 +1,8 @@
 # Full Stack Application Pair Project
 
 ## Helpful Links
-*You and your partner should include links or images of the following resources in this section:*
+
+_You and your partner should include links or images of the following resources in this section:_
 
 - Trello Board
 - Wireframes
@@ -24,7 +25,7 @@ For this project there are 40 features or functionality to build. To pass this p
 ## Expecatations
 
 - Each partner should commit and push their work at least once per day (for days we have class)
-- You should edit the *Helpful Links* section of this readme to include links for your relevant project planning resources
+- You should edit the _Helpful Links_ section of this readme to include links for your relevant project planning resources
 
 ## Submitting Your Work
 
@@ -163,3 +164,5 @@ Keep the React app running, open a new tab and run
 ## Resources
 
 This project uses [this template](https://github.com/joinpursuit/pern-final-project-template) - you can follow the readme to set up deployment.
+
+Were working?? Kedari
