@@ -14,6 +14,9 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.send("Welcome to Snack A' Log");
 });
+app.get("*", (req, res) => {
+  res.status(404).send("Not found!");
+});
 
 // EXPORT
 module.exports = app;
