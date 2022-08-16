@@ -5,7 +5,7 @@
 
 - [Trello Board](https://trello.com/b/7gD0SD4z/snack-a-log)
 - [Wireframes](https://wireframe.cc/O22dps)
-- ERDs
+- [ERDs](https://miro.com/app/board/uXjVPe1UJRw=/?share_link_id=275986048292)
 
 ## Snack-a-log
 
