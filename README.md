@@ -7,6 +7,7 @@ _You and your partner should include links or images of the following resources 
 - Trello Board
   https://trello.com/b/7HvT7gHo/snack-a-log
 - Wireframes
+  https://wireframe.cc/wD90Ob
 - ERDs
 
 ## Snack-a-log
