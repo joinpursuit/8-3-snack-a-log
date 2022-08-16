@@ -9,6 +9,8 @@ const {
   deleteSnack,
 } = require("../queries/snacks");
 
+const confirmHealth = require("../confirmHealth");
+
 const { checkName, checkBoolean } = require("../validation/snackValidation");
 
 snack.get("/", async (req, res) => {
