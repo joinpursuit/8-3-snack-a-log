@@ -1,4 +1,8 @@
+-- SETUP A BLUE PRINT FOR DATABASE
+
 DROP DATABASE IF EXISTS snack_a_log;
+
+-- CREATING THE DATABASE
 CREATE DATABASE snack_a_log; 
 
 \c snack_a_log; 
