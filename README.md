@@ -4,7 +4,7 @@
 
 _You and your partner should include links or images of the following resources in this section:_
 
-- Trello Board https://trello.com/b/CAZjhkje/api-planning-lab
+- Trello Board https://trello.com/b/iMc1y9uW/snack-a-log
 - Wireframes https://wireframe.cc/RPECt3
 - ERDs https://miro.com/app/board/uXjVPe11LeE=/?share_link_id=389318788342
 
