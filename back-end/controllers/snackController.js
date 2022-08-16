@@ -1,6 +1,11 @@
 const express = require("express");
 const snacks = express.Router();
-const { getAllSnacks, getSnack, createSnack } = require("../queries/snacks.js");
+const {
+  getAllSnacks,
+  getSnack,
+  createSnack,
+  updateSnack,
+} = require("../queries/snacks.js");
 //TODO: Create functions to check validity of params
 
 // INDEX
@@ -28,6 +33,16 @@ snacks.get("/:id", async (req, res) => {
 snacks.post("/new", async (req, res) => {
   try {
     const snack = await createSnack(req.body);
+    res.json(snack);
+  } catch (error) {
+    res.status(400).json({ error: error });
+  }
+});
+
+// UPDATE
+snacks.put("/:id", async (req, res) => {
+  try {
+    const snack = await updateSnack(req.params.id, req.body);
     res.json(snack);
   } catch (error) {
     res.status(400).json({ error: error });
