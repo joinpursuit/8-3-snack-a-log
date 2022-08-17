@@ -37,19 +37,6 @@ const createSnack = async (
   }
 };
 
-const deleteSnack = async (id) => {
-  try {
-    const oneSnack = await db.one(
-      "DELETE FROM snacks WHERE id=$1 RETURNING *",
-      id
-    );
-    return oneSnack;
-  } catch (error) {
-    console.log(error.message || error);
-    return error;
-  }
-};
-
 const updateSnack = async (
   id,
   name,
@@ -66,12 +53,34 @@ const updateSnack = async (
     );
     return updateSnack;
   } catch (error) {
-    console.log(error.message || error);
+    return error;
+  }
+};
+
+const checkIfSnackExists = async (id) => {
+  try {
+    const snack = await db.oneOrNone("SELECT * FROM snacks WHERE id = $1", id);
+    console.log("the snack: ", snack);
+    return snack;
+  } catch (err) {
+    return err;
+  }
+};
+
+const deleteSnack = async (id) => {
+  try {
+    const deletedSnack = await db.one(
+      "DELETE FROM snacks WHERE id=$1 RETURNING *",
+      id
+    );
+    return deletedSnack;
+  } catch (error) {
     return error;
   }
 };
 
 module.exports = {
+  checkIfSnackExists,
   getAllSnacks,
   getSnackByID,
   createSnack,

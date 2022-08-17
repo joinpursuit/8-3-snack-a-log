@@ -2,6 +2,7 @@ const express = require("express");
 const snack = express.Router();
 
 const {
+  checkIfSnackExists,
   getAllSnacks,
   getSnackByID,
   createSnack,
@@ -11,15 +12,16 @@ const {
 
 const confirmHealth = require("../confirmHealth");
 
-const { checkName, checkBoolean } = require("../validation/snackValidation");
+const { checkValues, checkBoolean } = require("../validation/snackValidation");
 
 snack.get("/", async (req, res) => {
   const allSnacks = await getAllSnacks();
   console.log("=== GET Snacks", allSnacks, "===");
+
   if (allSnacks) {
-    res.status(200).json({ sucess: true, payload: allSnacks });
+    res.status(200).json({ success: true, payload: allSnacks });
   } else {
-    res.status(404).json({ sucess: false, message: "Cannot find any snacks" });
+    res.status(404).json({ success: false, message: "Cannot find any snacks" });
   }
 });
 
@@ -28,16 +30,15 @@ snack.get("/:id", async (req, res) => {
   const getASnack = await getSnackByID(id);
   console.log("=== GET snack by ID", getASnack, "===");
 
-  if (getASnack) {
-    res.status(200).json({ sucess: true, payload: getASnack });
+  if (getASnack.length > 0) {
+    res.status(200).json({ success: true, payload: getASnack[0] });
+    console.log("the ID ", getASnack[0].id);
   } else {
-    res
-      .status(404)
-      .json({ success: false, message: `No snack with this ID:${id} exists` });
+    res.status(404).json({ success: false, payload: `/not found/` });
   }
 });
 
-snack.post("/", checkName, checkBoolean, async (req, res) => {
+snack.post("/", checkValues, checkBoolean, async (req, res) => {
   const newSnack = {
     name: req.body.name,
     fiber: req.body.fiber,
@@ -65,7 +66,7 @@ snack.post("/", checkName, checkBoolean, async (req, res) => {
   }
 });
 
-snack.put("/:id", checkName, checkBoolean, async (req, res) => {
+snack.put("/:id", checkValues, checkBoolean, async (req, res) => {
   const { id } = req.params;
 
   const updatedSnackData = {
@@ -93,7 +94,7 @@ snack.put("/:id", checkName, checkBoolean, async (req, res) => {
     res.status(200).json({ success: true, payload: updatedSnack });
   } else {
     res.status(404).json({
-      sucess: false,
+      success: false,
       message: `Could not update the snack at the ID${id}.`,
     });
   }
@@ -101,16 +102,21 @@ snack.put("/:id", checkName, checkBoolean, async (req, res) => {
 
 snack.delete("/:id", async (req, res) => {
   const { id } = req.params;
+
+  const findSnack = await checkIfSnackExists(id);
   const deletedSnack = await deleteSnack(id);
 
   console.log("=== DELETE snack", deletedSnack, "===");
-  if (deletedSnack) {
-    res.status(200).json({ sucess: true, payload: deletedSnack });
-  } else {
-    res.status(404).json({
-      sucess: false,
-      message: `Could not delete a snack with that ID${id}`,
+
+  if (!findSnack) {
+    return res.status(404).json({
+      success: false,
+      message: `Could not find the snack at the ID${id}.`,
     });
+  }
+
+  if (deletedSnack) {
+    res.status(200).json({ success: true, payload: deletedSnack });
   }
 });
 
