@@ -3,7 +3,7 @@
 ## Helpful Links
 *You and your partner should include links or images of the following resources in this section:*
 
-- Trello Board
+- [Trello Board](https://trello.com/b/5TPYM7jV/snacks-attack)
 - Wireframes
 - ERDs
 
