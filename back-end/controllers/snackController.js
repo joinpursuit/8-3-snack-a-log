@@ -6,7 +6,11 @@ const {
   getAllSnacks,
   postNewSnack,
 } = require("../queries/snacks");
-const { checkImage, checkSnackName } = require("../validation/snackCheck");
+const {
+  checkImage,
+  checkSnackName,
+  checkSnackHealthy,
+} = require("../validation/snackCheck");
 
 //sub routes
 const snacks = express.Router();

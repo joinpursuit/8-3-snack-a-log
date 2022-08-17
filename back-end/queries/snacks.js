@@ -1,5 +1,6 @@
 //import the db object
 const db = require("../db/dbConfig.js");
+const confirmHealth = require("../confirmHealth");
 
 //return an individual snack with given id
 const getOneSnack = async (snackId) => {
@@ -42,7 +43,13 @@ const getAllSnacks = async () => {
 
 //add snack into the database
 const postNewSnack = async (snack) => {
-  const { name, fiber, protein, added_sugar, is_healthy, image } = snack;
+  let { name, fiber, protein, added_sugar, is_healthy, image } = snack;
+
+  //determine if the snack is healthy or not
+  const health = confirmHealth({ fiber, protein, added_sugar });
+  if (health === true || health === false) {
+    is_healthy = health;
+  }
 
   try {
     const newSnack = await db.any(

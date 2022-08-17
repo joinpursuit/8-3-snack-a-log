@@ -1,6 +1,9 @@
 //import db
 const db = require("../db/dbConfig");
 
+//import confirmHealth helper function
+// const confirmHealth = require("../confirmHealth");
+
 //check image
 const checkImage = (req, res, next) => {
   const { image } = req.body;
@@ -30,7 +33,5 @@ const checkSnackName = (req, res, next) => {
 
   next();
 };
-
-//check health
 
 module.exports = { checkImage, checkSnackName };
