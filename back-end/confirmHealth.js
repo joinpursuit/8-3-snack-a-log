@@ -1,8 +1,14 @@
 const confirmHealth = (snack) => {
   const { fiber, protein, added_sugar } = snack;
 
-  if (fiber === null || protein === null || added_sugar === null) {
-    console.log("inside if of confirmHealth");
+  if (
+    fiber === null ||
+    fiber === "" ||
+    protein === null ||
+    protein === "" ||
+    added_sugar === null ||
+    added_sugar === ""
+  ) {
     return null;
   }
 
