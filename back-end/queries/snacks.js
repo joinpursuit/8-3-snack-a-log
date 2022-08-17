@@ -28,4 +28,15 @@ const createSnack = async (snack) => {
     return error;
   }
 };
-module.exports = { getSnacks, createSnack };
+
+const getOneSnack = async (id) => {
+  try {
+    const oneSnack = await db.any("SELECT * FROM snacks WHERE id = $1", id);
+    return oneSnack;
+  } catch (error) {
+    console.log(error.message || error);
+    return error;
+  }
+};
+
+module.exports = { getSnacks, getOneSnack, createSnack };
