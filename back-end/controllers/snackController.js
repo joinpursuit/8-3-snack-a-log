@@ -67,13 +67,13 @@ snacks.delete("/:id", async (req, res) => {
 
   if (deletedSnack) {
     if (deletedSnack.id) {
-      res.status(200).json(deleteSnack);
+      res.status(200).json({ success: true, payload: deletedSnack });
     } else {
-      res.status(404).json({ error: "Snack not found" });
+      res.status(404).json({ success: false, payload: deletedSnack });
     }
   } else {
     console.log(deletedSnack);
-    res.status(500).json({ error: "server error" });
+    res.status(500).json({ success: false, payload: deletedSnack });
   }
 });
 
