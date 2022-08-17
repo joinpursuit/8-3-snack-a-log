@@ -59,6 +59,9 @@ const updateSnack = async (
 
 const deleteSnack = async (id) => {
   try {
+    if (id === null || id === undefined) {
+      return false;
+    }
     const deletedSnack = await db.one(
       "DELETE FROM snacks WHERE id=$1 RETURNING *",
       id
