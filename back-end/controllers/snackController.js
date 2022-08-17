@@ -36,4 +36,6 @@ snacks.delete("/:id", async (req, res) => {
   }
 });
 
+console.log('testing merges and pull requests')
+
 module.exports = snacks;
