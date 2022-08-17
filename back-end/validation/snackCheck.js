@@ -31,20 +31,6 @@ const checkSnackName = (req, res, next) => {
   next();
 };
 
-//check snackId
-// const checkSnackId = async (req, res, next) => {
-//   let { snackId } = req.params;
-//   snackId = parseInt(snackId);
-
-//   if (isNaN(snackId)) {
-//     res.status(404).json({ snackId: -1 });
-//   } else {
-//     if (snackId < 1 || snackId > 7) {
-//       res.status(404).send({ snackId: -1 });
-//     } else {
-//       next();
-//     }
-//   }
-// };
+//check health
 
 module.exports = { checkImage, checkSnackName };
