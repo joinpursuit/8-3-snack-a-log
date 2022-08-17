@@ -1,13 +1,17 @@
 const checkValues = (req, res, next) => {
-  if (
-    (req.body.name &&
-      req.body.fiber &&
-      req.body.protein &&
-      req.body.added_sugar) ||
-    req.body.added_sugar === 0
-  ) {
-    if (req.body.image === "" || req.body.image === undefined) {
-      req.body.image = "../images/defaultImage.jpeg";
+  if (req.body.name) {
+    if (
+      req.body.image === "" ||
+      req.body.image === undefined ||
+      req.body.fiber === null ||
+      req.body.protein === null ||
+      req.body.added_sugar === null
+    ) {
+      req.body.image =
+        "https://dummyimage.com/400x400/6e6c6e/e9e9f5.png&text=No+Image";
+      req.body.fiber = 0;
+      req.body.protein = 0;
+      req.body.added_sugar = 0;
     }
     next();
   } else {
