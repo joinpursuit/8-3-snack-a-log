@@ -5,6 +5,7 @@ import Show from './Pages/ShowSnacks.js';
 import New from './Pages/NewSnacks.js';
 import Edit from './Pages/EditSnacks.js';
 import Home from './Pages/HomePage.js';
+import Error from './Pages/Error.js';
 
 function App() {
 	return (
@@ -15,6 +16,7 @@ function App() {
 				<Route path='/snacks/:id' element={<Show />}></Route>
 				<Route path='/new' element={<New />}></Route>
 				<Route path='/edit' element={<Edit />}></Route>
+				<Route path='*' element={<Error />}></Route>
 			</Routes>
 		</div>
 	);

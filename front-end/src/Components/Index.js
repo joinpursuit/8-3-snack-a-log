@@ -15,15 +15,17 @@ const Index = () => {
 	// const navigate = useNavigate();
 
 	useEffect(() => {
-		axios.get(`${API}/snacks`).then((res) => {
-			setSnacks(res.data);
-		});
-		// .catch(
-		// 	(error) => {
-		// 		navigate('/new');
-		// 	},
-		// 	[navigate]
-		// );
+		axios
+			.get(`${API}/snacks`)
+			.then((res) => {
+				setSnacks(res.data);
+			})
+			.catch(
+				(error) => {
+					console.log('error');
+				}
+				// [navigate]
+			);
 	});
 
 	return (
@@ -43,7 +45,8 @@ const Index = () => {
 										{snack.name}
 										{snack.is_healthy ? heartSolid : heartOutline}
 									</p>
-									<Link to='/snacks/:id'>Show Snack</Link>
+									<Link to='/show'>Show Snack</Link>
+									<Link to="/new">Create A New Snack</Link>
 								</li>
 							);
 						})}
