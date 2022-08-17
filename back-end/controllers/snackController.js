@@ -13,10 +13,10 @@ snacks.get("/", async (req, res) => {
 snacks.get("/:id", async (req, res) => {
   const { id } = req.params;
   const snack = await getSnack(id);
-  if (snack) {
+  if (snack.id) {
     res.json({ success: true, payload: snack });
   } else {
-    res.status(404).json({ success: false, error: "not found" });
+    res.status(404).json({ success: false, payload: "not found" });
   }
 });
 
