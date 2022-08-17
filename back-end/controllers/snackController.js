@@ -65,10 +65,15 @@ snacks.delete("/:id", async (req, res) => {
   const { id } = req.params;
   const deletedSnack = await deleteSnack(id);
 
-  if (deletedSnack.id) {
-    res.status(200).json(deleteSnack);
+  if (deletedSnack) {
+    if (deletedSnack.id) {
+      res.status(200).json(deleteSnack);
+    } else {
+      res.status(404).json({ error: "Snack not found" });
+    }
   } else {
-    res.status(404).json({ error: `${id} was unable to be deleted.` });
+    console.log(deletedSnack);
+    res.status(500).json({ error: "server error" });
   }
 });
 

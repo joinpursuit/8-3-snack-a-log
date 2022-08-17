@@ -1,8 +1,8 @@
-const db = require('../db/dbConfig.js');
+const db = require("../db/dbConfig.js");
 
 const getAllSnacks = async () => {
   try {
-    const allSnacks = await db.any('SELECT * FROM snacks');
+    const allSnacks = await db.any("SELECT * FROM snacks");
     return allSnacks;
   } catch (error) {
     return error.message;
@@ -11,7 +11,7 @@ const getAllSnacks = async () => {
 
 const getOneSnack = async (id) => {
   try {
-    const oneSnack = await db.one('SELECT * FROM snacks WHERE id = $1', id);
+    const oneSnack = await db.one("SELECT * FROM snacks WHERE id = $1", id);
     return oneSnack;
   } catch (error) {
     return error.message;
@@ -28,7 +28,7 @@ const createSnack = async ({
 }) => {
   try {
     const newSnack = await db.one(
-      'INSERT INTO snacks (name, fiber, protein, added_sugar, is_healthy, image) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+      "INSERT INTO snacks (name, fiber, protein, added_sugar, is_healthy, image) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
       [name, fiber, protein, added_sugar, is_healthy, image]
     );
     return newSnack;
@@ -40,7 +40,7 @@ const createSnack = async ({
 const updateSnack = async (id, snack) => {
   try {
     const updatedSnack = await db.one(
-      'UPDATE snacks SET name = $1, fiber = $2, protein = $3, added_sugar = $4, is_healthy = $5, image = $6 WHERE id = $7 RETURNING *',
+      "UPDATE snacks SET name = $1, fiber = $2, protein = $3, added_sugar = $4, is_healthy = $5, image = $6 WHERE id = $7 RETURNING *",
       [
         snack.name,
         snack.fiber,
@@ -59,14 +59,16 @@ const updateSnack = async (id, snack) => {
 
 const deleteSnack = async (id) => {
   try {
-    const deletedSnack = await db.one('DELETE FROM bookmarks WHERE id=$1 RETURNING *',
-    id)
-    return deletedSnack
+    const deletedSnack = await db.one(
+      "DELETE FROM snacks WHERE id=$1 RETURNING *",
+      id
+    );
+    return deletedSnack;
+  } catch (error) {
+    console.log(error.message || error);
+    return error;
   }
-  catch(error){
-    return error
-  }
-}
+};
 
 module.exports = {
   getAllSnacks,
