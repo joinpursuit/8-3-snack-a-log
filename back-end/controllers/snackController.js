@@ -2,7 +2,7 @@ const express = require("express");
 const snack = express.Router();
 
 const {
-  checkIfSnackExists,
+  // checkIfSnackExists,
   getAllSnacks,
   getSnackByID,
   createSnack,
@@ -103,17 +103,9 @@ snack.put("/:id", checkValues, checkBoolean, async (req, res) => {
 snack.delete("/:id", async (req, res) => {
   const { id } = req.params;
 
-  const findSnack = await checkIfSnackExists(id);
   const deletedSnack = await deleteSnack(id);
 
   console.log("=== DELETE snack", deletedSnack, "===");
-
-  if (!findSnack) {
-    return res.status(404).json({
-      success: false,
-      message: `Could not find the snack at the ID${id}.`,
-    });
-  }
 
   if (deletedSnack) {
     res.status(200).json({ success: true, payload: deletedSnack });

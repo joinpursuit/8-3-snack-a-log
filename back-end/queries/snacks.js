@@ -57,16 +57,6 @@ const updateSnack = async (
   }
 };
 
-const checkIfSnackExists = async (id) => {
-  try {
-    const snack = await db.oneOrNone("SELECT * FROM snacks WHERE id = $1", id);
-    console.log("the snack: ", snack);
-    return snack;
-  } catch (err) {
-    return err;
-  }
-};
-
 const deleteSnack = async (id) => {
   try {
     const deletedSnack = await db.one(
@@ -80,7 +70,6 @@ const deleteSnack = async (id) => {
 };
 
 module.exports = {
-  checkIfSnackExists,
   getAllSnacks,
   getSnackByID,
   createSnack,
