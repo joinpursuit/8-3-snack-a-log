@@ -13,6 +13,9 @@ CREATE TABLE snacks (
     image TEXT
 );
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> main
 
