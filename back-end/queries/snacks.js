@@ -10,14 +10,33 @@ const getSnacks = async () => {
   }
 };
 
+const createSnack = async (snack) => {
+  try {
+    const newSnack = await db.any(
+      "INSERT INTO snacks (name, fiber, protein, added_sugar, is_healthy, image) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+      [
+        snack.name,
+        snack.fiber,
+        snack.protein,
+        snack.added_sugar,
+        snack.is_healthy,
+        snack.image,
+      ]
+    );
+    return newSnack;
+  } catch (error) {
+    return error;
+  }
+};
+
 const getOneSnack = async (id) => {
   try {
     const oneSnack = await db.any("SELECT * FROM snacks WHERE id = $1", id);
-return oneSnack;
+    return oneSnack;
   } catch (error) {
     console.log(error.message || error);
     return error;
   }
 };
 
-module.exports = { getSnacks, getOneSnack };
+module.exports = { getSnacks, getOneSnack, createSnack };

@@ -5,7 +5,6 @@ const cors = require("cors");
 const snackController = require("./controllers/snackController");
 // CONFIGURATION
 const app = express();
-console.log(typeof snackController);
 
 // MIDDLEWARE
 app.use(cors());
@@ -14,7 +13,6 @@ app.use("/snacks", snackController);
 
 // ROUTES
 app.get("/", (req, res) => {
-  console.log("Getting route /");
   res.send("Get Snack'n at Snack-a-log!");
 });
 

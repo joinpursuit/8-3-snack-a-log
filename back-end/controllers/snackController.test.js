@@ -151,7 +151,7 @@ describe("snacks", () => {
         });
 
         const parsedRes = JSON.parse(response.text);
-
+        console.log(parsedRes);
         expect(parsedRes.success).toBe(true);
         expect(!!parsedRes.payload.id).toBe(true);
         expect(parsedRes.payload.image).toEqual(
