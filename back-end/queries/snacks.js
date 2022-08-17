@@ -40,4 +40,20 @@ const getAllSnacks = async () => {
   }
 };
 
-module.exports = { getOneSnack, deleteSnack, getAllSnacks };
+//add snack into the database
+const postNewSnack = async (snack) => {
+  const { name, fiber, protein, added_sugar, is_healthy, image } = snack;
+
+  try {
+    const newSnack = await db.any(
+      "INSERT INTO snacks (name,fiber,protein,added_sugar,is_healthy,image) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *",
+      [name, fiber, protein, added_sugar, is_healthy, image]
+    );
+    return newSnack;
+  } catch (error) {
+    console.log(error.message || error);
+    return error;
+  }
+};
+
+module.exports = { getOneSnack, deleteSnack, getAllSnacks, postNewSnack };

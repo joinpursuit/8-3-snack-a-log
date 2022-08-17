@@ -1,7 +1,12 @@
 //dependencies
 const express = require("express");
-const { getOneSnack, deleteSnack, getAllSnacks } = require("../queries/snacks");
-// const { checkSnackId } = require("../validation/snackCheck");
+const {
+  getOneSnack,
+  deleteSnack,
+  getAllSnacks,
+  postNewSnack,
+} = require("../queries/snacks");
+const { checkImage, checkSnackName } = require("../validation/snackCheck");
 
 //sub routes
 const snacks = express.Router();
@@ -49,4 +54,19 @@ snacks.get("/", async (req, res) => {
   }
 });
 
+//new route
+//add a snack into the database
+snacks.post("/", checkImage, checkSnackName, async (req, res) => {
+  const newSnack = req.body;
+
+  try {
+    const postedSnack = await postNewSnack(newSnack);
+    //use postedSnack[0] because postNewSnack will return an array and
+    //the postedSnack[0] is the snack added into the database
+    res.status(200).json({ success: true, payload: postedSnack[0] });
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({ success: false });
+  }
+});
 module.exports = snacks;
