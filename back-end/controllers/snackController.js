@@ -31,10 +31,10 @@ snacks.get("/:id", async (req, res) => {
 });
 
 // CREATE
-snacks.post("/new", async (req, res) => {
+snacks.post("/", async (req, res) => {
   try {
     const snack = await createSnack(req.body);
-    res.json({ success: true, payload: snack });
+    res.json({ success: true, payload: snack[0] });
   } catch (error) {
     res.status(400).json({ error: error });
   }
