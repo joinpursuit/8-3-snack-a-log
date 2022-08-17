@@ -1,7 +1,7 @@
 # Full Stack Application Pair Project
 
 ## Helpful Links
-*Resource Link:*
+*Resource Links:*
 
 - <a href="https://trello.com/invite/b/A0YI49zu/888eddf8fa57671e2aef3f3f2126d2db/snack-a-log-board"> Our Trello Boards</a>
 - <a href="https://wireframe.cc/pro/pp/f6b3d5f25573702"> Wireframes </a>
