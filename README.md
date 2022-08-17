@@ -3,8 +3,8 @@
 ## Helpful Links
 *You and your partner should include links or images of the following resources in this section:*
 
- <a href="https://trello.com/invite/b/A0YI49zu/888eddf8fa57671e2aef3f3f2126d2db/snack-a-log-board"> Our Trello Board</a>
-- Wireframes
+- <a href="https://trello.com/invite/b/A0YI49zu/888eddf8fa57671e2aef3f3f2126d2db/snack-a-log-board"> Our Trello Board</a>
+- <a href="https://wireframe.cc/pro/pp/f6b3d5f25573702"> Wireframes </a>
 - ERDs
 
 ## Snack-a-log
