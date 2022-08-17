@@ -6,7 +6,7 @@ const SnackIndex = () => {
   const [snacks, setSnacks] = useState([]);
 
   useEffect(() => {
-      const API = process.env.REACT_APP_API_URL;
+    const API = process.env.REACT_APP_API_URL;
     axios
       .get(`${API}/snacks`)
       .then((response) => {
@@ -44,9 +44,13 @@ const SnackIndex = () => {
             <h3>{snack.added_sugar}</h3>
             <h3>{snack.is_healthy}</h3>
             {/* <img>{snack.image}</img> */}
-            <Link className='snack-link' to={`/snacks/${snack.id}`}>Snack Details</Link>
+            <Link className="snack-link" to={`/snacks/${snack.id}`}>
+              Snack Details
+            </Link>
             <br></br>
-            <button id={snack.id} onClick={handleDelete}>Delete Snack</button>
+            <button id={snack.id} onClick={handleDelete}>
+              Delete Snack
+            </button>
           </div>
         );
       })}
