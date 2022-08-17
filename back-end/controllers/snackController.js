@@ -50,6 +50,7 @@ snack.post("/", checkValues, checkBoolean, async (req, res) => {
     is_healthy: req.body.is_healthy,
     image: req.body.image,
   };
+
   newSnack.name = capitalizeName(newSnack.name);
   newSnack.is_healthy = confirmHealth(newSnack);
 
