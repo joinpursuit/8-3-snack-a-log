@@ -6,7 +6,7 @@ const { getSnacks } = require("../queries/snacks");
 snacks.get("/", async (req, res) => {
   const snacksObj = await getSnacks();
   if (snacksObj) {
-    res.json(snacksObj);
+    res.json({ payload: snacksObj });
   } else {
     res.status(404).json("ERROR!!");
   }
