@@ -1,3 +1,13 @@
 const db = require("../db/dbConfig.js");
 
-module.exports = {};
+const getAllSnacks = async () => {
+  try {
+    return await db.any("SELECT * FROM snacks");
+  } catch (error) {
+    return error;
+  }
+};
+
+module.exports = {
+  getAllSnacks,
+};
