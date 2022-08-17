@@ -1,11 +1,21 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Index from './Components/Index'
+import Index from './Pages/Snacks.js';
+import Show from './Pages/ShowSnacks.js';
+import New from './Pages/NewSnacks.js';
+import Edit from './Pages/EditSnacks.js';
+import Home from './Pages/HomePage.js';
 
 function App() {
 	return (
 		<div className='App'>
-			<h1>Hello, world!!!!</h1>
+			<Routes>
+				<Route path='/' element={<Home />}></Route>
+				<Route path='/snacks' element={<Index />}></Route>
+				<Route path='/snacks/:id' element={<Show />}></Route>
+				<Route path='/new' element={<New />}></Route>
+				<Route path='/edit' element={<Edit />}></Route>
+			</Routes>
 		</div>
 	);
 }
