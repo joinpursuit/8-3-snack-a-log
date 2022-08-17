@@ -7,7 +7,8 @@
     "db:init": "psql -U postgres -f db/schema.sql",
     "db:seed": "psql -U postgres -f db/seed.sql",
     "start": "node server.js",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "database": "psql -U postgres -f db/schema.sql && psql -U postgres -f db/seed.sql"
   },
   "keywords": [],
   "author": "",
