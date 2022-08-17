@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import React from 'react';
-import { Link } from 'react-router-dom'
-import heartSolid from "../assets/heart-solid.png";
-import heartOutline from "../assets/heart-regular.png";
+import { Link } from 'react-router-dom';
+import heartSolid from '../assets/heart-solid.png';
+import heartOutline from '../assets/heart-regular.png';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -12,48 +12,45 @@ const API = process.env.REACT_APP_API_URL;
 
 const Index = () => {
 	const [snacks, setSnacks] = useState([]);
-	const navigate = useNavigate();
-
-
+	// const navigate = useNavigate();
 
 	useEffect(() => {
-		axios
-			.get(`${API}/snacks`)
-			.then((res) => {
-				setSnacks(res.data);
-			})
-			.catch(
-				(error) => {
-					navigate('/new');
-				},
-				[navigate]
-			);
+		axios.get(`${API}/snacks`).then((res) => {
+			setSnacks(res.data);
+		});
+		// .catch(
+		// 	(error) => {
+		// 		navigate('/new');
+		// 	},
+		// 	[navigate]
+		// );
 	});
 
 	return (
-		<section className="Snacks">
-            {/* h1 needs font Carter One cursive */}
-			<h1>Snacks</h1>
-            {/* body needs font Overlock cursive */}
-            <body>
-            {/* has main with width 90 and centered using margin auto */}
-            <main>
-			<ul>
-				{snacks.map((snack) => {
-					return (
-						<li>
-							<p>{snack.name}
-                            {snack.is_healthy ? heartSolid : heartOutline}
-                            </p>
-                            <Link to="/snacks/:id">Show Snack</Link>
-                            
-						</li>
-					);
-				})}
-			</ul>
-            </main>
-            </body>
-            </section>
+		<body>
+			<section className='Snacks'>
+				{/* h1 needs font Carter One cursive */}
+				<h1>Snacks</h1>
+				{/* body needs font Overlock cursive */}
+
+				{/* has main with width 90 and centered using margin auto */}
+				<main>
+					<ul>
+						{snacks.map((snack) => {
+							return (
+								<li>
+									<p>
+										{snack.name}
+										{snack.is_healthy ? heartSolid : heartOutline}
+									</p>
+									<Link to='/snacks/:id'>Show Snack</Link>
+								</li>
+							);
+						})}
+					</ul>
+				</main>
+			</section>
+		</body>
 	);
 };
 export default Index;

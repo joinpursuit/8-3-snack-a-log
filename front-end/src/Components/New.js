@@ -7,13 +7,23 @@ const API = process.env.REACT_APP_API_URL
 
 const New = () => {
     const navigate = useNavigate()
-    const [snacks, setSnacks] = useState([])
+    const [snacks, setSnacks] = useState({
+        id: '',
+        name: '',
+        fiber: '',
+        protein:'',
+        added_sugar:'',
+        is_healthy: false,
+        image: '',
+    })
 
 
 
-    return (
-        
-    )
+
+
+    // return (
+
+    // )
 
 };
 
