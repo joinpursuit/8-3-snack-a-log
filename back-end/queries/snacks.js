@@ -63,4 +63,32 @@ const postNewSnack = async (snack) => {
   }
 };
 
-module.exports = { getOneSnack, deleteSnack, getAllSnacks, postNewSnack };
+//update the snack
+const updateTheSnack = async (snack, snackId) => {
+  let { name, fiber, protein, added_sugar, is_healthy, image } = snack;
+
+  //determine if the snack is healthy or not
+  const health = confirmHealth({ fiber, protein, added_sugar });
+  if (health === true || health === false) {
+    is_healthy = health;
+  }
+
+  try {
+    const updatedSnack = await db.one(
+      "UPDATE snacks SET name=$1, fiber=$2, protein=$3,added_sugar=$4,is_healthy=$5,image=$6 WHERE id=$7 RETURNING *",
+      [name, fiber, protein, added_sugar, is_healthy, image, snackId]
+    );
+    return updatedSnack;
+  } catch (error) {
+    console.log(error.message || error);
+    return error;
+  }
+};
+
+module.exports = {
+  getOneSnack,
+  deleteSnack,
+  getAllSnacks,
+  postNewSnack,
+  updateTheSnack,
+};

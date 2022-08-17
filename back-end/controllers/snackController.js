@@ -5,12 +5,9 @@ const {
   deleteSnack,
   getAllSnacks,
   postNewSnack,
+  updateTheSnack,
 } = require("../queries/snacks");
-const {
-  checkImage,
-  checkSnackName,
-  checkSnackHealthy,
-} = require("../validation/snackCheck");
+const { checkImage, checkSnackName } = require("../validation/snackCheck");
 
 //sub routes
 const snacks = express.Router();
@@ -68,6 +65,20 @@ snacks.post("/", checkImage, checkSnackName, async (req, res) => {
     //use postedSnack[0] because postNewSnack will return an array and
     //the postedSnack[0] is the snack added into the database
     res.status(200).json({ success: true, payload: postedSnack[0] });
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({ success: false });
+  }
+});
+
+//edit route
+//edit a snack inside the database
+snacks.put("/:snackId", checkImage, checkSnackName, async (req, res) => {
+  const { snackId } = req.params;
+
+  try {
+    const updatedSnack = await updateTheSnack(req.body, snackId);
+    res.status(200).json({ success: true, payload: updatedSnack });
   } catch (error) {
     console.log(error);
     res.status(404).json({ success: false });
