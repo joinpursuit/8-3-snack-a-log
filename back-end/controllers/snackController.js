@@ -9,6 +9,12 @@ const {
 } = require("../queries/snacks.js");
 //TODO: Create functions to check validity of params
 
+const {
+  checkBoolean,
+  checkName,
+  checkForNoAdditionalParams,
+} = require("../validations/checkSnacks");
+
 // INDEX
 snacks.get("/", async (req, res) => {
   const allSnacks = await getAllSnacks();
@@ -31,14 +37,20 @@ snacks.get("/:id", async (req, res) => {
 });
 
 // CREATE
-snacks.post("/new", async (req, res) => {
-  try {
-    const snack = await createSnack(req.body);
-    res.json({ success: true, payload: snack });
-  } catch (error) {
-    res.status(400).json({ error: error });
+snacks.post(
+  "/",
+  // checkName,
+  // checkBoolean,
+  // checkForNoAdditionalParams,
+  async (req, res) => {
+    try {
+      const snack = await createSnack(req.body);
+      res.json({ success: true, payload: snack });
+    } catch (error) {
+      res.status(400).json({ error: error });
+    }
   }
-});
+);
 
 // UPDATE
 snacks.put("/:id", async (req, res) => {
