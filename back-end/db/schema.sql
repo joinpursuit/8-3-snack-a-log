@@ -14,7 +14,3 @@ CREATE TABLE snacks (
 );
 
 
-
-
-
-
