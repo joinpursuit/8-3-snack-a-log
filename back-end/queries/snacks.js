@@ -37,19 +37,6 @@ const createSnack = async (
   }
 };
 
-const deleteSnack = async (id) => {
-  try {
-    const oneSnack = await db.one(
-      "DELETE FROM snacks WHERE id=$1 RETURNING *",
-      id
-    );
-    return oneSnack;
-  } catch (error) {
-    console.log(error.message || error);
-    return error;
-  }
-};
-
 const updateSnack = async (
   id,
   name,
@@ -66,7 +53,18 @@ const updateSnack = async (
     );
     return updateSnack;
   } catch (error) {
-    console.log(error.message || error);
+    return error;
+  }
+};
+
+const deleteSnack = async (id) => {
+  try {
+    const deletedSnack = await db.one(
+      "DELETE FROM snacks WHERE id=$1 RETURNING *",
+      id
+    );
+    return deletedSnack;
+  } catch (error) {
     return error;
   }
 };

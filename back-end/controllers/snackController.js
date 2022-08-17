@@ -1,41 +1,44 @@
-const express = require('express');
+const express = require("express");
 const snack = express.Router();
 
 const {
+  // checkIfSnackExists,
   getAllSnacks,
   getSnackByID,
   createSnack,
   updateSnack,
   deleteSnack,
-} = require('../queries/snacks');
+} = require("../queries/snacks");
 
-const confirmHealth = require('../confirmHealth');
+const confirmHealth = require("../confirmHealth");
 
-const { checkName, checkBoolean } = require('../validation/snackValidation');
+const { checkValues, checkBoolean } = require("../validation/snackValidation");
 
-snack.get('/', async (req, res) => {
+snack.get("/", async (req, res) => {
   const allSnacks = await getAllSnacks();
-  console.log('=== GET Snacks', allSnacks, '===');
+  console.log("=== GET Snacks", allSnacks, "===");
+
   if (allSnacks) {
-    res.status(200).json(allSnacks);
+    res.status(200).json({ success: true, payload: allSnacks });
   } else {
-    res.status(404).send('Cannot find any snacks');
+    res.status(404).json({ success: false, message: "Cannot find any snacks" });
   }
 });
 
-snack.get('/:id', async (req, res) => {
+snack.get("/:id", async (req, res) => {
   const { id } = req.params;
   const getASnack = await getSnackByID(id);
-  console.log('=== GET snack by ID', getASnack, '===');
+  console.log("=== GET snack by ID", getASnack, "===");
 
-  if (getASnack) {
-    res.status(200).json(getASnack);
+  if (getASnack.length > 0) {
+    res.status(200).json({ success: true, payload: getASnack[0] });
+    console.log("the ID ", getASnack[0].id);
   } else {
-    res.status(404).send(`No snack with this ID${id} exists`);
+    res.status(404).json({ success: false, payload: `/not found/` });
   }
 });
 
-snack.post('/', checkName, checkBoolean, async (req, res) => {
+snack.post("/", checkValues, checkBoolean, async (req, res) => {
   const newSnack = {
     name: req.body.name,
     fiber: req.body.fiber,
@@ -45,7 +48,7 @@ snack.post('/', checkName, checkBoolean, async (req, res) => {
     image: req.body.image,
   };
 
-  console.log('=== CREATE snack', newSnack, '===');
+  console.log("=== CREATE snack", newSnack, "===");
 
   const createdSnack = await createSnack(
     newSnack.name,
@@ -57,13 +60,13 @@ snack.post('/', checkName, checkBoolean, async (req, res) => {
   );
 
   if (createdSnack) {
-    res.status(200).json(createdSnack);
+    res.status(200).json({ success: true, payload: createdSnack });
   } else {
-    res.status(404).send('Unable to create snack.');
+    res.status(404).json({ success: false, message: "Something went wrong." });
   }
 });
 
-snack.put('/:id', checkName, checkBoolean, async (req, res) => {
+snack.put("/:id", checkValues, checkBoolean, async (req, res) => {
   const { id } = req.params;
 
   const updatedSnackData = {
@@ -75,7 +78,7 @@ snack.put('/:id', checkName, checkBoolean, async (req, res) => {
     image: req.body.image,
   };
 
-  console.log('=== UPDATE snack', updatedSnackData, '===');
+  console.log("=== UPDATE snack", updatedSnackData, "===");
 
   const updatedSnack = await updateSnack(
     id,
@@ -88,21 +91,24 @@ snack.put('/:id', checkName, checkBoolean, async (req, res) => {
   );
 
   if (updatedSnack) {
-    res.status(200).json(updatedSnack);
+    res.status(200).json({ success: true, payload: updatedSnack });
   } else {
-    res.status(404).send(`Could not update the snack at the ID${id}.`);
+    res.status(404).json({
+      success: false,
+      message: `Could not update the snack at the ID${id}.`,
+    });
   }
 });
 
-snack.delete('/:id', async (req, res) => {
+snack.delete("/:id", async (req, res) => {
   const { id } = req.params;
+
   const deletedSnack = await deleteSnack(id);
 
-  console.log('=== DELETE snack', deletedSnack, '===');
+  console.log("=== DELETE snack", deletedSnack, "===");
+
   if (deletedSnack) {
-    res.status(200).json(deletedSnack);
-  } else {
-    res.status(404).send(`Couldn't delete a snack with that ID${id}`);
+    res.status(200).json({ success: true, payload: deletedSnack });
   }
 });
 
