@@ -9,6 +9,6 @@ CREATE TABLE snacks (
     fiber INTEGER NOT NULL,
     protein INTEGER NOT NULL,
     added_sugar INTEGER NOT NULL,
-    is_healthy BOOLEAN NOT NULL,
+    is_healthy BOOLEAN,
     image TEXT NOT NULL
 );

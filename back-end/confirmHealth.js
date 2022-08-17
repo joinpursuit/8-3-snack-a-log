@@ -1,7 +1,14 @@
 const confirmHealth = (snack) => {
   const { fiber, protein, added_sugar } = snack;
 
-  if (isNaN(fiber) || isNaN(protein) || isNaN(added_sugar)) {
+  if (
+    fiber === undefined ||
+    fiber === '' ||
+    protein === undefined ||
+    protein === '' ||
+    added_sugar === undefined ||
+    added_sugar === ''
+  ) {
     return null;
   }
 
