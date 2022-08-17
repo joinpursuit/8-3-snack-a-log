@@ -1,6 +1,10 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
+import { Link } from 'react-router-dom'
+import heartSolid from "../assets/heart-solid.png";
+import heartOutline from "../assets/heart-regular.png";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -8,6 +12,9 @@ const API = process.env.REACT_APP_API_URL;
 
 const Index = () => {
 	const [snacks, setSnacks] = useState([]);
+	const navigate = useNavigate();
+
+
 
 	useEffect(() => {
 		axios
@@ -15,22 +22,38 @@ const Index = () => {
 			.then((res) => {
 				setSnacks(res.data);
 			})
-			.catch((error) => console.log(error));
+			.catch(
+				(error) => {
+					navigate('/new');
+				},
+				[navigate]
+			);
 	});
 
 	return (
-		<div>
+		<section className="Snacks">
+            {/* h1 needs font Carter One cursive */}
 			<h1>Snacks</h1>
+            {/* body needs font Overlock cursive */}
+            <body>
+            {/* has main with width 90 and centered using margin auto */}
+            <main>
 			<ul>
 				{snacks.map((snack) => {
 					return (
 						<li>
-							<p>{snack.name}</p>
+							<p>{snack.name}
+                            {snack.is_healthy ? heartSolid : heartOutline}
+                            </p>
+                            <Link to="/snacks/:id">Show Snack</Link>
+                            
 						</li>
 					);
 				})}
 			</ul>
-		</div>
+            </main>
+            </body>
+            </section>
 	);
 };
 export default Index;

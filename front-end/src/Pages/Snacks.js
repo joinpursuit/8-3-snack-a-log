@@ -1,7 +1,7 @@
 import Index from '../Components/Index.js';
 import React from 'react';
 
-function Snacks() {
+const Snacks = ()  => {
 	return (
 		<div>
 			<Index />
