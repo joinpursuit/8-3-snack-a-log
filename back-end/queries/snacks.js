@@ -29,4 +29,15 @@ const deleteSnack = async (snackId) => {
   }
 };
 
-module.exports = { getOneSnack, deleteSnack };
+//get all snacks from the database
+const getAllSnacks = async () => {
+  try {
+    const allSnacks = await db.any("SELECT * FROM snacks");
+    return allSnacks;
+  } catch (error) {
+    console.log(error.message || error);
+    return error;
+  }
+};
+
+module.exports = { getOneSnack, deleteSnack, getAllSnacks };

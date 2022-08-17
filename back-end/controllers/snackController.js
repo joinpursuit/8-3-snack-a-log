@@ -1,6 +1,6 @@
 //dependencies
 const express = require("express");
-const { getOneSnack, deleteSnack } = require("../queries/snacks");
+const { getOneSnack, deleteSnack, getAllSnacks } = require("../queries/snacks");
 // const { checkSnackId } = require("../validation/snackCheck");
 
 //sub routes
@@ -35,6 +35,17 @@ snacks.delete("/:snackId", async (req, res) => {
     res.status(200).json({ success: true, payload: deletedSnack });
   } catch (error) {
     res.status(404).json({ success: false, payload: { id: undefined } });
+  }
+});
+
+//index route
+//get all snacks
+snacks.get("/", async (req, res) => {
+  try {
+    const allSnacks = await getAllSnacks();
+    res.status(200).json({ success: true, payload: allSnacks });
+  } catch (error) {
+    res.status(404).json({ sucess: false });
   }
 });
 
