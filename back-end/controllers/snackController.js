@@ -108,15 +108,15 @@ snack.put("/:id", checkValues, checkBoolean, async (req, res) => {
 
 snack.delete("/:id", async (req, res) => {
   const { id } = req.params;
-
-  const deletedSnack = await deleteSnack(id);
-
-  console.log("=== DELETE snack", deletedSnack, "===");
-
-  if (deletedSnack) {
-    res.status(200).json({ success: true, payload: deletedSnack });
-  } else {
-    res.status(404).json({ success: false, payload: deletedSnack });
+  try {
+    const deletedSnack = await deleteSnack(id);
+    if (deletedSnack.id) {
+      res.status(200).json({ success: true, payload: deletedSnack });
+    } else {
+      res.status(404).json({ success: false, payload: "unable to delete!" });
+    }
+  } catch (error) {
+    console.log(err);
   }
 });
 
