@@ -1,6 +1,7 @@
 //DEPENDENCIES
 const express = require("express");
 const snacks = express.Router();
+const confirmHealth = require("../confirmHealth");
 
 const {
   getAllSnacks,
