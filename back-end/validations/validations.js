@@ -1,8 +1,10 @@
+const confirmHealth = require("../confirmHealth.js");
+
 const defaultImgUrl =
   "https://dummyimage.com/400x400/6e6c6e/e9e9f5.png&text=No+Image";
 
 const appendHealthyValue = (req, res, next) => {
-  req.body = { ...req.body, is_healhty: healthyOrNot(req.body) };
+  req.body = { ...req.body, is_healthy: confirmHealth(req.body) };
   next();
 };
 
