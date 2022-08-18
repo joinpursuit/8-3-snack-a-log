@@ -39,7 +39,6 @@ describe("The New page", () => {
       cy.get("#image").type(
         "https://dummyimage.com/400x400/6e6c6e/e9e9f5.png&text=No+Image"
       );
-
       cy.get("#fiber").type("3");
       cy.get("#protein").type("1");
       cy.get("#added_sugar").type("1");
