@@ -2,7 +2,7 @@ const { reset } = require("nodemon");
 
 const checkName = (req, res, next) => {
   const { name } = req.body;
-  if (name !== null) {
+  if (name) {
     next();
   } else {
     res
@@ -11,22 +11,21 @@ const checkName = (req, res, next) => {
   }
 };
 
-const checkImage = (req, res, next) => {
-  const { image } = req.body;
-  if (image !== "" || image !== undefined || image !== null) {
-    next();
-  } else {
-    res
-      .status(400)
-      .json({ success: false, payload: "checkImage validation failed" });
+function nameFormatter(name) {
+  let lowerCaseName = name.split(" ");
+  let emptyArray = [];
+  for (let i = 0; i < lowerCaseName.length; i++) {
+    if (lowerCaseName[i].length > 2) {
+      emptyArray.push(
+        lowerCaseName[i].charAt(0).toUpperCase() +
+          lowerCaseName[i].slice(1).toLowerCase()
+      );
+    } else emptyArray.push(lowerCaseName[i].toLowerCase());
   }
-};
-
-// const nameFormatter = (name) => {
-
-// }
+  return emptyArray.join(" ");
+}
 
 module.exports = {
   checkName,
-  checkImage,
+  nameFormatter,
 };
