@@ -1,11 +1,9 @@
 const express = require("express");
 const snacks = express.Router();
 
-<<<<<<< HEAD
-const { getSnacks, createSnack } = require("../queries/snacks");
-=======
-const { getSnacks, getOneSnack } = require("../queries/snacks");
->>>>>>> main
+const { getSnacks, createSnack, getOneSnack } = require("../queries/snacks");
+
+const { formatter, defaultImage } = require("../validations/validations");
 
 snacks.get("/", async (req, res) => {
   const snacksObj = await getSnacks();
@@ -16,13 +14,18 @@ snacks.get("/", async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-snacks.post("/", async (req, res) => {
-  const newSnack = await createSnack(req.body);
-  res.status(200).json({ success: true, payload: newSnack[0] });
-});
+//POST
+snacks.post(
+  "/",
+  formatter,
+  defaultImage,
 
-=======
+  async (req, res) => {
+    const newSnack = await createSnack(req.body);
+    res.status(200).json({ success: true, payload: newSnack[0] });
+  }
+);
+
 //GET Individual
 snacks.get("/:id", async (req, res) => {
   const { id } = req.params;
@@ -36,5 +39,4 @@ snacks.get("/:id", async (req, res) => {
 
 //DElETE
 
->>>>>>> main
 module.exports = snacks;
