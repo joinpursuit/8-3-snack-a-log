@@ -14,8 +14,8 @@ function App() {
 				<Route path='/' element={<Home />}></Route>
 				<Route path='/snacks' element={<Index />}></Route>
 				<Route path='/snacks/:id' element={<Show />}></Route>
-				<Route path='/new' element={<New />}></Route>
-				<Route path='/edit' element={<Edit />}></Route>
+				<Route path='/snacks/new' element={<New />}></Route>
+				<Route path='/snacks/:id/edit' element={<Edit />}></Route>
 				<Route path='*' element={<Error />}></Route>
 			</Routes>
 		</div>
