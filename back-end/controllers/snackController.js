@@ -13,6 +13,7 @@ const {
   checkName,
   checkForNoAdditionalParams,
   formatName,
+  checkFiber,
 } = require("../validations/checkSnacks");
 
 // INDEX
@@ -49,6 +50,10 @@ snacks.post(
       if (!snack[0].image) {
         snack[0].image =
           "https://dummyimage.com/400x400/6e6c6e/e9e9f5.png&text=No+Image";
+      }
+      console.log(snack[0].is_healthy);
+      if (snack[0].is_healthy) {
+        snack[0].is_healthy = checkFiber(snack[0].fiber, snack[0].added_sugar);
       }
       res.json({ success: true, payload: snack[0] });
     } catch (error) {

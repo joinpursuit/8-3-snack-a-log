@@ -48,9 +48,14 @@ const formatName = (name) => {
   return words.join(" ");
 };
 
+const checkFiber = (fiber, sugar) => {
+  return fiber > 5 && sugar < 5 ? true : false;
+};
+
 module.exports = {
   checkName,
   checkBoolean,
   checkForNoAdditionalParams,
   formatName,
+  checkFiber,
 };
