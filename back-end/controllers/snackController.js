@@ -7,8 +7,12 @@ const db = require('../db/dbConfig');
 
 //import validation
 
-const {  checkName } = require('../validation/checkSnacks');
-const {  validateString } = require('../validation/checkSnacks');
+const {
+  // checkName,
+  checkImage,
+  checkCapitalization,
+} = require('../validation/checkSnacks');
+// const { checkCapitalization } = require('../validation/validateString');
 const confirmHealth = require('../confirmHealth');
 
 const {
@@ -25,7 +29,7 @@ const {
 //Index
 snacks.get('/', async (req, res) => {
   console.log('get all /');
- 
+
   // try {
 
   const allSnacks = await getAllSnacks();
@@ -52,10 +56,12 @@ snacks.get('/:id', async (req, res) => {
 //CREATE
 snacks.post(
   '/',
-  checkName,
+  // checkName,
+  checkImage,
+  checkCapitalization,
   async (req, res) => {
     const { body } = req;
-    body.name = validateString(body);
+    // body.name = validateString(body);
     body.is_healthy = confirmHealth(body);
 
     const newSnack = body;
@@ -84,19 +90,26 @@ snacks.delete('/:id', async (req, res) => {
 });
 
 //update
-snacks.put('/:id',  checkName, async (req, res) => {
-  console.log('Put /:id');
-  const { id } = req.params;
-  const { body } = req;
-    body.name = validateString(body);
+snacks.put(
+  '/:id',
+
+  //  checkName,
+  checkImage,
+  checkCapitalization,
+  async (req, res) => {
+    console.log('Put /:id');
+    const { id } = req.params;
+    const { body } = req;
+    // body.name = checkCapitalization(body);
     body.is_healthy = confirmHealth(body);
-   
-  const updatedSnack = await updateSnack(id, body);
-  if (updatedSnack.id) {
-    res.status(200).json({ success: true, payload: updatedSnack });
-  } else {
-    res.status(404).json({ payload: 'bad request', success: false });
+
+    const updatedSnack = await updateSnack(id, body);
+    if (updatedSnack.id) {
+      res.status(200).json({ success: true, payload: updatedSnack });
+    } else {
+      res.status(404).json({ payload: 'bad request', success: false });
+    }
   }
-});
+);
 
 module.exports = snacks;
