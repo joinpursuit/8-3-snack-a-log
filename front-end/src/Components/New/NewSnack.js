@@ -1,1 +1,5 @@
-import './New.scss';
+import "./New.scss";
+
+const NewSnack = () => {};
+
+export default NewSnack;

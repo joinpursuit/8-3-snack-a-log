@@ -1,5 +1,7 @@
+import SnackDetails from "../Components/Show/Snack";
+
 function Show() {
-    return (
+  return (
     <div className="Show">
       <h2>Show</h2>
       <SnackDetails />
