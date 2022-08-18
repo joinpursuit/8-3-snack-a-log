@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.status(404).send("404: Not Found");
+  res.status(404).send("Error 404: Not Found");
 });
 
 // EXPORT
