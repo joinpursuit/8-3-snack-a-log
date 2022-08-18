@@ -6,6 +6,7 @@ const {
   createSnack,
   getOneSnack,
   deleteSnack,
+  editSnack,
 } = require("../queries/snacks");
 
 const {
@@ -45,6 +46,23 @@ snacks.get("/:id", async (req, res) => {
     res.status(404).json({ success: false, payload: `not found` });
   }
 });
+
+//PUT ROUTE
+snacks.put(
+  "/:id",
+  formatter,
+  defaultImage,
+  appendHealthyValue,
+  async (req, res) => {
+    const { id } = req.params;
+    try {
+      const updated = await editSnack(id, req.body);
+      res.status(200).json({ success: true, payload: updated });
+    } catch (error) {
+      res.status(400).json({ success: true, payload: "Snack not found" });
+    }
+  }
+);
 
 //DElETE
 snacks.delete("/:id", async (req, res) => {
