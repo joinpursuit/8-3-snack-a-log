@@ -6,16 +6,16 @@ CREATE DATABASE snack_a_log;
 
 -- Connect 
 \c snack_a_log; 
-
+DROP TABLE IF EXISTS snacks;
 -- Create table
 CREATE TABLE 
 snacks (
     id serial PRIMARY KEY,
     name TEXT NOT NULL,
-    fiber INT NOT NULL,
-    protein INT NOT NULL,
-    added_sugar INT NOT NULL,
+    fiber INT ,
+    protein INT ,
+    added_sugar INT ,
     is_healthy BOOLEAN,
-    image  TEXT NOT NULL
+    image  TEXT 
 
 );
