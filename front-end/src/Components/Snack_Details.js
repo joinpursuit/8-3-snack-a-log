@@ -13,7 +13,7 @@ export default function Snack_Details() {
     axios
       .get(`${API}/snacks/${id}`)
       .then((res) => {
-        setSnacks(res.data);
+        setSnacks(res.data.payload);
       })
 
       .catch(() => {
