@@ -49,7 +49,7 @@ const SnackIndex = () => {
             </Link>
             <br></br>
             <button id={snack.id} onClick={handleDelete}>
-              Delete Snack
+              Delete Snack!
             </button>
           </div>
         );
