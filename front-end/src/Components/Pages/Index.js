@@ -1,10 +1,14 @@
 
 
+import Snacks from '../Snacks'
+
+
+
 export default function Index() {
   return (
     <div>
-      <h1>Index</h1>
-    {/* <Snack_Details/> */}
+      <Snacks/>  
   </div>
+
   )
 }
