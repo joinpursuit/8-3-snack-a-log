@@ -16,5 +16,11 @@ const confirmHealth = (snack) => {
   } else {
     return false;
   }
+
+  //   if ((fiber <= 5 || protein <= 5) && added_sugar <=5) {
+  //     return null
+  //   } else {
+  //     return console.error(Error);
+  //   }
 };
 module.exports = confirmHealth;
