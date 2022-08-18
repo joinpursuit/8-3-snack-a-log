@@ -4,17 +4,7 @@ const express = require('express');
 const snacks = express.Router();
 //import db
 const db = require('../db/dbConfig');
-
 //import validation
-
-const {
-  // checkName,
-  checkImage,
-  checkCapitalization,
-} = require('../validation/checkSnacks');
-// const { checkCapitalization } = require('../validation/validateString');
-const confirmHealth = require('../confirmHealth');
-
 const {
   getAllSnacks,
   getASnack,
@@ -23,6 +13,13 @@ const {
   deleteSnack,
 } = require('../queries/snacks');
 
+const {
+  checkName,
+  // checkBoolean,
+  checkImage,
+  checkCapitalization,
+} = require('../validation/checkSnacks');
+
 //any() coming from the pg promise, first argument is sql command,
 //.any can be used when it is returning all or none
 
@@ -30,13 +27,16 @@ const {
 snacks.get('/', async (req, res) => {
   console.log('get all /');
 
-  // try {
-
   const allSnacks = await getAllSnacks();
-  if (allSnacks) {
-    res.status(200).json({ success: true, payload: allSnacks });
+  if (allSnacks[0]) {
+    res.status(200).json({
+      success: true,
+      payload: allSnacks,
+    });
   } else {
-    res.status(500).json({ error: 'server error' });
+    res.status(500).json({
+      error: 'server error',
+    });
   }
 });
 
@@ -44,35 +44,40 @@ snacks.get('/', async (req, res) => {
 snacks.get('/:id', async (req, res) => {
   console.log('get one /:id');
   const { id } = req.params;
-  // try {
+
   const snack = await getASnack(id);
   if (snack.id) {
-    res.status(200).json({ success: true, payload: snack });
+    res.status(200).json({
+      success: true,
+      payload: snack,
+    });
   } else {
-    res.status(404).json({ success: false, payload: 'not found' });
+    res.status(404).json({
+      success: false,
+      id: id,
+      payload: 'not found',
+    });
   }
 });
 
 //CREATE
 snacks.post(
   '/',
-  // checkName,
-  checkImage,
-  checkCapitalization,
+  //  checkName,
+   checkImage,
+   checkCapitalization,
+  
   async (req, res) => {
-    const { body } = req;
-    // body.name = validateString(body);
-    body.is_healthy = confirmHealth(body);
-
-    const newSnack = body;
-
+    
     try {
-      console.log('post/');
-      console.log(body);
-      const addSnack = await createSnack(newSnack);
-      res.status(200).json({ success: true, payload: addSnack });
+      const addSnack = await createSnack(req.body);
+      res.status(200).json({
+        success: true,
+        payload: addSnack[0],
+      });
     } catch (error) {
-      res.status(404).json({ error: error.message || error });
+      console.log(error);
+      res.status(404).json({ success: false });
     }
   }
 );
@@ -82,32 +87,51 @@ snacks.delete('/:id', async (req, res) => {
   console.log('Delete /:id', req.body, req.params);
   const { id } = req.params;
   const deletedSnack = await deleteSnack(id);
-  if (deletedSnack.id) {
-    res.status(200).json({ payload: deletedSnack, success: true });
+  if (deletedSnack) {
+    if (deletedSnack.id) {
+      res.status(200).json({
+        success: true,
+        payload: deletedSnack,
+      });
+    } else {
+      res.status(404).json({
+        success: false,
+        payload: 'not found',
+      });
+    }
   } else {
-    res.status(404).json({ payload: 'not found', success: false });
+    res.status(500).json({
+      success: false,
+      payload: deletedSnack,
+    });
   }
 });
 
 //update
 snacks.put(
   '/:id',
-
-  //  checkName,
+  // checkName,
+  
   checkImage,
   checkCapitalization,
   async (req, res) => {
     console.log('Put /:id');
     const { id } = req.params;
-    const { body } = req;
+    // const { body } = req;
     // body.name = checkCapitalization(body);
-    body.is_healthy = confirmHealth(body);
+    // req.body.is_healthy = confirmHealth(req.body);
 
-    const updatedSnack = await updateSnack(id, body);
+    const updatedSnack = await updateSnack(id, req.body);
     if (updatedSnack.id) {
-      res.status(200).json({ success: true, payload: updatedSnack });
+      res.status(200).json({
+        success: true,
+        payload: updatedSnack,
+      });
     } else {
-      res.status(404).json({ payload: 'bad request', success: false });
+      res.status(404).json({
+        success: false,
+        payload: 'bad request',
+      });
     }
   }
 );

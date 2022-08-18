@@ -19,11 +19,11 @@ const checkImage = (req, res, next) => {
 
   next();
 };
-const checkCapitalization = (snack) => {
+const checkCapitalization = (req, res, next) => {
   const { name } = req.body;
   const words = name.split(' ');
 
-  const capitalizeStr = words
+  req.body.name = words
     .map((word) => {
       if (word.length > 2) {
         return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
@@ -32,8 +32,7 @@ const checkCapitalization = (snack) => {
       }
     })
     .join(' ');
-
-  return capitalizeStr;
+    next();
 };
 
 module.exports = {
