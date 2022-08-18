@@ -31,4 +31,19 @@ const deleteSnack = async (id) => {
   }
 };
 
-module.exports = { getAllSnacks, getSnack, deleteSnack };
+const createSnack = async ({
+  name,
+  image,
+}) => {
+  try {
+    const newSnack = await db.one(
+      "INSERT INTO snacks (name, image) VALUES($1, $2) RETURNING *",
+      [name, image]
+    );
+    return newSnack;
+  } catch (error) {
+    return error;
+  }
+};
+
+module.exports = { getAllSnacks, getSnack, deleteSnack, createSnack };

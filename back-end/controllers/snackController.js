@@ -1,7 +1,8 @@
 const express = require("express");
 const snacks = express.Router(); //helps us be able to set routes
 const db = require("../db/dbConfig");
-const { getSnack, deleteSnack } = require("../queries/snacks");
+const { getSnack, deleteSnack, createSnack } = require("../queries/snacks");
+const { checkImage, checkName } = require("../validations/checkSnacks");
 
 //Index
 snacks.get("/", async (req, res) => {
@@ -36,6 +37,15 @@ snacks.delete("/:id", async (req, res) => {
   }
 });
 
-console.log('testing merges and pull requests again')
+snacks.post("/", checkImage, checkName, async (req, res) => {
+  try {
+    const snack = await createSnack(req.body);
+    res.json({ success: true, payload: snack });
+  } catch (error) {
+    res
+      .status(400)
+      .json({ success: false, payload: "server cannot process request" });
+  }
+});
 
 module.exports = snacks;
