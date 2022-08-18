@@ -35,7 +35,7 @@ export default function Edit_Snack() {
     axios
       .get(`${API}/snacks/${id}`)
       .then((res) => {
-        setSnack(res.data);
+        setSnack(res.data.payload);
       })
       .catch((err) => {
         console.warn(err);

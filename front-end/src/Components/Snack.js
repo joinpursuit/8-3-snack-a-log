@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
+
 
 export default function Snack({ snack }) {
   return (
-    <div className='allsongs'>
+    <div className='snack-card'>
       <image className='snack'>{snack.image}</image>
       <p>{snack.name}</p>
       <p>{snack.fiber}</p>
