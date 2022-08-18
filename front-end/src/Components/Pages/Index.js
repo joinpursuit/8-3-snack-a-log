@@ -1,7 +1,11 @@
 import React from 'react'
+import Snacks from '../Snacks'
+
 
 export default function Index() {
   return (
-    <div>Index</div>
+    <div>
+      <Snacks/>
+    </div>
   )
 }
