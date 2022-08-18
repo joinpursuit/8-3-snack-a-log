@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import HeartHealth from '../HeartHealth';
+import { Button } from 'react-bootstrap';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -41,13 +42,15 @@ const Snack = () => {
 
       <div className="nav">
         <Link to="/snacks">
-          <button>Back</button>
+          <Button variant="primary">Back</Button>
         </Link>
         <Link to={`/snacks/${id}/edit`}>
-          <button>Edit</button>
+          <Button variant="warning">Edit</Button>
         </Link>
         <div>
-          <button onClick={handleDelete}>Delete</button>
+          <Button variant="danger" onClick={handleDelete}>
+            Delete
+          </Button>
         </div>
       </div>
     </article>
