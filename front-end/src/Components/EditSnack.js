@@ -1,11 +1,104 @@
-// import axios from 'axios'
-// import { useState, useEffect } from 'react'
-// import { useParams, Link, useNavigate } from 'react-router-dom'
+import React from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+
+const API = process.env.REACT_APP_API_URL;
 
 const EditSnack = () => {
-    return (
-        <div>Edit Snack!</div>
-    )
-}
+  const [snack, setSnack] = useState({
+    name: "",
+    fiber: 0,
+    protein: 0,
+    added_sugar: 0,
+    is_healthy: false,
+    image: "",
+  });
+  const navigate = useNavigate();
+  const { id } = useParams();
 
-export default EditSnack
+  useEffect(() => {
+    axios
+      .get(`${API}/snacks/${id}`)
+      .then((response) => {
+        setSnack(response.data.payload);
+      })
+      .catch((error) => {
+        navigate("*");
+      });
+  }, [id, navigate]);
+
+  const editSnack = (snack) => {
+    axios
+      .put(`${API}/snacks/${id}`, snack)
+      .then(() => {
+        navigate(`/snacks/${id}`);
+      })
+      .catch((error) => {
+        console.warn(error);
+        console.log(Object.keys(snack));
+      });
+  };
+
+  const handleTextChange = (event) => {
+    setSnack({ ...snack, [event.target.id]: event.target.value });
+  };
+  const handleCheckbox = (event) => {
+    setSnack({ ...snack, is_healthy: !snack.is_healthy });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    editSnack(snack, id);
+  };
+
+  return (
+    <div>
+      <form id="edit-form" onSubmit={handleSubmit}>
+        <label htmlFor="name">Name: </label>
+        <br></br>
+        <input id="name" value={`${snack.name}`} onChange={handleTextChange} />
+        <br></br>
+        <label htmlFor="fiber-count">Fiber Count: </label>
+        <br></br>
+        <input
+          id="fiber-count"
+          type='number'
+          value={`${snack.fiber}`}
+          onChange={handleTextChange}
+        />
+        <br></br>
+        <label htmlFor="protein-count">Protein Count: </label>
+        <br></br>
+        <input id="protein-count" value={`${snack.protein}`} />
+        <br></br>
+        <label htmlFor="added-sugar">Any Added Sugars? </label>
+        <br></br>
+        <input
+          id="added-sugar"
+          value={`${snack.added_sugar}`}
+          onChange={handleTextChange}
+        />
+        <br></br>
+        <label htmlFor="is-healthy">Is it Healthy?</label>
+        <br></br>
+        <input
+          id="is-healthy"
+          type="checkbox"
+          checked={`${snack.is_healthy}`}
+          onChange={handleCheckbox}
+        />
+        <br></br>
+        <label htmlFor="image">Upload a Picture!</label>
+        <br></br>
+        <input id="image" type="text" value={`${snack.image}`} onChange={handleTextChange}/>
+      </form>
+
+      <Link to={`/snacks/${id}`}>
+        <button className="back">{`Back to ${snack.name}`}</button>
+      </Link>
+    </div>
+  );
+};
+
+export default EditSnack;
