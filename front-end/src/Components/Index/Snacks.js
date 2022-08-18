@@ -5,6 +5,8 @@ import { Button } from "react-bootstrap";
 import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
 
+import HeartHealth from "../HeartHealth";
+
 const API = process.env.REACT_APP_API_URL;
 
 const Snacks = () => {
@@ -37,10 +39,7 @@ const Snacks = () => {
             <div key={snack.id} className="Snack">
               <h4>
                 {snack.name}
-                <img
-                  src={snack.is_healthy ? "heartSolid" : "heartRegular"}
-                  alt={snack.is_healthy ? "healthy food" : "unhealthy food"}
-                />
+                <HeartHealth healthCheck={snack.is_healthy} />
               </h4>
               <Link to={`/snacks/${snack.id}`}>
                 <Button variant="primary">Show</Button>

@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 import "./Show.scss";
-
-const Snack = () => {};
-=======
-import './Show.scss';
-import HeartHealth from '../HeartHealth';
-import { Link } from 'react-router-dom';
+import HeartHealth from "../HeartHealth";
+import { Link } from "react-router-dom";
 
 const Snack = ({ snack }) => {
   return (
@@ -19,6 +14,5 @@ const Snack = ({ snack }) => {
     </div>
   );
 };
->>>>>>> 918534a190232a163d270341e47376e42d71d9af
 
 export default Snack;
