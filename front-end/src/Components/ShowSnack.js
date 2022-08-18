@@ -4,23 +4,36 @@ import axios from "axios";
 
 const ShowSnack = () => {
   const { id } = useParams();
-  const { snack, setSnack } = useState({});
+  const [snacks, setSnacks] = useState({});
+
+  const handleDelete = (event) => {
+    event.preventDefault();
+    const { id } = event.target;
+    console.log("HandleDelte:", id);
+    const API = process.env.REACT_APP_API_URL;
+    axios.delete(`${API}/snacks/${id}`).then((response) => {
+      setSnacks(
+        snacks.filter((snack) => {
+          return snack.id !== parseInt(id);
+        })
+      );
+    });
+  };
 
   useEffect(() => {
     const API = process.env.REACT_APP_API_URL;
     axios
       .get(`${API}/snacks/${id}`)
       .then((response) => {
-        setSnack(response.data.payload);
+        setSnacks(response.data.payload);
       })
       .catch((e) => {
         console.log(e);
       });
-  }, [id, setSnack]);
-  console.log(snack);
+  }, [id]);
+  console.log(snacks);
 
-  const { name, fiber, protein, added_sugar, is_healthy, image } = snack;
-
+  const { name, fiber, protein, added_sugar, is_healthy, image } = snacks;
   return (
     <div>
       <h1>{name}</h1>
@@ -28,7 +41,10 @@ const ShowSnack = () => {
       <h3>{protein}</h3>
       <h3>{added_sugar}</h3>
       <h4>{is_healthy}</h4>
-      <h3>{image}</h3>
+      <h5>{image}</h5>
+      <button id={snacks.id} onChange={handleDelete}>
+        Delete Entry
+      </button>
       <Link to="/snacks/edit">Edit Snack</Link>
     </div>
   );

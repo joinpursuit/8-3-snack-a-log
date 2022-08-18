@@ -38,7 +38,7 @@ const SnackIndex = () => {
       {snacks.map((snack, index) => {
         return (
           <div key={index}>
-            <h2>{snack.name}</h2>
+            <h4>{snack.name}</h4>
             <h3>{snack.fiber}</h3>
             <h3>{snack.protein}</h3>
             <h3>{snack.added_sugar}</h3>
