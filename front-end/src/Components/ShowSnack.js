@@ -45,7 +45,7 @@ const ShowSnack = () => {
       <button id={snacks.id} onChange={handleDelete}>
         Delete Entry
       </button>
-      <Link to="/snacks/edit">Edit Snack</Link>
+      <Link to={`/snacks/edit/${id}`}>Edit Snack</Link>
     </div>
   );
 };
