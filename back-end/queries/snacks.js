@@ -31,11 +31,18 @@ const deleteSnack = async (id) => {
   }
 };
 
-const createSnack = async ({ name, image }) => {
+const createSnack = async ({
+  name,
+  fiber,
+  protein,
+  added_sugar,
+  is_healthy,
+  image,
+}) => {
   try {
     const newSnack = await db.one(
-      "INSERT INTO snacks (name, image) VALUES($1, $2) RETURNING *",
-      [name, image]
+      "INSERT INTO snacks (name, fiber, protein, added_sugar, is_healthy, image) VALUES($1, $2, $3, $4, $5, $6) RETURNING *",
+      [name, fiber, protein, added_sugar, is_healthy, image]
     );
     return newSnack;
   } catch (error) {
