@@ -24,16 +24,19 @@ const New = () => {
 
 	const handleForm = (event) => {
 		event.preventDefault();
-		axios.get(`${API}/snacks/new`, snack).then(() => {
-			navigate('/snacks');
-		})
-        .catch((error) => {
-            console.warn(error);
-          });
+		axios
+			.get(`${API}/snacks/new`, snack)
+			.then(() => {
+				navigate('/snacks');
+			})
+			.catch((error) => {
+				console.warn(error);
+			});
 	};
 
 	return (
 		<div>
+			<h1>Snacks</h1>
 			<form onSubmit={handleForm}>
 				<label for='name'>Name:</label>
 				<input
@@ -79,10 +82,10 @@ const New = () => {
 					onChange={newForm}
 					required
 				/>
-                <br></br>
-                <Link to="/snacks">
-                <button type="submit">Submit New Snack Form</button>
-                </Link>
+				<br></br>
+				<Link to='/snacks'>
+					<button type='submit'>Submit New Snack Form</button>
+				</Link>
 			</form>
 		</div>
 	);

@@ -34,7 +34,7 @@ const Edit = () => {
 	const handleEdit = (event) => {
 		event.preventDefault();
 		axios
-			.get(`${API}/snacks/${id}`, snack)
+			.put(`${API}/snacks/${id}`, snack)
 			.then(() => {
 				navigate(`/snacks/${id}`);
 			})

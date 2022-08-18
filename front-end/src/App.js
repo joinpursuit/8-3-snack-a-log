@@ -6,10 +6,12 @@ import New from './Pages/NewSnacks.js';
 import Edit from './Pages/EditSnacks.js';
 import Home from './Pages/HomePage.js';
 import Error from './Pages/Error.js';
+import NavBar from './Components/NavBar.js'
 
 function App() {
 	return (
 		<div className='App'>
+      <NavBar />
 			<Routes>
 				<Route path='/' element={<Home />}></Route>
 				<Route path='/snacks' element={<Index />}></Route>
