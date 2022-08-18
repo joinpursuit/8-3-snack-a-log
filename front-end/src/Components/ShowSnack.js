@@ -41,7 +41,7 @@ const ShowSnack = () => {
       <h3>{protein}</h3>
       <h3>{added_sugar}</h3>
       <h4>{is_healthy}</h4>
-      <h5>{image}</h5>
+      <img src={image} alt=''/>
       <button id={snacks.id} onChange={handleDelete}>
         Delete Entry
       </button>

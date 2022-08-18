@@ -43,7 +43,7 @@ const SnackIndex = () => {
             <h3>{snack.protein}</h3>
             <h3>{snack.added_sugar}</h3>
             <h3>{snack.is_healthy}</h3>
-            {/* <img>{snack.image}</img> */}
+            <img src={snack.image} alt=''/>
             <Link className="snack-link" to={`/snacks/${snack.id}`}>
               Snack Details
             </Link>

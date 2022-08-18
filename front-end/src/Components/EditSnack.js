@@ -63,6 +63,7 @@ const EditSnack = () => {
         <br></br>
         <input
           id="fiber-count"
+          type='number'
           value={`${snack.fiber}`}
           onChange={handleTextChange}
         />
