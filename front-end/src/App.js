@@ -1,13 +1,13 @@
 import './App.scss';
 import { Routes, Route } from 'react-router-dom';
 
-import Home from './Pages/Home';
+import Home from './Components/Home/Home';
 import Index from './Pages/Index';
 import Show from './Pages/Show';
 import New from './Pages/New';
 import FourOFour from './Pages/FourOFour';
 import Edit from './Pages/Edit';
-import Navbar from './Components/Navbar';
+import Navbar from './Components/Navbar/Navbar';
 
 function App() {
   return (
