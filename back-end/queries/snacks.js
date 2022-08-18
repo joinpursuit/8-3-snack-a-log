@@ -1,5 +1,6 @@
 const db = require('../db/dbConfig.js');
 
+//GET ALL SNACKS
 const getAllSnacks = async () => {
   try {
     const allSnacks = await db.any('SELECT * FROM snacks');
@@ -9,6 +10,7 @@ const getAllSnacks = async () => {
   }
 };
 
+//GET ONE SNACK
 const getOneSnack = async (id) => {
   try {
     const oneSnack = await db.one('SELECT * FROM snacks WHERE id = $1', id);
@@ -18,18 +20,19 @@ const getOneSnack = async (id) => {
   }
 };
 
-const createSnack = async ({
-  name,
-  fiber,
-  protein,
-  added_sugar,
-  is_healthy,
-  image,
-}) => {
+//CREATE A NEW SNACK
+const createSnack = async (snack) => {
   try {
     const newSnack = await db.one(
       'INSERT INTO snacks (name, fiber, protein, added_sugar, is_healthy, image) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
-      [name, fiber, protein, added_sugar, is_healthy, image]
+      [
+        snack.name,
+        snack.fiber,
+        snack.protein,
+        snack.added_sugar,
+        snack.is_healthy,
+        snack.image,
+      ]
     );
     return newSnack;
   } catch (error) {
@@ -37,6 +40,7 @@ const createSnack = async ({
   }
 };
 
+//UPDATE A SNACK BY ID
 const updateSnack = async (id, snack) => {
   try {
     const updatedSnack = await db.one(
@@ -57,9 +61,23 @@ const updateSnack = async (id, snack) => {
   }
 };
 
+//DELETE A SNACK BY ID
+const deleteSnack = async (id) => {
+  try {
+    const deletedSnack = await db.one(
+      'DELETE FROM snacks WHERE id = $1 RETURNING *',
+      id
+    );
+    return deletedSnack;
+  } catch (error) {
+    return error.message;
+  }
+};
+
 module.exports = {
   getAllSnacks,
   getOneSnack,
   createSnack,
   updateSnack,
+  deleteSnack,
 };
