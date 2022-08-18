@@ -7,8 +7,7 @@ import Show from './Pages/Show';
 import New from './Pages/New';
 import FourOFour from './Pages/FourOFour';
 import Edit from './Pages/Edit';
-
-
+import Navbar from './Components/Navbar';
 
 function App() {
   return (
