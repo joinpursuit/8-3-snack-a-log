@@ -18,18 +18,18 @@ const getOneSnack = async (id) => {
   }
 };
 
-const createSnack = async ({
-  name,
-  fiber,
-  protein,
-  added_sugar,
-  is_healthy,
-  image,
-}) => {
+const createSnack = async (snack) => {
   try {
     const newSnack = await db.one(
       "INSERT INTO snacks (name, fiber, protein, added_sugar, is_healthy, image) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
-      [name, fiber, protein, added_sugar, is_healthy, image]
+      [
+        snack.name,
+        snack.fiber,
+        snack.protein,
+        snack.added_sugar,
+        snack.is_healthy,
+        snack.image,
+      ]
     );
     return newSnack;
   } catch (error) {
