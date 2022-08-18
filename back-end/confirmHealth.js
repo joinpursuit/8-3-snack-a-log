@@ -12,6 +12,10 @@ const confirmHealth = (snack) => {
     return null;
   }
 
+  if (fiber === 0 && protein === 0 && added_sugar === 0) {
+    return null;
+  }
+
   if ((fiber >= 5 || protein >= 5) && added_sugar <= 5) {
     return true;
   } else {

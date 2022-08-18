@@ -35,7 +35,6 @@ snack.get("/:id", async (req, res) => {
 
   if (getASnack.length > 0) {
     res.status(200).json({ success: true, payload: getASnack[0] });
-    console.log("the ID ", getASnack[0].id);
   } else {
     res.status(404).json({ success: false, payload: `/not found/` });
   }

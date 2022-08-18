@@ -3,14 +3,30 @@ const checkValues = (req, res, next) => {
     if (
       req.body.image === "" ||
       req.body.image === undefined ||
-      req.body.fiber === null ||
-      req.body.protein === null ||
-      req.body.added_sugar === null
+      req.body.image === null
     ) {
       req.body.image =
         "https://dummyimage.com/400x400/6e6c6e/e9e9f5.png&text=No+Image";
+    }
+    if (
+      req.body.fiber === "" ||
+      req.body.fiber === undefined ||
+      req.body.fiber === null
+    ) {
       req.body.fiber = 0;
+    }
+    if (
+      req.body.protein === "" ||
+      req.body.protein === undefined ||
+      req.body.protein === null
+    ) {
       req.body.protein = 0;
+    }
+    if (
+      req.body.added_sugar === "" ||
+      req.body.added_sugar === undefined ||
+      req.body.added_sugar === null
+    ) {
       req.body.added_sugar = 0;
     }
     next();
