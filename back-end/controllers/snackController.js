@@ -1,6 +1,10 @@
 const express = require("express");
 const snacks = express.Router();
-const { getAllSnacks, getSingleSnack } = require("../queries/snacks.js");
+const {
+  getAllSnacks,
+  getSingleSnack,
+  deleteSnack,
+} = require("../queries/snacks.js");
 
 // GET ALL SNACKS
 snacks.get("/", async (req, res) => {
@@ -28,6 +32,17 @@ snacks.get("/:id", async (req, res) => {
     });
   } else {
     res.status(404).json({ success: false, payload: "not found" });
+  }
+});
+
+// DELETE SNACK
+snacks.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+  const deletedSnack = await deleteSnack(id);
+  if (deletedSnack.id) {
+    res.status(200).json({ success: true, payload: deletedSnack });
+  } else {
+    res.status(404).json({ success: false, payload: { id: undefined } });
   }
 });
 

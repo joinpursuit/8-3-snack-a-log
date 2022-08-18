@@ -16,7 +16,16 @@ const getSingleSnack = async (id) => {
   }
 };
 
+const deleteSnack = async (id) => {
+  try {
+    return await db.one("DELETE FROM snacks WHERE id=$1 RETURNING *", id);
+  } catch (error) {
+    return error;
+  }
+};
+
 module.exports = {
   getAllSnacks,
   getSingleSnack,
+  deleteSnack,
 };
