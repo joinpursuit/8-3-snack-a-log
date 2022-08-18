@@ -1,7 +1,12 @@
 const express = require("express");
 const snacks = express.Router();
 
-const { getSnacks, createSnack, getOneSnack } = require("../queries/snacks");
+const {
+  getSnacks,
+  createSnack,
+  getOneSnack,
+  deleteSnack,
+} = require("../queries/snacks");
 
 const { formatter, defaultImage } = require("../validations/validations");
 
@@ -38,5 +43,19 @@ snacks.get("/:id", async (req, res) => {
 });
 
 //DElETE
+snacks.delete("/:id", async (req, res) => {
+  console.log("DELETE to /snacks/:id");
+  const { id } = req.params;
+  const snack = await deleteSnack(id);
+  if (snack.id) {
+    res.status(200).json({ success: true, payload: snack });
+  } else {
+    res.status(404).json({
+      error: `snack with id of ${id} could not be deleted`,
+      success: false,
+      payload: `Not Deleted`,
+    });
+  }
+});
 
 module.exports = snacks;
