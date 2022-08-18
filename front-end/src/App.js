@@ -12,7 +12,6 @@ import Navbar from "./Components/Navbar/Navbar";
 function App() {
   return (
     <div className="App">
-      <h1>Hello, world!</h1>
       <Navbar />
       <main>
         <Routes>
