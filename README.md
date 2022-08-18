@@ -4,8 +4,7 @@
 
 _You and your partner should include links or images of the following resources in this section:_
 
-- Trello Board
-  [Trello Board](https://trello.com/snacklog1)
+- Trello Board[link](https://trello.com/snacklog1)
 - Wireframes
 - ERDs
 

@@ -13,19 +13,15 @@ export default function New_Snack() {
     added_sugar: '',
     image: '',
   });
-    
-  
-  
-  
+
   const handleTextChange = (event) => {
     setSnack({ ...snack, [event.target.id]: event.target.value });
   };
-  
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(`${API}/api/snacks/new`, snack)
+      .post(`${API}/snacks/new`, snack)
       .then((res) => {
         navigate('/snacks');
       })
@@ -33,21 +29,18 @@ export default function New_Snack() {
         console.warn(err);
       });
   };
- 
-
-
 
   return (
     <div className='new'>
-    <div>
-    <p>Snack Health is determined by</p>
-   <ul>
-    <li>a</li>
-    <li>b</li>
-    <li>c</li>
-    </ul>
-    </div>
-    <form onSubmit={handleSubmit}>
+      <div>
+        <p>Snack Health is determined by</p>
+        <ul>
+          <li>a</li>
+          <li>b</li>
+          <li>c</li>
+        </ul>
+      </div>
+      <form onSubmit={handleSubmit}>
         <label className='new-label' htmlFor='name'>
           Name
         </label>
@@ -97,7 +90,7 @@ export default function New_Snack() {
           placeholder='0'
         />
         <br />
-        <input className='button' type='submit'/>
+        <input className='button' type='submit' />
       </form>
     </div>
   );
