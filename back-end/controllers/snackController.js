@@ -7,8 +7,8 @@ const db = require('../db/dbConfig');
 
 //import validation
 
-const { checkImage, checkName } = require('../validations/checkSnacks');
-
+const {  checkName } = require('../validation/checkSnacks');
+const {  validateString } = require('../validation/checkSnacks');
 const confirmHealth = require('../confirmHealth');
 
 const {
@@ -25,7 +25,7 @@ const {
 //Index
 snacks.get('/', async (req, res) => {
   console.log('get all /');
-  //   const { order, is_favorite } = req.query;
+ 
   // try {
 
   const allSnacks = await getAllSnacks();
@@ -52,10 +52,10 @@ snacks.get('/:id', async (req, res) => {
 //CREATE
 snacks.post(
   '/',
-  // checkImage,checkName,
+  checkName,
   async (req, res) => {
     const { body } = req;
-
+    body.name = validateString(body);
     body.is_healthy = confirmHealth(body);
 
     const newSnack = body;
@@ -84,10 +84,14 @@ snacks.delete('/:id', async (req, res) => {
 });
 
 //update
-snacks.put('/:id', checkImage, checkName, async (req, res) => {
+snacks.put('/:id',  checkName, async (req, res) => {
   console.log('Put /:id');
   const { id } = req.params;
-  const updatedSnack = await updateSnack(id, req.body);
+  const { body } = req;
+    body.name = validateString(body);
+    body.is_healthy = confirmHealth(body);
+   
+  const updatedSnack = await updateSnack(id, body);
   if (updatedSnack.id) {
     res.status(200).json({ success: true, payload: updatedSnack });
   } else {
