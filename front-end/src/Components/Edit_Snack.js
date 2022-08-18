@@ -33,7 +33,7 @@ export default function Edit_Snack() {
 
   useEffect(() => {
     axios
-      .get(`${API}/api/snacks/${id}`)
+      .get(`${API}/snacks/${id}`)
       .then((res) => {
         setSnack(res.data);
       })
@@ -47,20 +47,18 @@ export default function Edit_Snack() {
     updateSnack(snack, id);
   };
 
-  const onChange = () => {
-    setSnack({ ...snack });
-  };
+ 
 
   return (
     <div className='edit'>
-       <div>
+      <div>
         <p>Snack Health is determined by</p>
-       <ul>
-        <li>a</li>
-        <li>b</li>
-        <li>c</li>
+        <ul>
+          <li>a</li>
+          <li>b</li>
+          <li>c</li>
         </ul>
-        </div>
+      </div>
       <form onSubmit={handleSubmit}>
         <label className='new-label' htmlFor='name'>
           Name
@@ -69,6 +67,7 @@ export default function Edit_Snack() {
           className='text'
           id='name'
           type='text'
+          placeholder='Name Of Snack'
           required
           value={snack.name}
           onChange={handleTextChange}
@@ -82,7 +81,7 @@ export default function Edit_Snack() {
           value={snack.fiber}
           type='number'
           onChange={handleTextChange}
-          placeholder='Name Of Snack'
+          placeholder='0'
           required
         />
         <label className='new-label' htmlFor='protein'>
@@ -110,7 +109,7 @@ export default function Edit_Snack() {
           placeholder='0'
         />
         <br />
-        <input className='button' type='submit'/>
+        <input className='button' type='submit' />
         <br />
         <Link to={`/snacks/${id}`}>
           <button className='button'>Back</button>

@@ -7,7 +7,7 @@ export default function NavBar() {
         <Link to='/'>Home</Link>
       </h3>
       <h3>
-        <Link to='/snacks'>Everything</Link>
+        <Link to='/snacks'>Everything Sweet amd Salty</Link>
       </h3>
       <h3>
         <Link to='/about'>About Us</Link>
