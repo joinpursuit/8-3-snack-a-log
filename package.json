@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/joinpursuit/bookmarks-mono-repo/issues"
   },
-  "homepage": "https://github.com/joinpursuit/bookmarks-mono-repo#readme"
+  "homepage": "https://github.com/joinpursuit/bookmarks-mono-repo#readme",
+  "dependencies": {
+    "nodemon": "^2.0.19"
+  }
 }
