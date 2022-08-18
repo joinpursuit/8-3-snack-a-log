@@ -1,8 +1,6 @@
-DROP DATABASE IF EXISTS snack_a_log;
-CREATE DATABASE snack_a_log; 
+\c d98cufhggcs4gi;
 
-\c snack_a_log; 
-
+DROP TABLE IF EXISTS snacks;
 CREATE TABLE snacks (
     id SERIAL NOT NULL PRIMARY KEY,
     name TEXT NOT NULL,
