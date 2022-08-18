@@ -2,25 +2,23 @@ const confirmHealth = (snack) => {
   const { fiber, protein, added_sugar } = snack;
 
   if (
-    fiber == undefined ||
-    protein == undefined ||
-    added_sugar == undefined ||
-    fiber == "" ||
-    protein == ""
+    fiber == null ||
+    protein == null ||
+    added_sugar == null ||
+    fiber == null ||
+    protein == null
   ) {
     return null;
   }
 
-  if ((fiber >= 5 || protein >= 5) && added_sugar <= 5) {
+  if ((protein >= 5 || fiber >= 5) && added_sugar <= 5) {
+    return true;
+  } else if (protein >= 5 && fiber <= 5 && added_sugar <= 5) {
+    return true;
+  } else if (protein <= 5 && fiber >= 5 && added_sugar <= 5) {
     return true;
   } else {
     return false;
   }
-
-  //   if ((fiber <= 5 || protein <= 5) && added_sugar <=5) {
-  //     return null
-  //   } else {
-  //     return console.error(Error);
-  //   }
 };
 module.exports = confirmHealth;
