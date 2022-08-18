@@ -3,7 +3,11 @@ const snacks = express.Router();
 
 const { getSnacks, createSnack, getOneSnack } = require("../queries/snacks");
 
-const { formatter, defaultImage } = require("../validations/validations");
+const {
+  formatter,
+  defaultImage,
+  appendHealthyValue,
+} = require("../validations/validations");
 
 snacks.get("/", async (req, res) => {
   const snacksObj = await getSnacks();
@@ -19,7 +23,7 @@ snacks.post(
   "/",
   formatter,
   defaultImage,
-
+  appendHealthyValue,
   async (req, res) => {
     const newSnack = await createSnack(req.body);
     res.status(200).json({ success: true, payload: newSnack[0] });
