@@ -39,4 +39,17 @@ const getOneSnack = async (id) => {
   }
 };
 
-module.exports = { getSnacks, getOneSnack, createSnack };
+const deleteSnack = async (id) => {
+  try {
+    const snack = await db.one(
+      "DELETE FROM snacks WHERE id=$1 RETURNING *",
+      id
+    );
+    return snack;
+  } catch (err) {
+    console.log(err.message || err);
+    return err;
+  }
+};
+
+module.exports = { getSnacks, getOneSnack, createSnack, deleteSnack };
