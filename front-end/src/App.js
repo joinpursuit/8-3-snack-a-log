@@ -10,7 +10,6 @@ import FourOFour from './Components/Pages/FourOFour';
 import About from './Components/AboutUs'
 
 
-
 export default function App() {
   return (
     <div className='App'>

@@ -17,10 +17,10 @@ export default function Edit_Snack() {
 
   const updateSnack = (updated_Snack) => {
     axios
-      .put(`${API}/api/snacks/${id}`, updated_Snack)
+      .put(`${API}/snacks/${id}`, updated_Snack)
       .then(
         () => {
-          navigate(`/api/snacks/${id}`);
+          navigate(`/snacks/${id}`);
         },
         (error) => console.error(error),
       )
@@ -47,16 +47,14 @@ export default function Edit_Snack() {
     updateSnack(snack, id);
   };
 
- 
-
   return (
     <div className='edit'>
       <div>
         <p>Snack Health is determined by</p>
         <ul>
-          <li>a</li>
-          <li>b</li>
-          <li>c</li>
+          <li>protein is above 5</li>
+          <li>fiber is above 5</li>
+          <li>and sugar is less than 5</li>
         </ul>
       </div>
       <form onSubmit={handleSubmit}>
@@ -89,7 +87,7 @@ export default function Edit_Snack() {
         </label>
         <input
           className='text'
-          id='Protein'
+          id='protein'
           type='number'
           name='protein'
           value={snack.protein}

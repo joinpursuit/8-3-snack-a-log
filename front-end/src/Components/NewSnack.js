@@ -35,9 +35,9 @@ export default function New_Snack() {
       <div>
         <p>Snack Health is determined by</p>
         <ul>
-          <li>a</li>
-          <li>b</li>
-          <li>c</li>
+          <li>protein is above 5</li>
+          <li>fiber is above 5</li>
+          <li>and sugar is less than 5</li>
         </ul>
       </div>
       <form onSubmit={handleSubmit}>
