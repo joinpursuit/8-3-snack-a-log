@@ -1,5 +1,7 @@
 const confirmHealth = (snack) => {
+
   const { fiber, protein, added_sugar } = snack;
+
 
   if (
     fiber == null ||

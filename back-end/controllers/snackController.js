@@ -1,20 +1,31 @@
 //DEPENDENCIES
 const express = require("express");
 const snacks = express.Router();
+
+const db = require('../db/dbConfig');
+
 const confirmHealth = require("../confirmHealth");
 
+
+//IMPORT ALL THE HELPER FUNCTIONS HANDLING CRUD OPERATIONS
 const {
   getAllSnacks,
   getOneSnack,
   createSnack,
   updateSnack,
   deleteSnack,
+
 } = require("../queries/snacks");
 
-//Setup Basic Root Route
-// snacks.get('/', (req, res) => {
-//   res.send('Everything is good!');
-// });
+
+//IMPORT CONFIRMHEALTH FUNC TO USE IN POST OPERATIONS
+const confirmHealth = require('../confirmHealth');
+
+//IMPORT VALIDATION CHECKS
+const {
+  changImageUrl,
+  capitalizeSnackName,
+} = require('../validation/checkSnacks');
 
 //INDEX ROUTE
 snacks.get("/", async (req, res) => {
@@ -22,7 +33,9 @@ snacks.get("/", async (req, res) => {
   if (allSnacks) {
     res.status(200).json({ success: true, payload: allSnacks });
   } else {
-    res.status(404).json({ success: false, payload: "Server Error!" });
+    res
+      .status(404)
+      .json({ success: false, payload: 'Error! No snacks found!' });
   }
 });
 
@@ -40,59 +53,49 @@ snacks.get("/:id", async (req, res) => {
   }
 });
 
-//CREATE ROUTE USING POST METHOD
-snacks.post("/", async (req, res) => {
-  const { name, fiber, protein, added_sugar, is_healthy, image } = req.body;
-  const aNewSnack = {
-    name,
-    fiber,
-    protein,
-    added_sugar,
-    is_healthy,
-    image,
-  };
 
-  aNewSnack.is_healthy = confirmHealth(aNewSnack);
+//CREATE ROUTE USING POST METHOD TO CREATE A NEW SNACK
+snacks.post('/', changImageUrl, capitalizeSnackName, async (req, res) => {
+  const { body } = req;
+  const aNewSnack = body;
 
-  const createdSnack = await createSnack(
-    aNewSnack.name,
-    aNewSnack.fiber,
-    aNewSnack.protein,
-    aNewSnack.added_sugar,
-    aNewSnack.is_healthy,
-    aNewSnack.image
-  );
+  body.is_healthy = confirmHealth(body);
+
+  const createdSnack = await createSnack(aNewSnack);
 
   if (createdSnack) {
-    res.status(200).json({ success: true, payload: aNewSnack });
+    res.status(200).json({ success: true, payload: createdSnack });
   } else {
-    res.status(404).json({ success: false, error: error.message });
+    res
+      .status(404)
+      .json({ success: false, error: 'A new snack can not be added!' });
   }
-
-  // try {
-  //   const newSnack = await createSnack(req.body);
-  //   res.status(200).json({ success: true, payload: newSnack });
-  // } catch (error) {
-  //   res.status(400).json({ success: false, payload: error.message });
-  // }
 });
 
 //UPDATE ROUTE USING PUT METHOD
-snacks.put("/:id", async (req, res) => {
+snacks.put('/:id', changImageUrl, capitalizeSnackName, async (req, res) => {
+
   const { id } = req.params;
-  try {
-    const updatedSnack = await updateSnack(id, req.body);
+  const { body } = req;
+
+  body.is_healthy = confirmHealth(body);
+
+  const updatedSnack = await updateSnack(id, body);
+
+  if (updatedSnack.id) {
     res.status(200).json({ success: true, payload: updatedSnack });
-  } catch (error) {
-    res.status(400).json({ success: false, payload: error.message });
+  } else {
+    res.status(404).json({
+      success: false,
+      payload: `A snack with id number ${id} can not be updated! Please try again.`,
+    });
   }
 });
 
-//DELETE ROUTE SNACK USING DELETE
-snacks.delete("/:id", async (req, res) => {
+//DELETE A SNACK BY ITS ID
+snacks.delete('/:id', async (req, res) => {
   const { id } = req.params;
   const deletedSnack = await deleteSnack(id);
-
   if (deletedSnack) {
     if (deletedSnack.id) {
       res.status(200).json({ success: true, payload: deletedSnack });
@@ -100,8 +103,10 @@ snacks.delete("/:id", async (req, res) => {
       res.status(404).json({ success: false, payload: deletedSnack });
     }
   } else {
-    console.log(deletedSnack);
-    res.status(500).json({ success: false, payload: deletedSnack });
+    res.status(500).json({
+      success: false,
+      payload: `A snack with id number ${id} can not be deleted! Please try again.`,
+    });
   }
 });
 
