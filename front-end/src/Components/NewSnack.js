@@ -8,9 +8,9 @@ export default function New_Snack() {
   const navigate = useNavigate();
   const [snack, setSnack] = useState({
     name: '',
-    fiber: '',
-    protein: '',
-    added_sugar: '',
+    fiber: 0,
+    protein: 0,
+    added_sugar: 0,
     image: '',
   });
 
