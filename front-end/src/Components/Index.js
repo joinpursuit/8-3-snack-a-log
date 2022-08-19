@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import HeartHealth from "./HeartHealth";
 import { Link } from "react-router-dom";
+import { Card, Container } from "react-bootstrap";
 
 const Base_URL = process.env.REACT_APP_API_URL;
 
@@ -22,18 +23,34 @@ export default function Index() {
   console.log(snacks);
 
   return (
-    <ul>
+    <Container className="Snack">
       {snacks.map((snack) => (
-        <li key={snack.id} className="Snack">
-          <Link to={"/snacks/" + snack.id}>
-            <h4>
-              <HeartHealth snackHealth={snack.is_healthy} /> {snack.name}
-              <img src={snack.image} alt="" />
-            </h4>
-            {/* {snack.is_healthy ? `true` : `false`} */}
-          </Link>
-        </li>
+        <Link to={"/snacks/" + snack.id}>
+          <Card key={snack.id} style={{ width: "24rem" }}>
+            <Card.Img variant="top" src={snack.image} />
+            <Card.Body>
+              <Card.Title>
+                <h4>
+                  <HeartHealth snackHealth={snack.is_healthy} /> {snack.name}
+                </h4>
+              </Card.Title>
+            </Card.Body>
+          </Card>
+        </Link>
       ))}
-    </ul>
+    </Container>
+    // <ul>
+    //   {snacks.map((snack) => (
+    //     <li key={snack.id} className="Snack">
+    //       <Link to={"/snacks/" + snack.id}>
+    //         <h4>
+    //           <HeartHealth snackHealth={snack.is_healthy} /> {snack.name}
+    //           <img src={snack.image} alt="" />
+    //         </h4>
+    //         {/* {snack.is_healthy ? `true` : `false`} */}
+    //       </Link>
+    //     </li>
+    //   ))}
+    // </ul>
   );
 }
