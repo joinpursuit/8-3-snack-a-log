@@ -1,6 +1,6 @@
 
 img {
-  
+   
     width: 150px;
     height: 150px;
 }
@@ -9,12 +9,14 @@ h1 {
 }
 
 h4 {
-    text-align: center;
     margin: 0;
     font-size: 1em;
-}
-body {
+    text-align: center;
   
+}
+
+body {
+    background-color:  rgb(255, 252, 242);
     font-family: Overlock cursive;
 }
 

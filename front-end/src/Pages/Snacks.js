@@ -1,4 +1,4 @@
-import Index from '../Components/Index.js';
+import Index from '../Components/Index/Index.js';
 import React from 'react';
 
 const Snacks = ()  => {

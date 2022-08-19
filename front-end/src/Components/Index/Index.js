@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './IndexStyle.css';
-import HeartHealth from './HeartHealth';
+import HeartHealth from '../HeartHealth';
 // import SnackCard from './SnackCard.js';
 
 const API = process.env.REACT_APP_API_URL;
@@ -37,10 +37,10 @@ const Index = () => {
 			{snacks.map((snack) => {
 				return (
 					<main>
-						<HeartHealth snackHealth={snack} />
+						<h4><HeartHealth className="heart" snackHealth={snack.is_healthy} /> {snack.name}</h4>
 						<Link className="links" to={`/snacks/${snack.id}`}>
-							<h4>{snack.name}</h4>
-							<img className='Snacks' src={snack.image} alt={snack.name} />
+						
+							<img className='Snacks' src={snack.image} alt="" />
 						</Link>
 					</main>
 				);

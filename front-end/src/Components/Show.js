@@ -3,14 +3,13 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import HeartHealth from '../Components/HeartHealth.js';
-// import SnackCard from './SnackCard.js'
 
 const API = process.env.REACT_APP_API_URL;
 
 const Show = () => {
 	const [snack, setSnack] = useState([]);
 	const id = useParams();
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		axios
@@ -36,25 +35,26 @@ const Show = () => {
 	};
 	return (
 		<article>
-			
 			<h1>Snacks</h1>
 			<aside>
-			<HeartHealth snackHealth={{snack}} /> 
+				<HeartHealth snackHealth={snack.is_healthy} />
 			</aside>
 			<h3>{snack.name}</h3>
 			<div>
-			
-		
-			<img src={snack.image} alt={snack.name}/>
-		
-			<p>Protein: {snack.protein}</p>
-			<p>Fiber: {snack.fiber}</p>
-			<p>Added Sugar: {snack.added_sugar}</p>
+				<img src={snack.image} alt={snack.name} />
+
+				<p>Protein: {snack.protein}</p>
+				<p>Fiber: {snack.fiber}</p>
+				<p>Added Sugar: {snack.added_sugar}</p>
 			</div>
 
-			<Link to={`/snacks`}><button>Back</button></Link>
+			<Link to={`/snacks`}>
+				<button>Back</button>
+			</Link>
 			<br></br>
-			<Link to={`/snacks/${id}/edit`}><button>Edit Snacks!</button></Link>
+			<Link to={`/snacks/${id}/edit`}>
+				<button>Edit Snacks!</button>
+			</Link>
 			<br></br>
 			<button onClick={deleteSnack}>Delete A Snack</button>
 		</article>

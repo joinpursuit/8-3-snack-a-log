@@ -6,7 +6,7 @@ import New from './Pages/NewSnacks.js';
 import Edit from './Pages/EditSnacks.js';
 import Home from './Pages/HomePage.js';
 import Error from './Pages/Error.js';
-import NavBar from './Components/NavBar.js'
+import NavBar from './Components/NavBar/NavBar.js'
 import About from './Pages/About'
 
 function App() {
