@@ -18,7 +18,7 @@ nav {
     color: #da9be5;
   }
   nav a:hover {
-    color: #610094;
+    color: #404F82;
     text-decoration: underline;
   }
   
@@ -79,3 +79,9 @@ button:hover {
     padding: 0 40px;
   }
 }
+
+.cookie {
+  height: 50px;
+  align-items: center;
+}
+

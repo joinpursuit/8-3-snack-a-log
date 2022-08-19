@@ -6,17 +6,16 @@ export default function Snack({ snack }) {
     <div className='snack-card'>
       
       <Link to={`/snacks/`+snack.id} key={snack.id}>
-        <img
-          style={{ width: '200px', height: '200px' }}
+        <img className='snack-pic'
+          style={{ width: '225px', height: '225px' }}
           src={snack.image}
           alt=''
         />
-         <p>{snack.name}</p>
+         <p className='snack-name'>{snack.name}</p>
       </Link>
-      <p>{snack.fiber}</p>
-      <p>{snack.protein}</p>
-      <HeartHealth snackHealth={snack} />
-   
+      <div className='health'>
+      <HeartHealth  snackHealth={snack} />
+      </div>
     </div>
   );
 }
