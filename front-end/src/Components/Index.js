@@ -10,7 +10,7 @@ export default function Index() {
   const [snacks, setSnacks] = useState([]);
   useEffect(() => {
     axios
-      .get(Base_URL)
+      .get(`${Base_URL}/snacks`)
       .then((res) => {
         setSnacks(res.data.payload);
       })

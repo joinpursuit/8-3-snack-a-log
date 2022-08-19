@@ -1,9 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
-const API = process.env.REACT_APP_API_URL;
+import { useNavigate } from "react-router";
+const Base_URL = process.env.REACT_APP_API_URL;
 
 function New() {
-  return <div></div>;
+  return <div>New Form Goes Here</div>;
 }
 
 export default New;
