@@ -3,8 +3,8 @@ const confirmHealth = require('../confirmHealth');
 
 const getAllSnacks = async () => {
   try {
-    const allSnacks= await db.any('SELECT * FROM snacks');
-    return allSnacks
+    const allSnacks = await db.any('SELECT * FROM snacks');
+    return allSnacks;
   } catch (error) {
     return error;
   }
@@ -12,7 +12,7 @@ const getAllSnacks = async () => {
 
 const getASnack = async (id) => {
   try {
-    const snack=await db.one('SELECT * FROM snacks WHERE id=$1', id);
+    const snack = await db.one('SELECT * FROM snacks WHERE id=$1', id);
     return snack;
   } catch (error) {
     return error;
@@ -24,6 +24,15 @@ const createSnack = async (snack) => {
 
   //determine if the snack is healthy or not
   snack.is_healthy = confirmHealth(snack);
+  if (snack.added_sugar === null) {
+    snack.added_sugar = 0;
+  }
+  if (snack.protein === null) {
+    snack.protein = 0;
+  }
+  if (snack.fiber === null) {
+    snack.fiber = 0;
+  }
 
   try {
     return await db.any(
@@ -37,7 +46,10 @@ const createSnack = async (snack) => {
         snack.image,
       ]
     );
-  } catch (error) {}
+  } catch (error) {
+    console.log(error.message);
+    // throw new Error(error.message);
+  }
 };
 
 const updateSnack = async (
