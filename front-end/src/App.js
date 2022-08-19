@@ -1,11 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./Components/NavBar";
-/* pages */
 import Edit from "./Pages/Edit";
 import Home from "./Pages/Home";
 import New from "./Pages/New";
-
-
 
 function App() {
   return (
