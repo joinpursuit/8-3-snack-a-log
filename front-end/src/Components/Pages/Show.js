@@ -1,10 +1,10 @@
 import React from 'react'
 import SnackDetails from '../SnackDetails'
+import '../styles/show.css'
 
 export default function Show() {
   return (
-    <div>
-    <h1>Show</h1>
+    <div className='shows'>
     <SnackDetails/>
   </div>
  
