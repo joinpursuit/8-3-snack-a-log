@@ -11,9 +11,15 @@ import Navbar from "./Components/Navbar/Navbar";
 
 function App() {
   return (
-    <section>
+    <section className="mainSection">
       <Navbar />
-      <main>
+      {/* <main> */}
+      <main className="mainSidebar">
+        <section>
+          <h1>sidebar</h1>
+        </section>
+      </main>
+      <section className="routeSections">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/snacks" element={<Index />} />
@@ -22,7 +28,8 @@ function App() {
           <Route path="/snacks/:id/edit" element={<Edit />} />
           <Route path="*" element={<FourOFour />} />
         </Routes>
-      </main>
+      </section>
+      {/* </main> */}
     </section>
   );
 }
