@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import EditSnack from "./EditSnack";
 
 
 const SnackIndex = () => {
@@ -46,7 +47,7 @@ const SnackIndex = () => {
             <h3>Fiber Count: {snack.fiber}</h3>
             <h3>Protein Count: {snack.protein}</h3>
             <h3>Added Sugar Count: {snack.added_sugar}</h3>
-            <h3>Is it Healthy? {snack.is_healthy ? '❤️' : '💀'}</h3>
+            <h4>Is it Healthy? {snack.is_healthy ? '❤️' : '💀'}</h4>
             <img src={snack.image} alt=''/>
             <br></br>
             <button><Link className="snack-link" to={`/snacks/${snack.id}`}>
@@ -56,6 +57,8 @@ const SnackIndex = () => {
             <button id={snack.id} onClick={handleDelete}>
               Delete Snack!
             </button>
+            <br></br>
+            <button><Link to={`/snacks/edit/${snack.id}`}>Edit Snack</Link></button>
             <br></br>
             <button><Link to='/'>Back</Link></button>
           </div>

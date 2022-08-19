@@ -49,7 +49,7 @@ const ShowSnack = () => {
         Delete Entry
       </button>
       <br></br>
-      <button><Link to={`/snacks/${id}/edit`}>Edit Snack</Link></button>
+      <button><Link to={`/snacks/edit/${id}`}>Edit Snack</Link></button>
       <br></br>
       <button><Link to={'/snacks'}>Back</Link></button>
     </div>
