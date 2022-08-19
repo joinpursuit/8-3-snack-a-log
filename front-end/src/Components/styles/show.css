@@ -1,0 +1,160 @@
+.show{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    width: 50%;
+    margin: auto;
+    margin-top: 1%;
+    padding-top: 2%;
+    padding-bottom: 5%;
+    color:  white;
+    font-family: 'Love Ya Like A Sister', cursive;
+    
+   
+  }
+.details_image {
+    height: 400px;
+    width: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    float: right;  
+    border-radius: 10%;
+
+}
+
+.shows {
+    width: 90%;
+    background-color: #fae7e498;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 2%;
+    padding-bottom: 10px;
+    
+    
+}
+
+.heart {
+    display: flex;
+    float: left;
+	animation: pulse 1s infinite;
+    margin-left: 100%;
+   
+  }
+
+  @keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+}
+
+
+  .show-title{
+    font-size: 70px;
+    padding-bottom: 1%;
+    text-align: center;
+    color: #65378F;
+    
+  }
+  
+  
+  .show_p{
+    padding: 10px;
+    font-size: 30px;
+    
+  }
+  
+  .show-info{
+display: flex;
+
+  }
+  
+  
+  
+  span {
+    color: #65378F;
+  }
+  
+  .Show {
+    color: #9f63ec;
+    font-size: 30px;
+    
+  }
+
+  .show-button{
+    align-items: center;
+  background-color: #fee6e3;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 25px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.show_button:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.show_button:hover:after {
+  transform: translate(0, 0);
+}
+
+.show_button:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+.show_button:hover {
+  outline: 0;
+}
+
+
+
+
+div a:link {
+    color: #000000;
+    text-decoration: none;
+  }  
+    
+  div a:visited {
+    color: #da9be5;
+  }
+  div a:hover {
+    color: #ba3aff;
+    text-decoration: underline;
+  }

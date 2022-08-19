@@ -1,6 +1,5 @@
-
-
 import Snacks from '../Snacks'
+import "../styles/index.css"
 
 
 
