@@ -8,7 +8,8 @@ const API = process.env.REACT_APP_API_URL;
 
 const Show = () => {
 	const [snack, setSnack] = useState([]);
-	const id = useParams();
+	const { id } = useParams();
+	// console.log(id)
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -16,6 +17,7 @@ const Show = () => {
 			.get(`${API}/snacks/${id}`)
 			.then((res) => {
 				setSnack(res.data.payload);
+				
 			})
 			.catch((error) => {
 				console.warn(error);
