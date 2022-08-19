@@ -14,7 +14,7 @@ function NavBar() {
       <Container>
         <Navbar.Toggle />
         <Navbar.Brand mb-0="true" h1="true" href="/snacks">
-          Snacks
+          <h1>Snacks</h1>
         </Navbar.Brand>
         <Navbar.Collapse>
           <Nav>
