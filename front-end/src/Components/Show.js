@@ -12,7 +12,7 @@ export default function Show() {
   const [snack, setSnack] = useState([]);
   useEffect(() => {
     axios
-      .get(Base_URL + "/" + id)
+      .get(`${Base_URL}/snacks/${id}`)
       .then((res) => {
         setSnack(res.data.payload);
       })
@@ -32,24 +32,10 @@ export default function Show() {
         <aside>
           <HeartHealth snackHealth={snack.is_healthy} />
         </aside>
-        <div>Protein:{snack.protein}</div>
-        <div>Fiber:{snack.fiber}</div>
-        <div>Added Sugar:{snack.added_sugar}</div>
+        <div>Protein: {snack.protein}</div>
+        <div>Fiber: {snack.fiber}</div>
+        <div>Added Sugar: {snack.added_sugar}</div>
       </div>
     </article>
   );
-  // <>
-  //     <li key={snack.id} className="Snack">
-  //       <Link to={"/snack/" + snack.id}>
-  //         <h4>
-  //           <HeartHealth snackHealth={snack.is_healthy} /> {snack.name}
-  //           <img src={snack.image} alt="" />
-  //         </h4>
-  //         {/* {snack.is_healthy ? `true` : `false`} */}
-  //       </Link>
-  //     </li>
-  //   ))}
-
-  // </ul>
-  // );
 }
