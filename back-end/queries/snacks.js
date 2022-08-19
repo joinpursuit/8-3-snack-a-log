@@ -33,7 +33,6 @@ const createSnack = async (snack) => {
   if (snack.fiber === null) {
     snack.fiber = 0;
   }
-
   try {
     return await db.any(
       'INSERT INTO snacks (name, fiber, protein, added_sugar, is_healthy, image) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
