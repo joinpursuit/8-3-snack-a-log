@@ -1,6 +1,6 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-import Snack from "./Snack";
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import Snack from './Snacks';
 
 function Home() {
   const URL = process.env.REACT_APP_API_URL;
@@ -14,7 +14,7 @@ function Home() {
   }, [URL]);
 
   return (
-    <div className="snacks">
+    <div className='snacks'>
       <section>
         <table>
           <thead>
@@ -36,4 +36,4 @@ function Home() {
   );
 }
 
-export default Home; 
+export default Home;
