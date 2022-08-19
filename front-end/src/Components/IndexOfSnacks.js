@@ -1,9 +1,11 @@
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+
 
 const SnackIndex = () => {
   const [snacks, setSnacks] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const API = process.env.REACT_APP_API_URL;
@@ -29,6 +31,8 @@ const SnackIndex = () => {
           return snack.id !== parseInt(id);
         })
       );
+    }).then((response) => {
+      navigate('/snacks')
     });
   };
 
@@ -39,18 +43,21 @@ const SnackIndex = () => {
         return (
           <div key={index}>
             <h4>{snack.name}</h4>
-            <h3>{snack.fiber}</h3>
-            <h3>{snack.protein}</h3>
-            <h3>{snack.added_sugar}</h3>
-            <h3>{snack.is_healthy}</h3>
+            <h3>Fiber Count: {snack.fiber}</h3>
+            <h3>Protein Count: {snack.protein}</h3>
+            <h3>Added Sugar Count: {snack.added_sugar}</h3>
+            <h3>Is it Healthy? {snack.is_healthy ? '❤️' : '💀'}</h3>
             <img src={snack.image} alt=''/>
-            <Link className="snack-link" to={`/snacks/${snack.id}`}>
+            <br></br>
+            <button><Link className="snack-link" to={`/snacks/${snack.id}`}>
               Snack Details
-            </Link>
+            </Link></button>
             <br></br>
             <button id={snack.id} onClick={handleDelete}>
               Delete Snack!
             </button>
+            <br></br>
+            <button><Link to='/'>Back</Link></button>
           </div>
         );
       })}
