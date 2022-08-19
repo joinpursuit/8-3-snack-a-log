@@ -7,8 +7,9 @@ export default function AboutUs() {
       <div>
         <h1>About the App.</h1>
         <article>
-          Welcome to our Snacks App. It Enables you to look for healthy or unhealthy snacks. but we are trying to promote others to eat healthier.
-          As a user you should be locate a snack or add if the snack has not be added as well as deleleting or updating it if necessary. 
+          Welcome to our Snacks App. It Enables you to look for healthy or unhealthy snacks your choice, but we are trying to promote a healthier option.
+          As a user you should be locate a snack or add if the snack has not be added. 
+          As well as deleleting or updating it if necessary. 
         </article>
       </div>
       <br />
