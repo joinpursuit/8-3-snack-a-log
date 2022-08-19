@@ -1,13 +1,15 @@
 import GitHubMark64 from "../assets/GitHubMark64.png"
+import LILogo from "../assets/LILogo.png"
+import './styles/about.css'
 
 export default function AboutUs() {
   const year = new Date().getFullYear();
   return (
     <div className="aboutpage">
       <div>
-        <h1>About the App.</h1>
-        <article>
-          Welcome to our Snacks App. It Enables you to look for healthy or unhealthy snacks your choice, but we are trying to promote a healthier option.
+        <h1 className="about-title">About the App.</h1>
+        <article className="appbio">
+          Welcome to our Snacks App. It enables you to look for healthy or unhealthy snacks your choice, but we are trying to promote a healthier option.
           As a user you should be locate a snack or add if the snack has not be added. 
           As well as deleleting or updating it if necessary. 
         </article>
@@ -15,17 +17,22 @@ export default function AboutUs() {
       <hr></hr>
       <br />
 
-      <h2>About Us</h2>
-      <hr></hr>
+      <h2 className="aboutus">About Us</h2>
+      
+     
       <div>
         <div>
-          <h3>Meera Ramesh</h3>
+          <h3 className="name">Meera Ramesh</h3>
+         <div className="border">
           <img
             className="profile"
             src="https://avatars.githubusercontent.com/u/46873861?v=4"
             alt="Meera"
           />
-          <p>
+        
+          </div>
+          <br></br>
+          <p className="bio" >
           I am a Software Engineer/Full Stack Developer 🚀 from NYC, proficient in Full Stack Web Development,and Data Visualization tools like Tableau and Power BI.
 
           I am passionate about learning and curiosity has been a part of me forever. My experiences in and outside of working with nonprofits in addition to design consulting, have given me the analytical skills and curiosity to bring in creative problem solving when learning and using code.</p>
@@ -33,13 +40,13 @@ export default function AboutUs() {
             <a className="github" href="https://github.com/meera-ramesh19">
              <img align="center" src={GitHubMark64}></img>
             </a>
-            <a href="https://www.linkedin.com/in/meeraramesh/" target="blank">
+            <a className="github" href="https://www.linkedin.com/in/meeraramesh/" target="blank">
               <img
                 align="center"
-                src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg"
+                src={LILogo}
                 alt="meeraramesh"
-                height="30"
-                width="40"
+                height="50"
+                
               />
             </a>
           </div>
@@ -48,13 +55,15 @@ export default function AboutUs() {
         <br></br>
 
         <div>
-          <h3>Jossy Pascasio</h3>
+          <h3 className="name">Jossy Pascasio</h3>
+          <div className="border">
           <img
             className="profile"
             src="https://avatars.githubusercontent.com/u/96319104?v=4"
             alt="Josie"
           />
-          <p>
+          </div>
+          <p className="bio">
             I am a Full Stack Software Engineer in the NYC with a Bachelor/'s
             Degree and 6+ years professional experience in Business
             Administration. I am a naturally curious person which makes me want
@@ -67,13 +76,13 @@ export default function AboutUs() {
             <a className="github" href="https://github.com/named-josie">
             <img align="center" src={GitHubMark64}></img>
             </a>
-            <a href="https://www.linkedin.com/in/joss-pascasio/" target="blank">
+            <a className="github" href="https://www.linkedin.com/in/joss-pascasio/" target="blank">
               <img
                 align="center"
-                src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg"
+                src={LILogo}
                 alt="https://www.linkedin.com/in/joss-pascasio/"
-                height="30"
-                width="40"
+                height="50"
+               
               />
             </a>
           </div>
