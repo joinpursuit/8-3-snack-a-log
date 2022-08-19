@@ -3,6 +3,8 @@ const express = require("express");
 const snacks = express.Router();
 const db = require("../db/dbConfig");
 
+const confirmHealth = require("../confirmHealth");
+
 //IMPORT ALL THE HELPER FUNCTIONS HANDLING CRUD OPERATIONS
 const {
   getAllSnacks,
@@ -71,31 +73,48 @@ const createdSnack = await createSnack(
   aNewSnack.image
 );
 
-if (createdSnack) {
-  res.status(200).json({ success: true, payload: aNewSnack });
-} else {
-  res.status(404).json({ success: false, error: error.message });
-  //CREATE ROUTE USING POST METHOD TO CREATE A NEW SNACK
-  snacks.post("/", changImageUrl, capitalizeSnackName, async (req, res) => {
-    const { body } = req;
-    const aNewSnack = body;
+//CREATE ROUTE USING POST METHOD TO CREATE A NEW SNACK
+snacks.post("/", changImageUrl, capitalizeSnackName, async (req, res) => {
+  const { body } = req;
+  const aNewSnack = body;
 
-    body.is_healthy = confirmHealth(body);
+  if (createdSnack) {
+    res.status(200).json({ success: true, payload: aNewSnack });
+  } else {
+    res.status(404).json({ success: false, error: error.message });
+    //CREATE ROUTE USING POST METHOD TO CREATE A NEW SNACK
+    snacks.post("/", changImageUrl, capitalizeSnackName, async (req, res) => {
+      const { body } = req;
+      const aNewSnack = body;
 
-    const createdSnack = await createSnack(aNewSnack);
+      body.is_healthy = confirmHealth(body);
 
-    if (createdSnack) {
-      res.status(200).json({ success: true, payload: createdSnack });
-    } else {
-      res
-        .status(404)
-        .json({ success: false, error: "A new snack can not be added!" });
-    }
-  });
-}
+      const createdSnack = await createSnack(aNewSnack);
+
+      if (createdSnack) {
+        res.status(200).json({ success: true, payload: createdSnack });
+      } else {
+        res
+          .status(404)
+          .json({ success: false, error: "A new snack can not be added!" });
+      }
+    });
+  }
+});
 
 //UPDATE ROUTE USING PUT METHOD
 
+snacks.put("/:id", changImageUrl, capitalizeSnackName, async (req, res) => {
+  if (createdSnack) {
+    res.status(200).json({ success: true, payload: createdSnack });
+  } else {
+    res
+      .status(404)
+      .json({ success: false, error: "A new snack can not be added!" });
+  }
+});
+
+//UPDATE ROUTE USING PUT METHOD
 snacks.put("/:id", changImageUrl, capitalizeSnackName, async (req, res) => {
   const { id } = req.params;
   const { body } = req;
@@ -129,23 +148,6 @@ snacks.delete("/:id", async (req, res) => {
       success: false,
       payload: `A snack with id number ${id} can not be deleted! Please try again.`,
     });
-  }
-});
-
-//DELETE ROUTE SNACK USING DELETE
-snacks.delete("/:id", async (req, res) => {
-  const { id } = req.params;
-  const deletedSnack = await deleteSnack(id);
-
-  if (deletedSnack) {
-    if (deletedSnack.id) {
-      res.status(200).json({ success: true, payload: deletedSnack });
-    } else {
-      res.status(404).json({ success: false, payload: deletedSnack });
-    }
-  } else {
-    console.log(deletedSnack);
-    res.status(500).json({ success: false, payload: deletedSnack });
   }
 });
 
