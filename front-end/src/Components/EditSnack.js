@@ -9,9 +9,9 @@ export default function Edit_Snack() {
   let { id } = useParams();
   const [snack, setSnack] = useState({
     name: '',
-    fiber: '',
-    protein: '',
-    added_sugar: '',
+    fiber: 0,
+    protein: 0,
+    added_sugar: 0,
     image: '',
   });
 
