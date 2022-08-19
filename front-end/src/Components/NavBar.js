@@ -7,7 +7,7 @@ return (
      
         <h1>Snacks</h1>
             &nbsp;
-            <Link to="/snacks/new">
+            <Link className="links" to="/snacks/new">
             <button className="nav-button">New Snacks</button>
             </Link>
             

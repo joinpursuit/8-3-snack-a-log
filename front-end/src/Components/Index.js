@@ -28,25 +28,32 @@ const Index = () => {
 	}, []);
 
 	return (
+		<section className="Snacks">
+			<article className="Snacks">
+				<div className="Snack">
 		<body>
 			<h1>Snacks</h1>
+			
 			{snacks.map((snack) => {
 				return (
 					<main>
 						<HeartHealth snackHealth={snack} />
-						<Link to={`/snacks/${snack.id}`}>
+						<Link className="links" to={`/snacks/${snack.id}`}>
 							<h4>{snack.name}</h4>
-							<img className='snack-cards' src={snack.image} alt={snack.name} />
+							<img className='Snacks' src={snack.image} alt={snack.name} />
 						</Link>
 					</main>
 				);
 			})}
 
 			<br></br>
-			<Link to={'/snacks/new'}>
+			<Link className="links" to={'/snacks/new'}>
 				<button>Create A New Snack</button>
 			</Link>
 		</body>
+		</div>
+		</article>
+		</section>
 	);
 };
 export default Index;

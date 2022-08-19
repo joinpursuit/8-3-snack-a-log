@@ -38,16 +38,18 @@ const Show = () => {
 		<article>
 			
 			<h1>Snacks</h1>
+			<aside>
 			<HeartHealth snackHealth={{snack}} /> 
+			</aside>
 			<h3>{snack.name}</h3>
 			<div>
 			
 		
 			<img src={snack.image} alt={snack.name}/>
 		
-			<p>{snack.protein}</p>
-			<p>{snack.fiber}</p>
-			<p>{snack.added_sugar}</p>
+			<p>Protein: {snack.protein}</p>
+			<p>Fiber: {snack.fiber}</p>
+			<p>Added Sugar: {snack.added_sugar}</p>
 			</div>
 
 			<Link to={`/snacks`}><button>Back</button></Link>
