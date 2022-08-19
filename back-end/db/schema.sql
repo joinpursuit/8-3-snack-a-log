@@ -12,7 +12,7 @@ CREATE TABLE
 snacks (
     id serial PRIMARY KEY,
     name TEXT NOT NULL,
-    fiber INT ,
+    fiber INT,
     protein INT ,
     added_sugar INT ,
     is_healthy BOOLEAN,

@@ -15,7 +15,7 @@ const {
 
 const {
   checkName,
-  // checkBoolean,
+  checkBoolean,
   checkImage,
   checkCapitalization,
 } = require('../validation/checkSnacks');
@@ -63,20 +63,26 @@ snacks.get('/:id', async (req, res) => {
 //CREATE
 snacks.post(
   '/',
-  //  checkName,
-   checkImage,
-   checkCapitalization,
-  
+  checkName,
+  checkBoolean,
+  checkImage,
+  checkCapitalization,
   async (req, res) => {
-    
     try {
       const addSnack = await createSnack(req.body);
       res.status(200).json({
         success: true,
-        payload: addSnack[0],
+        payload: addSnack[0]
+        // {
+        //   id: true,
+        //   name: addSnack[0].name,
+        //   is_healthy: addSnack[0].is_healthy,
+        //   image: addSnack[0].image,
+        // },
       });
     } catch (error) {
-      console.log(error);
+      // console.log('Caught in error');
+       console.log(error.message);
       res.status(404).json({ success: false });
     }
   }
@@ -110,8 +116,8 @@ snacks.delete('/:id', async (req, res) => {
 //update
 snacks.put(
   '/:id',
-  // checkName,
-  
+  checkName,
+  checkBoolean,
   checkImage,
   checkCapitalization,
   async (req, res) => {
