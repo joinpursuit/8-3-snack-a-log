@@ -3,7 +3,11 @@
 ## Helpful Links
 *You and your partner should include links or images of the following resources in this section:*
 
+<<<<<<< HEAD
+
+=======
 - [Trello Board](https://trello.com/b/I4bb1v4F/snack-a-log)
+
 - Wireframes
 - ERDs
 

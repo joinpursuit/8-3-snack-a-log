@@ -1,0 +1,43 @@
+
+img {
+   
+    width: 150px;
+    height: 150px;
+}
+h1 {
+    font-family: Carter One cursive;
+}
+
+h4 {
+    margin: 0;
+    font-size: 1em;
+    text-align: center;
+  
+}
+
+body {
+    background-color:  rgb(255, 252, 242);
+    font-family: Overlock cursive;
+}
+
+main {
+    width: 90;
+    margin: auto;
+}
+
+.links {
+    color:  rgb(235, 94, 40);
+}
+
+article {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+div {
+    width: 150px;
+    padding: 1em;
+    background-color:  rgb(255, 252, 242);
+}
