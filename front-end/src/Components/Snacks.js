@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Snack from './Snack';
 import axios from 'axios';
+// import HeartHealth from './HeartHealth';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -18,8 +19,9 @@ export default function Snacks() {
     <div className='Snacks'>
       <h1>Snacks</h1>
       <section>
-        {snacks.map((snack) => {
+        {snacks?.map((snack) => {
           return <Snack key={snack.id} snack={snack} />;
+   
         })}
       </section>
       <br />

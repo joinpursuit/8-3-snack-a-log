@@ -37,6 +37,10 @@ export default function Snack_Details() {
         <span>Name:</span> {snack.name}
       </h2>
       <h2 className='show_p'>
+        <span>Image: </span>
+        <p><img src={snack.image} style={{width:'100px',height:'100px'}} alt=''/></p>
+      </h2>
+      <h2 className='show_p'>
         <span>Fiber:</span> {snack.fiber}
       </h2>
       <h2 className='show_p'>
