@@ -1,0 +1,25 @@
+h2 {
+    text-align:center;
+    font-family: Georgia;
+    color:brown;
+}
+
+
+
+h3 {
+    color:brown;
+    text-align:center;
+}
+.taryne-photo {
+    max-width: 350px;
+    max-height: 325px;
+}
+
+/* .taryne-bio {
+    float: right;
+} */
+
+.jonathan-photo {
+    max-width: 350px;
+    max-height: 325px;
+}

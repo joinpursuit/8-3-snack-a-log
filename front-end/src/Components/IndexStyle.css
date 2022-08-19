@@ -1,0 +1,20 @@
+.snack-cards {
+    max-width: 220px;
+    max-height: 210px;
+    padding-bottom: 30px;
+    background-color: rgb(231, 231, 165);
+    border: 2px solid brown;
+}
+
+h1 {
+    font-family: Carter One cursive;
+}
+
+body {
+    font-family: Overlock cursive;
+}
+
+main {
+    width: 90;
+    margin: auto;
+}

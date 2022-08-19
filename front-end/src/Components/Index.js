@@ -2,8 +2,9 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import heartSolid from '../assets/heart-solid.png';
-import heartOutline from '../assets/heart-regular.png';
+import './IndexStyle.css';
+import HeartHealth from './HeartHealth';
+// import SnackCard from './SnackCard.js';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -11,43 +12,41 @@ const API = process.env.REACT_APP_API_URL;
 
 const Index = () => {
 	const [snacks, setSnacks] = useState([]);
-	// const navigate = useNavigate();
+	// const id = useParams
 
 	useEffect(() => {
 		axios
 			.get(`${API}/snacks`)
 			.then((res) => {
-				setSnacks(res.data);
+				setSnacks(res.data.payload);
+				// console.log(res.data)
+				// console.log(snacks);
 			})
 			.catch((error) => {
 				console.warn('error');
 			});
-	});
+	}, []);
 
 	return (
-		<section className='Snacks'>
-			{/* h1 needs font Carter One cursive */}
+		<body>
 			<h1>Snacks</h1>
-			{/* body needs font Overlock cursive */}
+			{snacks.map((snack) => {
+				return (
+					<main>
+						<HeartHealth snackHealth={snack} />
+						<Link to={`/snacks/${snack.id}`}>
+							<h4>{snack.name}</h4>
+							<img className='snack-cards' src={snack.image} alt={snack.name} />
+						</Link>
+					</main>
+				);
+			})}
 
-			{/* has main with width 90 and centered using margin auto */}
-			<main>
-				<ul>
-					{snacks.map((snack) => {
-						return (
-							<li>
-								<p>
-									{snack.name}
-									{snack.is_healthy ? heartSolid : heartOutline}
-								</p>
-								<Link to='/show'>Show Snack</Link>
-								<a href="/new"></a>
-							</li>
-						);
-					})}
-				</ul>
-			</main>
-		</section>
+			<br></br>
+			<Link to={'/snacks/new'}>
+				<button>Create A New Snack</button>
+			</Link>
+		</body>
 	);
 };
 export default Index;

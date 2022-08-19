@@ -7,6 +7,7 @@ import Edit from './Pages/EditSnacks.js';
 import Home from './Pages/HomePage.js';
 import Error from './Pages/Error.js';
 import NavBar from './Components/NavBar.js'
+import About from './Pages/About'
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 				<Route path='/snacks/:id' element={<Show />}></Route>
 				<Route path='/snacks/new' element={<New />}></Route>
 				<Route path='/snacks/:id/edit' element={<Edit />}></Route>
+        <Route path="/about" element={<About />}></Route>
 				<Route path='*' element={<Error />}></Route>
 			</Routes>
 		</div>
