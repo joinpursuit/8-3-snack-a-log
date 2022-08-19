@@ -2,9 +2,6 @@
 const express = require("express");
 const snacks = express.Router();
 const db = require("../db/dbConfig");
-
-const confirmHealth = require("../confirmHealth");
-
 //IMPORT ALL THE HELPER FUNCTIONS HANDLING CRUD OPERATIONS
 const {
   getAllSnacks,
@@ -13,16 +10,13 @@ const {
   updateSnack,
   deleteSnack,
 } = require("../queries/snacks");
-
 //IMPORT CONFIRMHEALTH FUNC TO USE IN POST OPERATIONS
 const confirmHealth = require("../confirmHealth");
-
 //IMPORT VALIDATION CHECKS
 const {
   changImageUrl,
   capitalizeSnackName,
 } = require("../validation/checkSnacks");
-
 //INDEX ROUTE
 snacks.get("/", async (req, res) => {
   const allSnacks = await getAllSnacks();
@@ -34,7 +28,6 @@ snacks.get("/", async (req, res) => {
       .json({ success: false, payload: "Error! No snacks found!" });
   }
 });
-
 //GET ONE SNACK BY ID
 snacks.get("/:id", async (req, res) => {
   const { id } = req.params;
@@ -48,63 +41,12 @@ snacks.get("/:id", async (req, res) => {
     });
   }
 });
-
-//CREATE ROUTE USING POST METHOD
-snacks.post("/", async (req, res) => {
-  const { name, fiber, protein, added_sugar, is_healthy, image } = req.body;
-  const aNewSnack = {
-    name,
-    fiber,
-    protein,
-    added_sugar,
-    is_healthy,
-    image,
-  };
-});
-
-aNewSnack.is_healthy = confirmHealth(aNewSnack);
-
-const createdSnack = await createSnack(
-  aNewSnack.name,
-  aNewSnack.fiber,
-  aNewSnack.protein,
-  aNewSnack.added_sugar,
-  aNewSnack.is_healthy,
-  aNewSnack.image
-);
-
 //CREATE ROUTE USING POST METHOD TO CREATE A NEW SNACK
 snacks.post("/", changImageUrl, capitalizeSnackName, async (req, res) => {
   const { body } = req;
   const aNewSnack = body;
-
-  if (createdSnack) {
-    res.status(200).json({ success: true, payload: aNewSnack });
-  } else {
-    res.status(404).json({ success: false, error: error.message });
-    //CREATE ROUTE USING POST METHOD TO CREATE A NEW SNACK
-    snacks.post("/", changImageUrl, capitalizeSnackName, async (req, res) => {
-      const { body } = req;
-      const aNewSnack = body;
-
-      body.is_healthy = confirmHealth(body);
-
-      const createdSnack = await createSnack(aNewSnack);
-
-      if (createdSnack) {
-        res.status(200).json({ success: true, payload: createdSnack });
-      } else {
-        res
-          .status(404)
-          .json({ success: false, error: "A new snack can not be added!" });
-      }
-    });
-  }
-});
-
-//UPDATE ROUTE USING PUT METHOD
-
-snacks.put("/:id", changImageUrl, capitalizeSnackName, async (req, res) => {
+  body.is_healthy = confirmHealth(body);
+  const createdSnack = await createSnack(aNewSnack);
   if (createdSnack) {
     res.status(200).json({ success: true, payload: createdSnack });
   } else {
@@ -113,16 +55,12 @@ snacks.put("/:id", changImageUrl, capitalizeSnackName, async (req, res) => {
       .json({ success: false, error: "A new snack can not be added!" });
   }
 });
-
 //UPDATE ROUTE USING PUT METHOD
 snacks.put("/:id", changImageUrl, capitalizeSnackName, async (req, res) => {
   const { id } = req.params;
   const { body } = req;
-
   body.is_healthy = confirmHealth(body);
-
   const updatedSnack = await updateSnack(id, body);
-
   if (updatedSnack.id) {
     res.status(200).json({ success: true, payload: updatedSnack });
   } else {
@@ -132,7 +70,6 @@ snacks.put("/:id", changImageUrl, capitalizeSnackName, async (req, res) => {
     });
   }
 });
-
 //DELETE A SNACK BY ITS ID
 snacks.delete("/:id", async (req, res) => {
   const { id } = req.params;
@@ -150,5 +87,4 @@ snacks.delete("/:id", async (req, res) => {
     });
   }
 });
-
 module.exports = snacks;
