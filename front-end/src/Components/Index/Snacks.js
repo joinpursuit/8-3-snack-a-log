@@ -29,7 +29,6 @@ const Snacks = () => {
 
   return (
     <section className="Snacks">
-      <h1>Index</h1>
       <div className="Snack">
         {loading ? (
           <p>Loading...</p>
@@ -37,6 +36,7 @@ const Snacks = () => {
           snacks.map((snack) => (
             <article key={snack.id}>
               <h4>
+                <img src={snack.image} alt={snack.name} />
                 <div>
                   {snack.name}
                   <h4>

@@ -3,8 +3,12 @@ nav {
   background-color: rgb(37, 36, 34);
   justify-content: space-between;
   align-items: center;
-  padding: 15px 45px;
+  padding: 1em 3em;
   margin-bottom: 15px;
+
+  h1 {
+    font-family: "Carter One", cursive;
+  }
 
   a {
     text-decoration: none;
