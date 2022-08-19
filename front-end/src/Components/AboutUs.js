@@ -12,6 +12,7 @@ export default function AboutUs() {
           As well as deleleting or updating it if necessary. 
         </article>
       </div>
+      <hr></hr>
       <br />
 
       <h2>About Us</h2>
@@ -43,6 +44,7 @@ export default function AboutUs() {
             </a>
           </div>
         </div>
+        <hr></hr>
         <br></br>
 
         <div>
