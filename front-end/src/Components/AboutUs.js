@@ -20,7 +20,7 @@ export default function AboutUs() {
           <h3>Meera Ramesh</h3>
           <img
             className="profile"
-            src="https://www.mountainhealthcenter.com/wp-content/uploads/2020/02/blank-profile-picture-coming-soon.png"
+            src="https://avatars.githubusercontent.com/u/46873861?v=4"
             alt="Meera"
           />
           <p>
