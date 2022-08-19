@@ -5,6 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import "./index.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./fonts/Overlock_SC/OverlockSC-Regular.ttf";
 
 ReactDOM.render(
   <React.StrictMode>

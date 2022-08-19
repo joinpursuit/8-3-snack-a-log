@@ -1,5 +1,32 @@
-body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-    "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+h1 {
+  font-family: "Carter One", cursive;
+}
+
+h4 {
+  margin: 0;
+  font-size: 15px;
+  text-align: center;
+}
+
+article {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1em;
+
+  div {
+    width: 150px;
+    padding: 1em;
+    background-color: rgb(255, 252, 242);
+  }
+
+  img {
+    width: 150px;
+  }
+}
+
+.Snacks div {
+  width: 150px;
+  padding: 1em;
+  background-color: rgb(255, 252, 242);
 }
