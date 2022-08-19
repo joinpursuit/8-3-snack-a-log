@@ -18,6 +18,7 @@
     display: flex;
     flex-wrap: wrap;
     float: right;  
+    border-radius: 10%;
 
 }
 
@@ -26,8 +27,9 @@
     background-color: #fae7e498;
     margin: auto;
     margin-top: 5%;
-    border-radius: 5px;
+    border-radius: 2%;
     padding-bottom: 10px;
+    
     
 }
 
@@ -36,6 +38,7 @@
     float: left;
 	animation: pulse 1s infinite;
     margin-left: 100%;
+   
   }
 
   @keyframes pulse {
@@ -152,6 +155,6 @@ div a:link {
     color: #da9be5;
   }
   div a:hover {
-    color: #6d02a6;
+    color: #ba3aff;
     text-decoration: underline;
   }
