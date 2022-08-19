@@ -1,6 +1,6 @@
 import GitHubMark64 from "../assets/GitHubMark64.png"
 
-export default function About() {
+export default function AboutUs() {
   const year = new Date().getFullYear();
   return (
     <div className="aboutpage">
