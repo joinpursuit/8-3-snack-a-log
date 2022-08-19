@@ -62,7 +62,7 @@ snacks.get('/:id', async (req, res) => {
 
 //CREATE
 snacks.post(
-  '/',
+  '/new',
   checkName,
   checkBoolean,
   checkImage,
@@ -72,7 +72,7 @@ snacks.post(
       const addSnack = await createSnack(req.body);
       res.status(200).json({
         success: true,
-        payload: addSnack[0]
+        payload: addSnack[0],
         // {
         //   id: true,
         //   name: addSnack[0].name,
@@ -82,7 +82,7 @@ snacks.post(
       });
     } catch (error) {
       // console.log('Caught in error');
-       console.log(error.message);
+      console.log(error.message);
       res.status(404).json({ success: false });
     }
   }
