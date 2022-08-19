@@ -1,11 +1,13 @@
 import React from "react";
-import { Nav, Navbar, Container } from "react-bootstrap";
+import "../index.css";
+import { Nav, Navbar, Container, Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function NavBar() {
   return (
     <Navbar
-      className="nav-color"
-      variant="light"
+      className="navbar"
+      variant="dark"
       sticky="top"
       expand="md"
       collapseOnSelect
@@ -15,9 +17,13 @@ function NavBar() {
         <Navbar.Brand mb-0="true" h1="true" href="/snacks">
           <h1>Snacks</h1>
         </Navbar.Brand>
-        <Navbar.Collapse>
+        <Navbar.Collapse className="justify-content-end">
           <Nav>
-            <Nav.Link href="/snacks/new">New Snack</Nav.Link>
+            <Button variant="outline-primary">
+              <Nav.Link href="/snacks/new">
+                <h5 href="/snacks/new">New Snack</h5>
+              </Nav.Link>
+            </Button>
           </Nav>
         </Navbar.Collapse>
       </Container>

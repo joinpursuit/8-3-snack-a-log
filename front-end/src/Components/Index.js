@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import HeartHealth from "./HeartHealth";
 import { Link } from "react-router-dom";
-import { Card, Container } from "react-bootstrap";
+import { Container, Card, Row, Col } from "react-bootstrap";
 
 const Base_URL = process.env.REACT_APP_API_URL;
 
@@ -23,21 +23,26 @@ export default function Index() {
   console.log(snacks);
 
   return (
-    <Container className="Snack">
-      {snacks.map((snack) => (
-        <Link to={"/snacks/" + snack.id} key={snack.id}>
-          <Card style={{ width: "24rem" }}>
-            <Card.Img variant="top" src={snack.image} />
-            <Card.Body>
-              <Card.Title>
-                <h4>
-                  <HeartHealth snackHealth={snack.is_healthy} /> {snack.name}
-                </h4>
-              </Card.Title>
-            </Card.Body>
-          </Card>
-        </Link>
-      ))}
+    <Container className="mt-4">
+      <Row xs={1} md={3} className="Snack">
+        {snacks.map((snack) => (
+          <Col key={snack.id}>
+            <Link to={"/snacks/" + snack.id}>
+              <Card style={{ width: "20rem" }}>
+                <Card.Img variant="top" src={snack.image} />
+                <Card.Body>
+                  <Card.Title>
+                    <h4 className="card-title">
+                      <HeartHealth snackHealth={snack.is_healthy} />{" "}
+                      {snack.name}
+                    </h4>
+                  </Card.Title>
+                </Card.Body>
+              </Card>
+            </Link>
+          </Col>
+        ))}
+      </Row>
     </Container>
     // <ul>
     //   {snacks.map((snack) => (
