@@ -89,6 +89,18 @@ export default function New_Snack() {
           onChange={handleTextChange}
           placeholder='0'
         />
+         <label className='new-label' htmlFor='image'>
+          Image Url
+        </label>
+        <input
+          className='text'
+          id='image'
+          type='text'
+          placeholder='https://wwww.image.com'
+          required
+          value={snack.image}
+          onChange={handleTextChange}
+        />
         <br />
         <input className='button' type='submit' />
       </form>
