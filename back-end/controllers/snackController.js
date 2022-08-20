@@ -1,86 +1,88 @@
 const express = require('express');
-const snacks = express.Router();
-
 const {
-  getSnacksAll,
+  getAllSnacks,
   getSnack,
-  deleteSnack,
   updateSnack,
   createSnack,
+  deleteSnack,
 } = require('../queries/snacks');
+const snackController = express();
 
-const {
-  checkName,
-  checkBoolean,
-  checkForNoAdditionalParams,
-} = require('../Validation/Validation');
-
-/*Indexy*/
-snacks.get('/', async (req, res) => {
-  const allSnacks = await getSnacksAll();
-
+snackController.get('/', async (request, response) => {
+  const allSnacks = await getAllSnacks();
   if (allSnacks[0]) {
-    res.status(200).json({ success: true, payload: allSnacks });
+    response.status(200).json({
+      success: true,
+      payload: allSnacks,
+    });
   } else {
-    console.log('we have errors');
-    res.status(404).json({ status: 404, error: 'error' });
+    response.status(500).json();
   }
 });
 
-/*Each*/
-snacks.get('/:id', async (req, res) => {
-  const { id } = req.params;
+snackController.get('/:id', async (request, response) => {
+  const { id } = request.params;
   const snack = await getSnack(id);
   if (snack.id) {
-    res.status(200).json({ success: true, payload: snack });
+    response.status(200).json({
+      success: true,
+      payload: snack,
+    });
   } else {
-    res.status(404).json({ success: false, payload: 'not found' });
+    response.status(404).json({
+      success: false,
+      id: id,
+      payload: `not found: no snack is listed at id${id}`,
+    });
   }
 });
 
-/*Create*/
-snacks.post(
-  '/',
-  checkName,
-  checkBoolean,
-  checkForNoAdditionalParams,
-  async (req, res) => {
-    const newSnack = await createSnack(req.body);
-    if (checkName === true && checkForNoAdditionalParams === true && newSnack) {
-      res.status(200).json({ success: true, payload: newSnack });
+snackController.delete('/:id', async (request, response) => {
+  const { id } = request.params;
+  const deletedSnack = await deleteSnack(id);
+  if (deletedSnack) {
+    if (deletedSnack.id) {
+      response.status(200).json({
+        success: true,
+        payload: deletedSnack,
+      });
     } else {
-      res.status(404).send({ success: false, payload: 'not found' });
+      response.status(404).json({
+        success: false,
+        payload: deletedSnack,
+      });
     }
-  },
-);
-
-/*Update*/
-snacks.put(
-  '/:id',
-  checkName,
-  checkBoolean,
-  checkForNoAdditionalParams,
-  async (req, res) => {
-    const { id } = req.params;
-    const updatedASnack = await updateSnack(id, req.body);
-
-    if (updatedASnack.id) {
-      res.status(200).json({ payload: updatedASnack });
-    } else {
-      res.status(404).json('snack not found');
-    }
-  },
-);
-
-/*Delete*/
-snacks.delete('/:id', async (req, res) => {
-  const { id } = req.params;
-  const deletedSnacks = await deleteSnack(id);
-  if (deletedSnacks.id) {
-    res.status(200).json({ success: true, payload: deletedSnacks });
   } else {
-    res.status(404).json({ success: false, payload: id });
+    response.status(500).json({
+      success: false,
+      payload: deletedSnack,
+    });
   }
 });
 
-module.exports = snacks;
+snackController.post('/', async (request, response) => {
+  try {
+    const snack = await createSnack(request.body);
+    response.json({
+      success: true,
+      payload: snack,
+    });
+  } catch (error) {
+    return error;
+  }
+});
+
+snackController.put('/:id', async (request, response) => {
+  try {
+    const { id } = request.params;
+    const snacks = await updateSnack(id, request.body);
+    response.json({
+      success: true,
+      payload: snacks,
+    });
+  } catch (error) {
+    return error;
+  }
+});
+
+module.exports = snackController;
