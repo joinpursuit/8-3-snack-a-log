@@ -49,15 +49,18 @@ export default function Edit_Snack() {
 
   return (
     <div className='edit'>
-      <div>
+      <h1 className='title'>Edit Snack Entry</h1>
+      <div className='edit-p'>
         <p>Snack Health is determined by</p>
         <ul>
-          <li>protein is above 5</li>
-          <li>fiber is above 5</li>
-          <li>and sugar is less than 5</li>
+          <li>Protein is above 5</li>
+          <li>Fiber is above 5</li>
+          <li>And sugar is less than 5</li>
         </ul>
       </div>
-      <form onSubmit={handleSubmit}>
+      
+      <form className='form' onSubmit={handleSubmit}>
+      <div className='color2'>
         <label className='new-label' htmlFor='name'>
           Name
         </label>
@@ -106,13 +109,15 @@ export default function Edit_Snack() {
           onChange={handleTextChange}
           placeholder='0'
         />
-        <br />
-        <input className='button' type='submit' />
-        <br />
+        <input type='submit' />
+       
+        </div>
         <Link to={`/snacks/${id}`}>
-          <button className='button'>Back</button>
+          <button className='edit-button'>Back</button>
         </Link>
+        
       </form>
+      
     </div>
   );
 }
