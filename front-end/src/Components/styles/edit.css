@@ -26,14 +26,11 @@ padding: 10%;
     padding: 5%;
     
 }
-
-
-.edit-title{
-    font-size: 40px;
-    font-family: 'Michroma', sans-serif;
-    color: #52A5EF;
-    padding-bottom: 5%;
+.title{
+    padding-top: 2%;
 }
+
+
 
 input[type=submit] {
     float: right;
