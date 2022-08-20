@@ -35,9 +35,9 @@ export default function New_Snack() {
       <div>
         <p>Snack Health is determined by</p>
         <ul>
-          <li>protein is above 5</li>
-          <li>fiber is above 5</li>
-          <li>and sugar is less than 5</li>
+          <li>Protein is above 5</li>
+          <li>Fiber is above 5</li>
+          <li>And sugar is less than 5</li>
         </ul>
       </div>
       <form onSubmit={handleSubmit}>
@@ -53,18 +53,6 @@ export default function New_Snack() {
           value={snack.name}
           onChange={handleTextChange}
         />
-        <label className='new-label' htmlFor='fiber'>
-          Fiber
-        </label>
-        <input
-          className='text'
-          id='fiber'
-          value={snack.fiber}
-          type='number'
-          placeholder='0'
-          onChange={handleTextChange}
-          required
-        />
         <label className='new-label' htmlFor='protein'>
           Protein
         </label>
@@ -76,6 +64,18 @@ export default function New_Snack() {
           value={snack.protein}
           placeholder='0'
           onChange={handleTextChange}
+        />
+        <label className='new-label' htmlFor='fiber'>
+          Fiber
+        </label>
+        <input
+          className='text'
+          id='fiber'
+          value={snack.fiber}
+          type='number'
+          placeholder='0'
+          onChange={handleTextChange}
+          required
         />
         <label className='new-label' htmlFor='added_sugar'>
           Added Sugar
@@ -89,7 +89,7 @@ export default function New_Snack() {
           onChange={handleTextChange}
           placeholder='0'
         />
-         <label className='new-label' htmlFor='image'>
+        <label className='new-label' htmlFor='image'>
           Image Url
         </label>
         <input
