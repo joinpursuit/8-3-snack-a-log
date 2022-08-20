@@ -1,23 +1,31 @@
 
 
 .snack-card{ 
+    display: flex;
+    flex-wrap: wrap;
     background-color: #fdf6e0d0;
-    padding: 2%;
-    margin: 1%;
     border: 4px solid #5f3e786f;
     box-shadow: 10px 5px 5px #3f3e40;
-    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
     
-   
 }
 .snack-name{
-    display: flex;
-    font-size: 30px;
+   display: flex;
+    font-size: 45px;
     inline-size: 150px;
-    overflow-wrap: break-word;
-    font-family: 'Shadows Into Light', cursive;
-
     
+    font-family: 'Shadows Into Light', cursive;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+
+.snack-pic{
+    border-radius: 10px;
+    box-shadow: 5px 10px #888888;
+    border: 2px solid ;
 }
 
  .snack-pic:hover{
@@ -32,6 +40,10 @@
 }
     
 
+div.health{
+transform: scale(0.6);
+
+}
 
 
 .all-snacks {
@@ -39,11 +51,14 @@
     flex-wrap: wrap;
     padding: 2%;
     justify-content: center;
+    
 }
 
 h1{
     font-family: 'Fredericka the Great', cursive;
+    color: aliceblue;
     text-align: center;
+    font-size: 70px;
 }
 
 

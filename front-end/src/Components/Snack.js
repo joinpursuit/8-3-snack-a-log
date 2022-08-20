@@ -7,7 +7,7 @@ export default function Snack({ snack }) {
       
       <Link to={`/snacks/`+snack.id} key={snack.id}>
         <img className='snack-pic'
-          style={{ width: '225px', height: '225px' }}
+          style={{ width: '275px', height: '255px' }}
           src={snack.image}
           alt=''
         />
