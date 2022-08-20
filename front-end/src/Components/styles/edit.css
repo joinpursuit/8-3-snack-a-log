@@ -37,7 +37,6 @@ padding: 10%;
 
 input[type=submit] {
     float: right;
-    
     background-color: #fee6e3;
     border: 2px solid #111;
     border-radius: 8px;
@@ -58,7 +57,8 @@ input[type=submit] {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    
+    margin-right: 20%;
+    margin-top: 2%;
 
   }
   .edit-button {
