@@ -13,7 +13,8 @@
 }
 .snack-name{
    display: flex;
-    font-size: 45px;
+    font-size: 28px;
+    font-weight: 900;
     inline-size: 150px;
     
     font-family: 'Shadows Into Light', cursive;
