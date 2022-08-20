@@ -3,7 +3,9 @@
 ## Helpful Links
 *You and your partner should include links or images of the following resources in this section:*
 
-- Trello Board
+- Trello Board - https://trello.com/b/Eukvn3R0/snack-a-log
+- Front-End Deployed Link - https://snack-a-log-matt-abdullah.netlify.app/
+- Heroku Server Deployed Link - https://gentle-retreat-96246.herokuapp.com/
 - Wireframes
 - ERDs
 
