@@ -58,7 +58,9 @@ export default function Edit_Snack() {
           <li>And sugar is less than 5</li>
         </ul>
       </div>
+      
       <form className='form' onSubmit={handleSubmit}>
+      <div className='color2'>
         <label className='new-label' htmlFor='name'>
           Name
         </label>
@@ -107,13 +109,15 @@ export default function Edit_Snack() {
           onChange={handleTextChange}
           placeholder='0'
         />
-        <br />
         <input type='submit' />
-        <br />
+       
+        </div>
         <Link to={`/snacks/${id}`}>
           <button className='edit-button'>Back</button>
         </Link>
+        
       </form>
+      
     </div>
   );
 }
