@@ -1,4 +1,4 @@
-\c ddu7ogcj39ll3l; 
+\c d9ht6qvfgv2dda; 
 
 DROP TABLE IF EXISTS snacks;
 
