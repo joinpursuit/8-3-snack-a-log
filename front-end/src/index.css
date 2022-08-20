@@ -1,9 +1,12 @@
 body {
   font-family: 'Merienda', cursive;
   font-weight: 800;
-    background-color: #9674A6;
-
+  background-color: #20362196;
+  color: #e6e2d3;
 }
+
+
+
 
 button {
     align-items: center;

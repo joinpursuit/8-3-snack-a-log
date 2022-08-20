@@ -32,7 +32,8 @@ export default function New_Snack() {
 
   return (
     <div className='new'>
-      <div>
+      <h1 className='title'>New Entry</h1>
+      <div className='new-list'>
         <p>Snack Health is determined by</p>
         <ul>
           <li>Protein is above 5</li>
@@ -41,68 +42,70 @@ export default function New_Snack() {
         </ul>
       </div>
       <form onSubmit={handleSubmit}>
-        <label className='new-label' htmlFor='name'>
-          Name
-        </label>
-        <input
-          className='text'
-          id='name'
-          type='text'
-          placeholder='Name Of Snack'
-          required
-          value={snack.name}
-          onChange={handleTextChange}
-        />
-        <label className='new-label' htmlFor='protein'>
-          Protein
-        </label>
-        <input
-          className='text'
-          id='protein'
-          type='number'
-          name='protein'
-          value={snack.protein}
-          placeholder='0'
-          onChange={handleTextChange}
-        />
-        <label className='new-label' htmlFor='fiber'>
-          Fiber
-        </label>
-        <input
-          className='text'
-          id='fiber'
-          value={snack.fiber}
-          type='number'
-          placeholder='0'
-          onChange={handleTextChange}
-          required
-        />
-        <label className='new-label' htmlFor='added_sugar'>
-          Added Sugar
-        </label>
-        <input
-          className='text'
-          id='added_sugar'
-          type='number'
-          name='added_sugar'
-          value={snack.added_sugar}
-          onChange={handleTextChange}
-          placeholder='0'
-        />
-        <label className='new-label' htmlFor='image'>
-          Image Url
-        </label>
-        <input
-          className='text'
-          id='image'
-          type='text'
-          placeholder='https://wwww.image.com'
-          required
-          value={snack.image}
-          onChange={handleTextChange}
-        />
-        <br />
-        <input className='button' type='submit' />
+        <div className='color2'>
+          <label className='new-label' htmlFor='name'>
+            Name
+          </label>
+          <input
+            className='text'
+            id='name'
+            type='text'
+            placeholder='Name Of Snack'
+            required
+            value={snack.name}
+            onChange={handleTextChange}
+          />
+          <label className='new-label' htmlFor='protein'>
+            Protein
+          </label>
+          <input
+            className='text'
+            id='protein'
+            type='number'
+            name='protein'
+            value={snack.protein}
+            placeholder='0'
+            onChange={handleTextChange}
+          />
+          <label className='new-label' htmlFor='fiber'>
+            Fiber
+          </label>
+          <input
+            className='text'
+            id='fiber'
+            value={snack.fiber}
+            type='number'
+            placeholder='0'
+            onChange={handleTextChange}
+            required
+          />
+          <label className='new-label' htmlFor='added_sugar'>
+            Added Sugar
+          </label>
+          <input
+            className='text'
+            id='added_sugar'
+            type='number'
+            name='added_sugar'
+            value={snack.added_sugar}
+            onChange={handleTextChange}
+            placeholder='0'
+          />
+          <label className='new-label' htmlFor='image'>
+            Image Url
+          </label>
+          <input
+            className='text'
+            id='image'
+            type='text'
+            placeholder='https://www.image.com'
+            required
+            value={snack.image}
+            onChange={handleTextChange}
+          />
+          <br />
+          <input className='button' type='submit' />
+        </div>
       </form>
     </div>
   );

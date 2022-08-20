@@ -1,0 +1,135 @@
+.new{
+    text-align: center;
+    width: 90%;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 2%;
+    font-size: 25px;
+    opacity: .98;
+    background-image: url('https://media.istockphoto.com/photos/top-view-of-kitchen-utensils-on-rustic-table-with-copy-space-picture-id1284023205?b=1&k=20&m=1284023205&s=170667a&w=0&h=RXfSYTnaN5qVUoKbYx4ed3h5-0INrkntOTziBk8pczA=');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Shadows Into Light', cursive;
+    border-radius: 2%;
+    padding-bottom: 10px;
+  }
+
+  .new-list{
+font-size: 30px;
+font-weight: 900;
+display: flex;
+flex-direction: column;
+float: left;
+padding: 10%;
+
+}
+.form{
+    padding: 10%;
+}
+
+.color2{
+  display: flex;
+  flex-direction: column;
+  background-color: #818d8e83;
+  margin-right: 10%;
+  margin-left: 50%;
+  font-size: larger;
+  padding: 40px;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-radius: 10px;
+  border: 2px solid;
+  border-color: #F8E4E2;
+  box-shadow: 10px 5px 5px #282828;
+}
+
+
+
+.title{
+    padding-top: 2%;
+}
+
+.new-label{
+  color: #1D3C3D;
+font-size: larger;
+}
+
+.text{
+    color: #1D3C3D;
+}
+
+
+input[type=submit] {
+    float: right;
+    background-color: #E1DDCB;
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #111;
+    cursor: pointer;
+    display: flex;
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 25px;
+    height: 48px;
+    justify-content: center;
+    line-height: 24px;
+    max-width: 100%;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-right: 18%;
+    margin-top: 2%;
+
+  }
+
+
+  input[type=submit]:after {
+    background-color: #111;
+    border-radius: 8px;
+    content: "";
+    display: block;
+    height: 48px;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: -2px;
+    transform: translate(8px, 8px);
+    transition: transform .2s ease-out;
+    z-index: -1;
+  }
+
+  input[type=submit]:hover:after {
+    transform: translate(0, 0);
+    text-decoration: underline;
+  }
+
+  input[type=submit]:active {
+    background-color: #ffdeda;
+    outline: 0;
+  }
+
+  input[type=submit]:hover {
+    outline: 0;
+    text-decoration: underline;
+    color: #cf67e2;
+  }
+
+  a:hover {
+    color: #cf67e2;
+    text-decoration: underline;
+  }
+
+
+
+  a:visited {
+    color: #da9be5;
+  }
+  @media (min-width: 768px) {
+    input[type=submit] {
+      padding: 0 40px;
+    }
+  }
