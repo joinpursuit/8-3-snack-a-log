@@ -73,18 +73,6 @@ export default function Edit_Snack() {
           value={snack.name}
           onChange={handleTextChange}
         />
-        <label className='new-label' htmlFor='fiber'>
-          Fiber
-        </label>
-        <input
-          className='text'
-          id='fiber'
-          value={snack.fiber}
-          type='number'
-          onChange={handleTextChange}
-          placeholder='0'
-          required
-        />
         <label className='new-label' htmlFor='protein'>
           Protein
         </label>
@@ -96,6 +84,18 @@ export default function Edit_Snack() {
           value={snack.protein}
           placeholder='0'
           onChange={handleTextChange}
+        />
+        <label className='new-label' htmlFor='fiber'>
+          Fiber
+        </label>
+        <input
+          className='text'
+          id='fiber'
+          value={snack.fiber}
+          type='number'
+          onChange={handleTextChange}
+          placeholder='0'
+          required
         />
         <label className='new-label' htmlFor='added_sugar'>
           Added Sugar
