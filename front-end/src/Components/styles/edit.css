@@ -54,7 +54,7 @@ input[type=submit] {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    margin-right: 20%;
+    margin-right: 18%;
     margin-top: 2%;
 
   }
