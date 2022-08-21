@@ -1,20 +1,20 @@
-.edit{
+.new{
     text-align: center;
     width: 90%;
-    background-color: #fae7e498;
     margin: auto;
     margin-top: 5%;
     border-radius: 2%;
     font-size: 25px;
     opacity: .98;
-    background-image: url('https://www.usnews.com/object/image/0000016f-e7ee-dc4a-a1ef-fffe022a0000/hummuswithveggiesboard.jpg?update-time=1580144389028&size=responsive640');
+    background-image: url('https://media.istockphoto.com/photos/top-view-of-kitchen-utensils-on-rustic-table-with-copy-space-picture-id1284023205?b=1&k=20&m=1284023205&s=170667a&w=0&h=RXfSYTnaN5qVUoKbYx4ed3h5-0INrkntOTziBk8pczA=');
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Shadows Into Light', cursive;
     border-radius: 2%;
+    padding-bottom: 10px;
   }
 
-  .edit-p{
+  .new-list{
 font-size: 30px;
 font-weight: 900;
 display: flex;
@@ -25,16 +25,13 @@ padding: 10%;
 }
 .form{
     padding: 10%;
-
-    
-    
 }
 
-.color2{
+.color1{
   display: flex;
   flex-direction: column;
-   background-color: #818d8e83;
-  margin-right: 0%;
+  background-color: #818d8e83;
+  margin-right: 10%;
   margin-left: 50%;
   font-size: larger;
   padding: 40px;
@@ -42,29 +39,37 @@ padding: 10%;
   padding-right: 10%;
   border-radius: 10px;
   border: 2px solid;
-  border-color: #E4E5E5;
-  box-shadow: 10px 5px 5px #3f3e40;
+  border-color: #F8E4E2;
+  box-shadow: 10px 5px 5px #282828;
+  
 }
 
+.text{
+    color: #398c94;
+  }
 
+  .new-label1{
+    color: #0f1f20;
+  font-size: larger;
+  }
 
 .title{
     padding-top: 2%;
 }
 
 .new-label{
-  color: #0F0F10;
+  color: #1D3C3D;
 font-size: larger;
 }
 
 .text{
-  color: #398c94;
+    color: #1D3C3D;
 }
 
 
 input[type=submit] {
     float: right;
-    background-color: #D6D3C0;
+    background-color: #E1DDCB;
     border: 2px solid #111;
     border-radius: 8px;
     box-sizing: border-box;
@@ -88,12 +93,6 @@ input[type=submit] {
     margin-top: 2%;
 
   }
-  .edit-button {
-    margin: 0%;
-    margin-left: 5%;
-   margin-top: 1%;
-   background-color: #D6D3C0;
-  }
 
 
   input[type=submit]:after {
@@ -110,36 +109,35 @@ input[type=submit] {
     transition: transform .2s ease-out;
     z-index: -1;
   }
-  
+
   input[type=submit]:hover:after {
     transform: translate(0, 0);
     text-decoration: underline;
   }
-  
+
   input[type=submit]:active {
-    background-color: #D6D3C0;
+    background-color: #ffdeda;
     outline: 0;
   }
-  
+
   input[type=submit]:hover {
     outline: 0;
     text-decoration: underline;
     color: #317479;
   }
 
-  .edit-button:hover {
+  a:hover {
     color: #317479;
     text-decoration: underline;
   }
-  
+
 
 
   a:visited {
-    color: #31936c;
+    color: #24523f;
   }
   @media (min-width: 768px) {
     input[type=submit] {
       padding: 0 40px;
     }
   }
- 

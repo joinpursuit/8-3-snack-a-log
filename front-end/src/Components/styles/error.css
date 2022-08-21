@@ -1,0 +1,20 @@
+.error1{
+    margin-top: 2%;
+    margin: auto;
+    width: 90%;
+    background-color: #b5c1bd50;
+    padding-bottom: 20%;
+}
+.error {
+    height: 500px;
+    float: left;
+}
+.error-title{
+    padding: 2%;
+}   
+
+.p-error{
+    padding-top: 20px;
+    font-size: 30px;
+}
+

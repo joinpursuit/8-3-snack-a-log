@@ -1,7 +1,7 @@
 .profile {
     height: 250px; 
     padding: 2%;
-    border: 2px solid #3e0071a5;
+    border: 2px solid #afa797a5;
   box-sizing: border-box;
   position: relative;
   cursor: pointer;
@@ -14,10 +14,12 @@
 
 .aboutpage{
     margin: auto;
-    font-family: 'Love Ya Like A Sister', cursive;
+    width: 90%;
     font-size: 25px;
     display: flex;
-    flex-direction: column 
+    flex-direction: column;
+    color: #E1DCCA;
+    padding-bottom: 20px;
 }
 .aboutus{
     font-size: 50px;
@@ -33,17 +35,18 @@
 }
 
 .about-title {
-    font-family: 'Fredericka the Great', cursive;
-    font-weight: 900;
+  font-family: 'Fredericka the Great', cursive;  
+  font-weight: 900;
     padding: 10px;
     margin: 20px;
 }
 .name {
-    padding: 1%;
-    font-family: 'Italiana', serif;
+    padding: 2%;
+    margin: auto;
+    font-family: 'Shadows Into Light', cursive;
     font-weight: 800;
     font-size: 40px;
-    color: #3e0071a5;
+    color: #306e63a5;
 }
 .border{
      padding: 2%;
@@ -52,8 +55,16 @@
     text-align: center;
  }
 
+.box{
+  font-family: 'Italiana', serif;
+  background-color: #5affce3b;
+  margin: auto;
+  padding-bottom: 10px;
+  border-radius: 10px;
+}
+
  hr {
-     border: #3e0071a5 .5px solid;
+     border: #0c4b18a5 .5px solid;
  }
  .github{
    padding-left: 2%;
@@ -67,7 +78,7 @@
 
 .github :hover{
     color: #ffffff;
-  box-shadow: 0 5px 15px #a441eb;
+  box-shadow: 0 5px 15px #195134;
 }
 
 

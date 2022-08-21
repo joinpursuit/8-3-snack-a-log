@@ -1,0 +1,17 @@
+.home{
+    width: 90%;
+    margin: auto;
+    
+}
+
+
+.year
+     {
+        position:absolute;
+        bottom: 0;
+        height: 50px;
+        font-size: 20px;
+        margin: auto;
+        width: 90%;
+      }
+      
