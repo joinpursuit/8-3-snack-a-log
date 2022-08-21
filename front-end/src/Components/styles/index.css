@@ -3,17 +3,20 @@
 .snack-card{ 
     display: flex;
     flex-wrap: wrap;
-    background-color: #5f72749b;
+    margin: auto;
+    background-color: #5f7274a0;
     border: 4px solid #164b2b6f;
     border-radius: 10px;
     box-shadow: 10px 5px 5px #3f3e40;
     border-radius: 10px;
-    padding: 10px;
-    margin: 20px;
-    
+    padding: 10px; 
+    margin: 10px;  
 }
+
+
 .snack-name{
    display: flex;
+   flex-wrap: wrap;
     font-size: 28px;
     font-weight: 900;
     inline-size: 150px;
@@ -21,20 +24,21 @@
     padding-top: 10px;
     padding-left: 20px;
     color: rgb(153, 157, 153);
+    
 }
 .snack-name:hover{
        color: #E1DDC9;
 
 }
 
-.snack-name a:visited{
-    color:#6E9436;
-}
-
 .snack-pic{
+    margin: auto;
     border-radius: 10px;
     box-shadow: 5px 10px #888888;
     border: 2px solid ;
+    position: relative;
+    left: 10%; 
+       
 }
 
  .snack-pic:hover{
@@ -50,7 +54,14 @@
     
 
 div.health{
-transform: scale(0.6);
+    margin-top: 70%;
+   margin-right: 10px;
+    margin-bottom: 10px;
+  
+    width:70px;
+    transform: scale(0.6);
+    position: relative;
+    right: 20%;
 
 }
 
