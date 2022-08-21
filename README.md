@@ -162,6 +162,10 @@ Keep the React app running, open a new tab and run
 
 ## Resources
 
-Trello Board link: https://trello.com/b/jykmEcgf/web-development
+Trello Board link: [](https://trello.com/b/jykmEcgf/web-development)
+
+Backend Heroku Link: [](https://snacky-loggy.herokuapp.com)
+
+Frontend Netlify Link: [](https://snacky-loggy.netlify.app)
 
 This project uses [this template](https://github.com/joinpursuit/pern-final-project-template) - you can follow the readme to set up deployment.
