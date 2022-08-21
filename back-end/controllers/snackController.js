@@ -1,7 +1,11 @@
 //DEPENDENCIES
-const express = require('express');
+const express = require("express");
 const snacks = express.Router();
+
 const db = require('../db/dbConfig');
+
+const confirmHealth = require("../confirmHealth");
+
 
 //IMPORT ALL THE HELPER FUNCTIONS HANDLING CRUD OPERATIONS
 const {
@@ -10,7 +14,9 @@ const {
   createSnack,
   updateSnack,
   deleteSnack,
-} = require('../queries/snacks');
+
+} = require("../queries/snacks");
+
 
 //IMPORT CONFIRMHEALTH FUNC TO USE IN POST OPERATIONS
 const confirmHealth = require('../confirmHealth');
@@ -22,7 +28,7 @@ const {
 } = require('../validation/checkSnacks');
 
 //INDEX ROUTE
-snacks.get('/', async (req, res) => {
+snacks.get("/", async (req, res) => {
   const allSnacks = await getAllSnacks();
   if (allSnacks) {
     res.status(200).json({ success: true, payload: allSnacks });
@@ -34,7 +40,7 @@ snacks.get('/', async (req, res) => {
 });
 
 //GET ONE SNACK BY ID
-snacks.get('/:id', async (req, res) => {
+snacks.get("/:id", async (req, res) => {
   const { id } = req.params;
   const oneSnack = await getOneSnack(id);
   if (oneSnack.id) {
@@ -46,6 +52,7 @@ snacks.get('/:id', async (req, res) => {
     });
   }
 });
+
 
 //CREATE ROUTE USING POST METHOD TO CREATE A NEW SNACK
 snacks.post('/', changImageUrl, capitalizeSnackName, async (req, res) => {
@@ -67,6 +74,7 @@ snacks.post('/', changImageUrl, capitalizeSnackName, async (req, res) => {
 
 //UPDATE ROUTE USING PUT METHOD
 snacks.put('/:id', changImageUrl, capitalizeSnackName, async (req, res) => {
+
   const { id } = req.params;
   const { body } = req;
 
