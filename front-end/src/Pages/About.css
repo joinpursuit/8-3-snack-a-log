@@ -1,0 +1,23 @@
+.about > h1 {
+    margin-top: 1em;
+}
+
+.bio {
+    font-size: 20px;
+}
+
+.isaac > img {
+    border-radius: 50%;
+    width: 25%;
+    margin: 2em 2em;
+}
+
+.derek > img {
+    border-radius: 70%;
+    width: 28%;
+    margin: 2em 2em;
+}
+
+.social-links {
+    margin-bottom: 5em;
+}
