@@ -16,7 +16,7 @@ export default function Snacks() {
 
   return (
     <div className='snacks'>
-      <h1>Snacks</h1>
+      <h1 className='title-snacks'>Snacks</h1>
       <section className='all-snacks'>
         {snacks.map((snack) => {
           return <Snack key={snack.id} snack={snack} />;

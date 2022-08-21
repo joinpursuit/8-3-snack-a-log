@@ -77,11 +77,14 @@ h1{
 }
 
 .snacks {
-    background-image: url('https://mediacio-bekeltetes.hu/wp-content/uploads/2015/08/food-scaled.jpg');
+    background-image: url('https://i.pinimg.com/originals/2a/60/d6/2a60d67ed55c610875993cb9e7d95428.gif');
     background-repeat: no-repeat;
     background-size: cover;
     width: 90%;
     margin: auto;
     border-radius: 10px;
     padding-bottom: 10px;
+}
+.title-snacks{
+    padding: 2%;
 }
