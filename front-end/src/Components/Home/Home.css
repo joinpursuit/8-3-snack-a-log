@@ -1,0 +1,10 @@
+h1 {
+    font-family: Georgia;
+    color:brown;
+    text-align: center;
+}
+
+img {
+    max-width: 300%;
+    max-height: 300px;
+}

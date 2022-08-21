@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import HeartHealth from '../Components/HeartHealth.js';
+import HeartHealth from './HeartHealth.js';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -17,12 +17,11 @@ const Show = () => {
 			.get(`${API}/snacks/${id}`)
 			.then((res) => {
 				setSnack(res.data.payload);
-				
 			})
 			.catch((error) => {
 				console.warn(error);
 			});
-	}, [id]);
+	}, [id, navigate]);
 
 	// here we delete!
 	const deleteSnack = () => {
@@ -35,32 +34,48 @@ const Show = () => {
 				console.warn(error);
 			});
 	};
+	
 	return (
-		<article>
-			<h1>Snacks</h1>
+		<section>
+		  <div>
 			<aside>
-				<HeartHealth snackHealth={snack.is_healthy} />
+			  <HeartHealth healthCheck={snack.is_healthy} />
 			</aside>
-			<h3>{snack.name}</h3>
-			<div>
-				<img src={snack.image} alt={snack.name} />
-
-				<p>Protein: {snack.protein}</p>
-				<p>Fiber: {snack.fiber}</p>
-				<p>Added Sugar: {snack.added_sugar}</p>
-			</div>
-
-			<Link to={`/snacks`}>
-				<button>Back</button>
+			<h4>{snack.name}</h4>
+			<aside>
+			  <div className='img'>
+				{snack.is_healthy ? (
+				  <img src={snack.image} alt='healthy food' />
+				) : (
+				  <img src={snack.image} alt='unhealthy food' />
+				)}
+			  </div>
+			</aside>
+		  </div>
+		  <div>
+			<h5> Nutritional Information:</h5>
+		  </div>
+		  <div>Fiber: {snack.fiber}</div>
+		  <div>Protein: {snack.protein}</div>
+		  <div>Added Sugar: {snack.added_sugar}</div>
+		  <div>
+			{snack.is_healthy ? (
+			  <h4>This is a healthy snack</h4>
+			) : (
+			  <h4>This is not a healthy snack</h4>
+			)}
+		  </div>
+		  <div>
+			<Link to='/snacks'>
+			  <button>Back</button>
 			</Link>
-			<br></br>
-			<Link to={`/snacks/${id}/edit`}>
-				<button>Edit Snacks!</button>
-			</Link>
-			<br></br>
-			<button onClick={deleteSnack}>Delete A Snack</button>
-		</article>
-	);
-};
+			<button>
+			  <Link to={'/snacks/new'}>New</Link>
+			</button>
+			<button onClick={deleteSnack}>Delete</button>
+		  </div>
+		  </section>
+	  );
+}
 
 export default Show;

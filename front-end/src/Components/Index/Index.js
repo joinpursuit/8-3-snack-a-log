@@ -1,10 +1,9 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './IndexStyle.css';
-import HeartHealth from '../HeartHealth';
-// import SnackCard from './SnackCard.js';
+import SnackCard from './SnackCard';
+
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -28,32 +27,29 @@ const Index = () => {
 	}, []);
 
 	return (
+		
 		<section className="Snacks">
-			<article className="Snacks">
-				<div className="Snack">
-		<body>
-			<h1>Snacks</h1>
-			
-			{snacks.map((snack) => {
-				return (
-					<main>
-						<h4><HeartHealth className="heart" snackHealth={snack.is_healthy} /> {snack.name}</h4>
-						<Link className="links" to={`/snacks/${snack.id}`}>
-						
-							<img className='Snacks' src={snack.image} alt="" />
-						</Link>
-					</main>
-				);
-			})}
+		
+      {snacks.length > 0
+        ? snacks.map((snack, index) => {
+            return    <h1>Snacks</h1>,<SnackCard key={index} snack={snack} /> ; 
+          })
+        : null}
+		<main>
+		<article>
+		
+			<div className='Snack'>
+				
 
-			<br></br>
-			<Link className="links" to={'/snacks/new'}>
-				<button>Create A New Snack</button>
-			</Link>
-		</body>
-		</div>
+			</div>
+			
 		</article>
-		</section>
+		</main>
+		
+		
+    </section>
+		
+		
 	);
 };
 export default Index;

@@ -17,12 +17,19 @@
 
 .nav-button {
     position:absolute;
+    border: none;
     top: 10px;
     right:0;
     color:rgb(148, 58, 73);
+    /* font-family: Carter One cursive; */
+
 
 }
 
 .links {
-    color:  rgb(235, 94, 40);
+    color: rgb(235, 94, 40);
+    align-items: center;
+    justify-content: space-evenly;
+    /* font-family: Carter One cursive; */
 }
+

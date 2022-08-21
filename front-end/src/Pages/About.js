@@ -18,9 +18,9 @@ const About = () => {
             </h4>
             <p className="taryne-bio"> I am a full-stack web developer with a background in retail/ customer service from Brooklyn, NY. For this project I focused on the front-end functionality and design. Some of my favorite snacks are chocolate chip cookies and hagan dazs icecream. If you would like to connect with me, please check out my links below!</p>
 
-            <a href="https://github.com/TaryneLeach">Github</a>
+            <a  className="links"href="https://github.com/TaryneLeach">Github</a>
             &nbsp;
-            <a href="https://www.linkedin.com/in/taryne-leachgonzalez/">Linkedin</a>
+            <a className="links"href="https://www.linkedin.com/in/taryne-leachgonzalez/">Linkedin</a>
 
             <br></br>
             <br></br>
@@ -30,12 +30,12 @@ const About = () => {
                 <br></br>
                 <em>Jonathan Scheiber</em>
                 </h4>
-                <p>I am full-stack web developer with a background in IT and customer service from New York, NY. My interests include user experience (UX) design, cybersecurity, and accessibility. For this project I focused on the back-end functionality. My favorite snacks are Reese’s peanut butter cups, Funyuns, and Ben &Jerry’s Americone Dream. If you would like to connect with me, please check out my links below!
+                <p className="jonathan-bio">I am full-stack web developer with a background in IT and customer service from New York, NY. My interests include user experience (UX) design, cybersecurity, and accessibility. For this project I focused on the back-end functionality. My favorite snacks are Reese’s peanut butter cups, Funyuns, and Ben &Jerry’s Americone Dream. If you would like to connect with me, please check out my links below!
                 </p>
 
-                <a href="https://github.com/Scheiber">Github</a>
+                <a className="links"href="https://github.com/Scheiber">Github</a>
                 &nbsp;
-                <a href="https://www.linkedin.com/in/jonscheiber/">Linkedin</a>
+                <a  className="links"href="https://www.linkedin.com/in/jonscheiber/">Linkedin</a>
             
         </div>
     )

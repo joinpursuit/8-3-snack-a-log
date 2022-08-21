@@ -15,11 +15,12 @@ h3 {
     max-height: 325px;
 }
 
-/* .taryne-bio {
-    float: right;
-} */
+p {
+   text-align: center;
+}
 
 .jonathan-photo {
     max-width: 350px;
     max-height: 325px;
 }
+
