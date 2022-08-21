@@ -1,5 +1,5 @@
 nav {
-    background: #234445ca;
+    background: #23444587;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,13 +11,13 @@ nav {
   }
 
   a:link {
-    color: #D6D3C0;
+    color: #035e50;
     text-decoration: none;
   }  
     
   
   nav a:hover {
-    color: #b1ac91;
+    color: #a3bfa1;
     text-decoration: underline;
   }
   
