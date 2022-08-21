@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-function Snack({ snack }) {
+function Snacks({ snack }) {
   return (
     <tr>
       <td>{snack.name.payload}</td>
@@ -13,4 +13,4 @@ function Snack({ snack }) {
   );
 }
 
-export default Snack;
+export default Snacks;

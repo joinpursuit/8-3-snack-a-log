@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import Snack from './Snacks';
+import Snacks from './Snacks';
 
 function Show() {
   const URL = process.env.REACT_APP_API_URL;
@@ -27,7 +27,7 @@ function Show() {
           </thead>
           <tbody>
             {snacks.map((snack) => {
-              return <Snack key={snacks.id} snack={snack} />;
+              return <Snacks key={snacks.id} snack={snack} />;
             })}
           </tbody>
         </table>

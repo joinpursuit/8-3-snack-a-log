@@ -6,7 +6,7 @@ const {
   createSnack,
   deleteSnack,
 } = require('../queries/snacks');
-const snackController = express();
+const snackController = express.Router();
 
 snackController.get('/', async (request, response) => {
   const allSnacks = await getAllSnacks();
