@@ -4,12 +4,12 @@ import Snack from './Snacks';
 
 function Home() {
   const URL = process.env.REACT_APP_API_URL;
-  const [snacks, setSnacks] = useState([]);
+  const [snacks, getAllSnacks] = useState([]);
 
   useEffect(() => {
     axios
       .get(`${URL}/snacks`)
-      .then((response) => setSnacks(response.data))
+      .then((response) => getAllSnacks(response.data.payload))
       .catch((error) => console.warn(error));
   }, [URL]);
 
