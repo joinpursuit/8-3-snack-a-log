@@ -1,0 +1,38 @@
+.navbar {
+    display: flex;
+    height: 150px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(37, 36, 34);
+    padding: 1em 3em;
+    margin-bottom: 1em;
+}
+
+.navbar-header > a {
+    color: rgb(235, 94, 40);
+    font-weight: bold;
+    margin-left: 30px;
+    text-decoration: none;
+}
+
+.navbar-header > a:hover {
+    color: rgb(235, 94, 40);
+}
+
+.navbar-btn {
+    margin: 20px;
+    border-style: none;
+}
+
+.navbar-btn > a {
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.navbar-btn > a:hover {
+    color: rgb(242, 183, 34);
+    transform: scale(1.2);
+}
+
