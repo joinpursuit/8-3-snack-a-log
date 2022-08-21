@@ -3,8 +3,8 @@ import SnackDetail from '../Components/SnackDetail';
 
 const Show = () => {
   return (
-    <div>
-      <h2>Show All Snacks</h2>
+    <div className='show__snacks'>
+      <h1>Snacks</h1>
       <SnackDetail />
     </div>
   );

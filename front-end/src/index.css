@@ -1,4 +1,88 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Overlock:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+
+body {
+    font-family: 'Overlock', cursive;
+    font-weight: bold;
+    text-align: center;
+}
+
 main {
-    width: 90px;
+    width: 900px;
     margin: 0 auto;
 }
+
+h1 {
+    font-family:  'Carter One', cursive;
+}
+
+h4 {
+    font-size: 1em;
+    margin: 0;
+}
+
+button {
+    border-radius: 10px;
+    margin: 20px 20px;
+}
+
+button > a {
+    color: black;
+    font-size: larger;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: rgb(229, 135, 125);
+    transform: scale(1.1);
+}
+
+.Snack {
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: blanchedalmond;
+    border: 0.5px solid rgb(175, 172, 172);
+    border-radius: 15px;
+    margin: 2em 2em;
+}
+
+.Snack h4 {
+    margin: 0;
+    font-size: 1em;
+    text-align: center;
+}
+
+.Snack img {
+    width: 150px;
+}
+
+.Snack .Snack__image {
+    width: 150px;
+    padding: 1em;
+    background-color: rgb(255, 252, 242);
+}
+
+.Snacks {
+    padding: 1rem;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    margin: 2em 2em;
+}
+
+.navbar-icons > a {
+    margin: 0 40px;
+    justify-content: space-between;
+}
+
+.navbar-icons > a:hover {
+    color: goldenrod;
+}
+
