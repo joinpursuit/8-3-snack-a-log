@@ -21,7 +21,7 @@ export default function AboutUs() {
       
      
       <div>
-        <div>
+        <div className="box">
           <h3 className="name">Meera Ramesh</h3>
          <div className="border">
           <img
@@ -51,10 +51,11 @@ export default function AboutUs() {
             </a>
           </div>
         </div>
-        <hr></hr>
+       
         <br></br>
 
         <div>
+        <div className="box" >
           <h3 className="name">Jossy Pascasio</h3>
           <div className="border">
           <img
@@ -85,10 +86,9 @@ export default function AboutUs() {
                
               />
             </a>
+            </div>
           </div>
-          <br></br>
           <hr></hr>
-          <div className="year">{year}</div>
         </div>
       </div>
     </div>

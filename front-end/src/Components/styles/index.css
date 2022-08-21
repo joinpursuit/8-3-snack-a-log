@@ -3,8 +3,8 @@
 .snack-card{ 
     display: flex;
     flex-wrap: wrap;
-    background-color: #fdf6e0d0;
-    border: 4px solid #5f3e786f;
+    background-color: #5f72749b;
+    border: 4px solid #164b2b6f;
     border-radius: 10px;
     box-shadow: 10px 5px 5px #3f3e40;
     border-radius: 10px;
@@ -20,8 +20,16 @@
     font-family: 'Shadows Into Light', cursive;
     padding-top: 10px;
     padding-left: 20px;
+    color: rgb(153, 157, 153);
+}
+.snack-name:hover{
+       color: #E1DDC9;
+
 }
 
+.snack-name a:visited{
+    color:#6E9436;
+}
 
 .snack-pic{
     border-radius: 10px;
@@ -68,3 +76,12 @@ h1{
     margin-bottom: 2%;
 }
 
+.snacks {
+    background-image: url('https://cdn.create.vista.com/api/media/small/254935670/stock-photo-concept-of-cooking-healthy-vegan');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 90%;
+    margin: auto;
+    border-radius: 10px;
+    padding-bottom: 10px;
+}

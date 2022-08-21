@@ -27,7 +27,7 @@ padding: 10%;
     padding: 10%;
 }
 
-.color2{
+.color1{
   display: flex;
   flex-direction: column;
   background-color: #818d8e83;
@@ -41,9 +41,17 @@ padding: 10%;
   border: 2px solid;
   border-color: #F8E4E2;
   box-shadow: 10px 5px 5px #282828;
+  
 }
 
+.text{
+    color: #398c94;
+  }
 
+  .new-label1{
+    color: #0f1f20;
+  font-size: larger;
+  }
 
 .title{
     padding-top: 2%;
@@ -115,18 +123,18 @@ input[type=submit] {
   input[type=submit]:hover {
     outline: 0;
     text-decoration: underline;
-    color: #cf67e2;
+    color: #317479;
   }
 
   a:hover {
-    color: #cf67e2;
+    color: #317479;
     text-decoration: underline;
   }
 
 
 
   a:visited {
-    color: #da9be5;
+    color: #24523f;
   }
   @media (min-width: 768px) {
     input[type=submit] {

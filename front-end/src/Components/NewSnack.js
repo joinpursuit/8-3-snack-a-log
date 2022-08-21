@@ -42,8 +42,8 @@ export default function New_Snack() {
         </ul>
       </div>
       <form onSubmit={handleSubmit}>
-        <div className='color2'>
-          <label className='new-label' htmlFor='name'>
+        <div className='color1'>
+          <label className='new-label1' htmlFor='name'>
             Name
           </label>
           <input
@@ -55,7 +55,7 @@ export default function New_Snack() {
             value={snack.name}
             onChange={handleTextChange}
           />
-          <label className='new-label' htmlFor='protein'>
+          <label className='new-label1' htmlFor='protein'>
             Protein
           </label>
           <input
@@ -67,7 +67,7 @@ export default function New_Snack() {
             placeholder='0'
             onChange={handleTextChange}
           />
-          <label className='new-label' htmlFor='fiber'>
+          <label className='new-label1' htmlFor='fiber'>
             Fiber
           </label>
           <input
@@ -79,7 +79,7 @@ export default function New_Snack() {
             onChange={handleTextChange}
             required
           />
-          <label className='new-label' htmlFor='added_sugar'>
+          <label className='new-label1' htmlFor='added_sugar'>
             Added Sugar
           </label>
           <input
@@ -91,7 +91,7 @@ export default function New_Snack() {
             onChange={handleTextChange}
             placeholder='0'
           />
-          <label className='new-label' htmlFor='image'>
+          <label className='new-label1' htmlFor='image'>
             Image Url
           </label>
           <input

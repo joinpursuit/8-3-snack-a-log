@@ -1,11 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+import '../styles/home.css'
 
 export default function Home() {
+  const year = new Date().getFullYear();
   return (
-    <div>
+    <div className='home'>
       <h1>World of Snacks</h1>
-<img src='https://i.gifer.com/7VC.gif' alt='home'>
-</img>
+       <h1>Welcome</h1>
+       <div className="year"> <Link to='/about'>{year} </Link></div>
     </div>
   )
 }
