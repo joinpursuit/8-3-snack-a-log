@@ -38,9 +38,9 @@ const SnackNewForm = () => {
       <div>
         <p>Snack Health is determined by</p>
         <ul>
-          <li>protein is above 5</li>
-          <li>or fiber is above 5</li>
-          <li>and sugar is less than 5</li>
+          <li>protein is above 5 grams</li>
+          <li>or fiber is above 5 grams</li>
+          <li>and sugar is less than 5 grams</li>
         </ul>
       </div>
       <form onSubmit={handleSubmit}>
