@@ -8,7 +8,7 @@ export default function Home() {
     <div className='home'>
       <h1>World of Snacks</h1>
        <h1>Welcome</h1>
-       <div className="year"> <Link to='/about'>{year} </Link></div>
+       <h6 className="about"><Link to='/about'>About</Link></h6>
     </div>
   )
 }

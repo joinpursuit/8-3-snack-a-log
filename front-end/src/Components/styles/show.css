@@ -105,7 +105,7 @@ border-width: 3px;
 
   .show-button{
   align-items: center;
-  background-color: #c0d6c9;
+  background-color: #E1DCCA;
   border: 2px solid #111;
   border-radius: 8px;
   box-sizing: border-box;
@@ -147,27 +147,28 @@ border-width: 3px;
 }
 
 .show_button:active {
-  background-color: #ffdeda;
+  background-color: #fff5da;
   outline: 0;
 }
 
 .show_button:hover {
-  outline: 0;
+  color: #E3E0D3;
+  text-decoration: underline; 
 }
 
 
 
 
 div a:link {
-    color: #0a3f1c;
+    color: #E1DCCA;
     text-decoration: none;
   }  
     
    div a:visited {
-    color: #2c2e2c;
+    color: #cbdbcb;
   }
   div a:hover {
-    color: #035e50;
+    color: #E1DCCA;
     text-decoration: underline;
   }
 

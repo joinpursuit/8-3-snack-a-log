@@ -5,13 +5,18 @@
 }
 
 
-.year
+.about
      {
-        position:absolute;
-        bottom: 0;
-        height: 50px;
-        font-size: 20px;
-        margin: auto;
-        width: 90%;
+      margin: auto; 
+      position:absolute;
+      bottom: 0;
+      height: 50px;
+      font-size: 20px;
+      left: 50%;
+      font-family: 'Italiana', serif;
+      color: rgb(0, 0, 0);
+     
       }
+      
+
       
