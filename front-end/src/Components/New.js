@@ -22,10 +22,9 @@ const New = () => {
 
 	// form submission
 
-	const handleForm = (event) => {
-		event.preventDefault();
+	const handleForm = (snack) => {
 		axios
-			.get(`${API}/snacks/new`, snack)
+			.post(`${API}/snacks`, snack)
 			.then(() => {
 				navigate('/snacks');
 			})
@@ -34,10 +33,28 @@ const New = () => {
 			});
 	};
 
+	const submitForm = (event) => {
+		event.preventDefault();
+		handleForm(snack);
+	};
+
+	const checkBox = () => {
+		setSnack({ ...snack, is_healthy: !snack.is_healthy });
+	};
+
 	return (
 		<div>
 			<h1>Snacks</h1>
-			<form onSubmit={handleForm}>
+
+			<div>
+				<h5>Snack Health is determined by</h5>
+				<ul>
+					<li>protein is above 5 grams</li>
+					<li>or fiber is above 5 grams</li>
+					<li>and sugar is less than 5 grams</li>
+				</ul>
+			</div>
+			<form onSubmit={submitForm}>
 				<label for='name'>Name:</label>
 				<input
 					id='name'
@@ -46,11 +63,13 @@ const New = () => {
 					onChange={newForm}
 					required
 				/>
+
 				<br></br>
 				<label for='image'>Image:</label>
 				<input
 					id='image'
 					type='text'
+					alt='snack'
 					value={snack.image}
 					onChange={newForm}
 					required
@@ -83,8 +102,12 @@ const New = () => {
 					required
 				/>
 				<br></br>
+
+				<label for='health'>Is this a healthy snack?</label>
+				<input type='checkbox' name='healthy' onClick={checkBox} id='healthy' />
+				<br></br>
 				<Link to='/snacks'>
-					<button type='submit'>Submit New Snack Form</button>
+					<button type='submit'>Submit</button>
 				</Link>
 			</form>
 		</div>

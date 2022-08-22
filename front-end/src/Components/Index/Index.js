@@ -30,21 +30,14 @@ const Index = () => {
 		
 		<section className="Snacks">
 		
+			<h1>Snacks</h1>
+	
       {snacks.length > 0
         ? snacks.map((snack, index) => {
-            return    <h1>Snacks</h1>,<SnackCard key={index} snack={snack} /> ; 
+            return  <SnackCard key={index} snack={snack} /> ; 
           })
         : null}
-		<main>
-		<article>
 		
-			<div className='Snack'>
-				
-
-			</div>
-			
-		</article>
-		</main>
 		
 		
     </section>

@@ -26,26 +26,40 @@ const Edit = () => {
 		axios
 			.get(`${API}/snacks/${id}`)
 			.then((res) => {
-				setSnack(res.data);
+				setSnack(res.data.payload);
 			})
 			.catch();
 	}, [id]);
 
-	const handleEdit = (event) => {
-		event.preventDefault();
+	const handleEdit = (edit) => {
 		axios
-			.put(`${API}/snacks/${id}`, snack)
+			.put(`${API}/snacks/${id}`, edit)
 			.then(() => {
-				navigate(`/snacks/${id}`);
+				navigate(`/snacks`);
 			})
 			.catch((error) => {
 				console.warn(error);
 			});
 	};
 
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		handleEdit(snack, id);
+	};
+
 	return (
 		<div>
-			<form onSubmit={handleEdit}>
+            <article>
+			<aside>
+				<h5>Snack Health is determined by</h5>
+				<ul>
+					<li>protein is above 5 grams</li>
+					<li>or fiber is above 5 grams</li>
+					<li>and sugar is less than 5 grams</li>
+				</ul>
+                </aside>
+                </article>
+			<form onSubmit={handleSubmit}>
 				<label for='name'>Name:</label>
 				<input
 					id='name'
