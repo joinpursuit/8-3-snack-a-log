@@ -7,8 +7,12 @@ const API = process.env.REACT_APP_API_URL;
 
 export default function Snacks() {
   const [snacks, setSnacks] = useState([]);
+ 
   useEffect(() => {
-    axios.get(`${API}/snacks`).then((res) => {
+    const headers = {
+      "Content-Type": "application/json"
+    };
+    axios.get(`${API}/snacks`,headers).then((res) => {
       setSnacks(res.data.payload);
       console.log(snacks);
     });

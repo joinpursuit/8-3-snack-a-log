@@ -36,7 +36,7 @@ export default function Snack_Details() {
     <div className='show'>
       <h1 className='show-title'>{snack.name}</h1>
       <div className="heart"><HeartHealth  snackHealth={snack} /></div>
-        <img className='details_image' src={snack.image}></img>
+        <img className='details_image' src={snack.image} alt=''></img>
         <br></br>
         <div className='show-info'>
         <h2 className='show_p'>
