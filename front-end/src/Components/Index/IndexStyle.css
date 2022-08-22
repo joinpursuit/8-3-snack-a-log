@@ -7,6 +7,7 @@ body {
     font-family: 'Overlock', cursive;
     font-weight: bold;
     text-align: center;
+    background-color: rgb(233, 194, 68);
 }
 main {
     width: 90px;
