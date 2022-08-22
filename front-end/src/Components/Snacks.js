@@ -18,11 +18,9 @@ const Snacks = () => {
 
   return (
     <section className='Snacks'>
-      {snacks.length > 0
-        ? snacks.map((snack, index) => {
-            return <Snack key={index} snack={snack} />;
-          })
-        : null}
+      {snacks.map((snack, index) => {
+        return <Snack key={index} snack={snack} />;
+      })}
     </section>
   );
 };
