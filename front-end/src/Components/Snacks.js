@@ -9,10 +9,8 @@ export default function Snacks() {
   const [snacks, setSnacks] = useState([]);
  
   useEffect(() => {
-    const headers = {
-      "Content-Type": "application/json"
-    };
-    axios.get(`${API}/snacks`,headers).then((res) => {
+    
+    axios.get(`${API}/snacks`).then((res) => {
       setSnacks(res.data.payload);
       console.log(snacks);
     });
