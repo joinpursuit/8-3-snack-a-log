@@ -1,35 +1,33 @@
 .nav {
-    background-color: rgb(37, 36, 34);
-    color: rgb(148, 58, 73);
-    display: flex;
-    align-items: center;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 3em;
-    padding-right: 3em;
-    margin-bottom: 1em;
-    justify-content: space-between;
-
-   
-  
+  background-color: rgb(37, 36, 34);
+  color: rgb(148, 58, 73);
+  display: flex;
+  align-items: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 3em;
+  padding-right: 3em;
+  margin-bottom: 1em;
+  justify-content: space-between;
 }
 
-
 .nav-button {
-    position:absolute;
-    border: none;
-    top: 10px;
-    right:0;
-    color:rgb(148, 58, 73);
-    /* font-family: Carter One cursive; */
-
-
+  position: absolute;
+  border: none;
+  top: 10px;
+  right: 0;
+  color: rgb(148, 58, 73);
+  /* font-family: Carter One cursive; */
 }
 
 .links {
-    color: rgb(235, 94, 40);
-    align-items: center;
-    justify-content: space-evenly;
-    /* font-family: Carter One cursive; */
+  color: rgb(235, 94, 40);
+  align-items: center;
+  justify-content: space-evenly;
+  /* font-family: Carter One cursive; */
 }
 
+.wordmark {
+  color: rgb(235, 94, 40);
+  text-decoration: none;
+}
