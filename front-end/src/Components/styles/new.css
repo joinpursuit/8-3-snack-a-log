@@ -30,7 +30,7 @@ padding: 10%;
 .color1{
   display: flex;
   flex-direction: column;
-  background-color: #818d8e83;
+  background-color: #ae9e8d74;
   margin-right: 10%;
   margin-left: 50%;
   font-size: larger;
@@ -39,22 +39,24 @@ padding: 10%;
   padding-right: 10%;
   border-radius: 10px;
   border: 2px solid;
-  border-color: #F8E4E2;
+  border-color:#ddd7b6;
   box-shadow: 10px 5px 5px #282828;
   
 }
 
 .text{
-    color: #398c94;
+    color: #1c3c3e;
   }
 
   .new-label1{
-    color: #0f1f20;
+   color: black;
   font-size: larger;
+  
   }
 
 .title{
     padding-top: 2%;
+    color: #E1DDCA
 }
 
 .new-label{

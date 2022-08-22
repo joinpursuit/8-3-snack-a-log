@@ -33,7 +33,7 @@ padding: 10%;
 .color2{
   display: flex;
   flex-direction: column;
-   background-color: #818d8e83;
+  background-color: #ae9e8d4e;
   margin-right: 0%;
   margin-left: 50%;
   font-size: larger;
@@ -44,6 +44,7 @@ padding: 10%;
   border: 2px solid;
   border-color: #E4E5E5;
   box-shadow: 10px 5px 5px #3f3e40;
+  
 }
 
 
@@ -52,8 +53,8 @@ padding: 10%;
     padding-top: 2%;
 }
 
-.new-label{
-  color: #0F0F10;
+.edit-label{
+  color: #000000;
 font-size: larger;
 }
 
@@ -64,7 +65,7 @@ font-size: larger;
 
 input[type=submit] {
     float: right;
-    background-color: #D6D3C0;
+    background-color: #d6d3c0d9;
     border: 2px solid #111;
     border-radius: 8px;
     box-sizing: border-box;
@@ -92,7 +93,7 @@ input[type=submit] {
     margin: 0%;
     margin-left: 5%;
    margin-top: 1%;
-   background-color: #D6D3C0;
+   background-color: #1C3B3D;
   }
 
 
@@ -128,7 +129,7 @@ input[type=submit] {
   }
 
   .edit-button:hover {
-    color: #317479;
+    color: #E3E0D3;
     text-decoration: underline;
   }
   

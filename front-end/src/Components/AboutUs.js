@@ -9,8 +9,7 @@ export default function AboutUs() {
       <div>
         <h1 className="about-title">About the App.</h1>
         <article className="appbio">
-          Welcome to our Snacks App. It enables you to look for healthy or unhealthy snacks your choice, but we are trying to promote a healthier option.
-          As a user you should be locate a snack or add if the snack has not be added. 
+          <span className="big">Hello,</span> Welcome to our Snacks App. It enables you to look for healthy or unhealthy snacks your choice. As a user you should be locate a snack or add if the snack has not be added. 
           As well as deleleting or updating it if necessary. 
         </article>
       </div>
@@ -89,6 +88,7 @@ export default function AboutUs() {
             </div>
           </div>
           <hr></hr>
+          <div className="year">{year}</div>
         </div>
       </div>
     </div>

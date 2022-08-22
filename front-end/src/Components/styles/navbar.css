@@ -1,5 +1,5 @@
 nav {
-    background: #23444587;
+    background: #1d3c3db6;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,24 +10,24 @@ nav {
     
   }
 
-  a:link {
-    color: #035e50;
+  .nav-title:link {
+    color: #E1DCCB;
     text-decoration: none;
   }  
     
   
-  nav a:hover {
-    color: #a3bfa1;
+  .nav-title:hover {
+    color: #E1DCCB;
     text-decoration: underline;
   }
   
 button {
   align-items: center;
-  background-color: #738f78;
+  background-color: #1C3B3D;
   border: 2px solid #111;
   border-radius: 8px;
   box-sizing: border-box;
-  color: #111;
+  color: #dedcc0;
   cursor: pointer;
   display: flex;
   font-family: 'Love Ya Like A Sister', cursive;

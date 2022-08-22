@@ -17,13 +17,16 @@
 .snack-name{
    display: flex;
    flex-wrap: wrap;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 900;
     inline-size: 150px;
-    font-family: 'Shadows Into Light', cursive;
     padding-top: 10px;
     padding-left: 20px;
-    color: rgb(153, 157, 153);
+    color: #d8b856;
+    font-family: 'Italiana', serif;
+    position: relative;
+    left: 35px; 
+    top: 7px;
     
 }
 .snack-name:hover{
@@ -37,7 +40,8 @@
     box-shadow: 5px 10px #888888;
     border: 2px solid ;
     position: relative;
-    left: 10%; 
+    left: 35px; 
+    top: 15px;
        
 }
 
@@ -62,7 +66,7 @@ div.health{
     transform: scale(0.6);
     position: relative;
     right: 20%;
-
+    top: 10px;
 }
 
 
@@ -76,7 +80,6 @@ div.health{
 
 h1{
     font-family: 'Fredericka the Great', cursive;
-    color: aliceblue;
     text-align: center;
     font-size: 70px;
 }
@@ -98,4 +101,6 @@ h1{
 }
 .title-snacks{
     padding: 2%;
+    color: #E1DDCA;
 }
+

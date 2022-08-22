@@ -61,7 +61,7 @@ export default function Edit_Snack() {
       
       <form className='form' onSubmit={handleSubmit}>
       <div className='color2'>
-        <label className='new-label' htmlFor='name'>
+        <label className='edit-label' htmlFor='name'>
           Name
         </label>
         <input
@@ -73,7 +73,7 @@ export default function Edit_Snack() {
           value={snack.name}
           onChange={handleTextChange}
         />
-        <label className='new-label' htmlFor='protein'>
+        <label className='edit-label' htmlFor='protein'>
           Protein
         </label>
         <input
@@ -85,7 +85,7 @@ export default function Edit_Snack() {
           placeholder='0'
           onChange={handleTextChange}
         />
-        <label className='new-label' htmlFor='fiber'>
+        <label className='edit-label' htmlFor='fiber'>
           Fiber
         </label>
         <input
@@ -97,7 +97,7 @@ export default function Edit_Snack() {
           placeholder='0'
           required
         />
-        <label className='new-label' htmlFor='added_sugar'>
+        <label className='edit-label' htmlFor='added_sugar'>
           Added Sugar
         </label>
         <input
@@ -109,7 +109,7 @@ export default function Edit_Snack() {
           onChange={handleTextChange}
           placeholder='0'
         />
-        <label className='new-label' htmlFor='image'>
+        <label className='edit-label' htmlFor='image'>
             Image Url
           </label>
           <input
