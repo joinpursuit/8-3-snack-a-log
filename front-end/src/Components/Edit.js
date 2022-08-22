@@ -21,7 +21,7 @@ export default function Edit() {
     axios
       .put(`${URL}/snacks/${id}`, updatedSnack)
       .then(() => {
-        navigate(`/snacks/${id}`);
+        navigate(`/`);
       })
       .catch((error) => console.warn('catch', error));
   };
