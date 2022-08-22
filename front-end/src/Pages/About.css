@@ -4,23 +4,25 @@ h2 {
     color:brown;
 }
 
-
-
 h3 {
     color:brown;
     text-align:center;
 }
-.taryne-photo {
-    max-width: 350px;
-    max-height: 325px;
+
+.bio-name {
+    font-size: 25px;
 }
 
 p {
    text-align: center;
 }
 
-.jonathan-photo {
-    max-width: 350px;
-    max-height: 325px;
+.bio-text {
+    margin-left: 15%;
+    margin-right: 15%;
+    font-size: 18px;
 }
 
+.icon {
+  padding: 10px;
+}

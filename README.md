@@ -1,15 +1,10 @@
 # Full Stack Application Pair Project
 
 ## Helpful Links
-*You and your partner should include links or images of the following resources in this section:*
 
-<<<<<<< HEAD
-
-=======
+- [Deployed Front-End](https://snackalog.netlify.app/about)
+- [Deployed Back-End](https://damp-brushlands-79433.herokuapp.com/)
 - [Trello Board](https://trello.com/b/I4bb1v4F/snack-a-log)
-
-- Wireframes
-- ERDs
 
 ## Snack-a-log
 
