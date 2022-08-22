@@ -1,17 +1,20 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import Snacks from './Snacks';
 
 function Show() {
   const URL = process.env.REACT_APP_API_URL;
-  const [snacks, setSnacks] = useState([]);
+  const [snacks, getSnack] = useState([]);
+  let { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get(`${URL}/snacks`)
-      .then((response) => setSnacks(response.data))
+      .get(`${URL}/snacks/${id}`)
+      .then((response) => getSnack(response.data.payload))
       .catch((error) => console.warn(error));
-  }, [URL]);
+  }, [id, navigate]);
 
   return (
     <div className='snacks'>
@@ -19,17 +22,18 @@ function Show() {
         <table>
           <thead>
             <tr>
-              <th>SNACK</th>
-              <th>FIBER</th>
-              <th>PROTEIN</th>
-              <th>ADDED SUGAR</th>
+              <img src={`${snacks.image}.jpg`}></img>
+              <th>SNACK: {snacks.name}</th>
+              <th>FIBER: {snacks.fiber}</th>
+              <th>PROTEIN: {snacks.protein}</th>
+              <th>ADDED SUGAR: {snacks.added_sugar}</th>
             </tr>
           </thead>
-          <tbody>
+          {/* <tbody>
             {snacks.map((snack) => {
-              return <Snacks key={snacks.id} snack={snack} />;
+              return <Snacks key={snack.id} snack={snack} />;
             })}
-          </tbody>
+          </tbody> */}
         </table>
       </section>
     </div>

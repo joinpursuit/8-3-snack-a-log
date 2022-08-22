@@ -1,8 +1,8 @@
-function Error() {
+export default function Error() {
   return (
     <div>
-      <h1>Oops, something went wrong with your request.</h1>
+      <img src='../assets/ErrorSnack.jpeg' alt='sadness'></img>
+      <h1>404 Error, Page not found</h1>
     </div>
   );
 }
-export default Error;

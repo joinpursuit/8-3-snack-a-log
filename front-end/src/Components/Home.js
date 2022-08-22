@@ -23,6 +23,7 @@ function Home() {
               <th>FIBER</th>
               <th>PROTEIN</th>
               <th>ADDED SUGAR</th>
+              <th>PIC</th>
             </tr>
           </thead>
           <tbody>
