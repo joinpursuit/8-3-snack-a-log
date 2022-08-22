@@ -19,6 +19,8 @@ const NavBar = () => {
       <Link className="links" to="/about">
         About
       </Link>
+      <br></br>
+
 <button href="/snacks/new"> <Link className='nav-button'to={"/snacks/new"}>New Snack</Link></button>
     </nav>
   );
