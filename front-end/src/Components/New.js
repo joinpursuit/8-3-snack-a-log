@@ -81,7 +81,7 @@ export default function New() {
           />
           <div>
             <input type='submit' />
-            <Link to={`/snacks`}>
+            <Link to={`/`}>
               <button>Back</button>
             </Link>
           </div>

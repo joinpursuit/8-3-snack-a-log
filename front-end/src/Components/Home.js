@@ -20,10 +20,11 @@ function Home() {
           <thead>
             <tr>
               <th>SNACK</th>
+              <th />
               <th>FIBER</th>
               <th>PROTEIN</th>
               <th>ADDED SUGAR</th>
-              <th>PIC</th>
+              <th>IS IT HEALTHY?</th>
             </tr>
           </thead>
           <tbody>

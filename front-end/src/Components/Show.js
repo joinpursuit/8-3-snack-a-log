@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import Snacks from './Snacks';
 
 function Show() {
@@ -16,6 +16,17 @@ function Show() {
       .catch((error) => console.warn(error));
   }, [id, navigate]);
 
+  const handleDelete = () => {
+    axios
+      .delete(`${URL}/snacks/${id}`)
+      .then(() => {
+        navigate(`/snacks`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className='snacks'>
       <section>
@@ -28,12 +39,11 @@ function Show() {
               <th>PROTEIN: {snacks.protein}</th>
               <th>ADDED SUGAR: {snacks.added_sugar}</th>
             </tr>
+            <Link to={`/snacks/${id}/edit`}>
+              <button>Edit</button>
+            </Link>
+            <button onClick={handleDelete}>Delete</button>
           </thead>
-          {/* <tbody>
-            {snacks.map((snack) => {
-              return <Snacks key={snack.id} snack={snack} />;
-            })}
-          </tbody> */}
         </table>
       </section>
     </div>
