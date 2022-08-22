@@ -18,17 +18,16 @@
 }
 
 .links {
-  color: rgb(235, 94, 40);
-  align-items: center;
-  justify-content: space-evenly;
-  font-size: 20px;
-  text-decoration: none;
+    color: rgb(235, 94, 40);
+    text-decoration: none;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .wordmark {
   color: rgb(235, 94, 40);
   text-decoration: none;
-    color:rgb(148, 58, 73);
+
  
 
 }
