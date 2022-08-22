@@ -1,10 +1,16 @@
 import React from "react";
 import "./About.css";
+import { HelmetProvider, Helmet } from "react-helmet-async";
 
 const About = () => {
   return (
     <div>
-      <h1>Snack-A-Log Project</h1>
+      <HelmetProvider>
+        <Helmet>
+          <title>Snack-a-Log | About</title>
+        </Helmet>
+      </HelmetProvider>
+      <h1>Snack-a-Log Project</h1>
       <h3>App Creators</h3>
       <img
         className="taryne-photo"
