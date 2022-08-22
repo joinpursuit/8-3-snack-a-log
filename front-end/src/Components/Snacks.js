@@ -10,7 +10,7 @@ export default function Snacks() {
  
   useEffect(() => {
     
-    axios.get(`${API}/snacks`).then((res) => {
+    axios.get(`${API}/snacks/`).then((res) => {
       setSnacks(res.data.payload);
       console.log(snacks);
     });
