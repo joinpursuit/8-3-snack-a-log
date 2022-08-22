@@ -59,6 +59,10 @@ const Edit = () => {
 				</ul>
                 </aside>
                 </article>
+
+                <header>
+                    <img src="https://snackish.net/wp-content/uploads/2019/05/snack-ish-black.png" alt="" />
+                </header>
 			<form onSubmit={handleSubmit}>
 				<label for='name'>Name:</label>
 				<input
