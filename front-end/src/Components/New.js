@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-
+import './New.css';
 const URL = process.env.REACT_APP_API_URL;
 
 export default function New() {
@@ -19,7 +19,7 @@ export default function New() {
     axios
       .post(`${URL}/snacks`, snack)
       .then(() => {
-        navigate(`/snacks`);
+        navigate(`/`);
       })
       .catch((error) => console.warn('catch', error));
   };
@@ -80,9 +80,9 @@ export default function New() {
             required
           />
           <div>
-            <input type='submit' />
+            <input id='submit' type='submit' />
             <Link to={`/`}>
-              <button>Back</button>
+              <button id='backNew'>Back</button>
             </Link>
           </div>
         </form>

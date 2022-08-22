@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import Snacks from './Snacks';
+import IsHealthy from './HeartHealth';
+import './Show.css';
 
 function Show() {
   const URL = process.env.REACT_APP_API_URL;
@@ -14,7 +15,7 @@ function Show() {
       .get(`${URL}/snacks/${id}`)
       .then((response) => getSnack(response.data.payload))
       .catch((error) => console.warn(error));
-  }, [id, navigate]);
+  }, [URL, id, navigate]);
 
   const handleDelete = () => {
     axios
@@ -33,16 +34,25 @@ function Show() {
         <table>
           <thead>
             <tr>
-              <img src={`${snacks.image}.jpg`}></img>
+              <img src={`${snacks.image}.jpg`} alt='Snack'></img>
               <th>SNACK: {snacks.name}</th>
               <th>FIBER: {snacks.fiber}</th>
               <th>PROTEIN: {snacks.protein}</th>
               <th>ADDED SUGAR: {snacks.added_sugar}</th>
+              <th>
+                <IsHealthy />
+              </th>
             </tr>
+
             <Link to={`/snacks/${id}/edit`}>
-              <button>Edit</button>
+              <button id='edit'>Edit</button>
             </Link>
-            <button onClick={handleDelete}>Delete</button>
+            <Link to={`/`}>
+              <button id='back'>Back</button>
+            </Link>
+            <button id='delete' onClick={handleDelete}>
+              Delete
+            </button>
           </thead>
         </table>
       </section>

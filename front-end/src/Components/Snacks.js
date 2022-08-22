@@ -4,7 +4,7 @@ function Snacks({ snack }) {
   return (
     <tr>
       <td>
-        <img src={`${snack.image}.jpg`} />
+        <img src={`${snack.image}.jpg`} alt='Snack' />
       </td>
       <td>
         <Link to={`/snacks/${snack.id}`}>{snack.name}</Link>

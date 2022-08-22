@@ -1,7 +1,7 @@
 import heartSolid from '../assets/heart-solid.png';
 import heartOutline from '../assets/heart-regular.png';
 
-function IsHealthy(fiber, protein, added_sugar) {
+function IsHealthy({ protein, fiber, added_sugar }) {
   if ((protein > 5 || fiber > 5) && added_sugar < 5) {
     return <img src={heartSolid} alt='Healthy' />;
   } else if ((protein < 5 || fiber < 5) && added_sugar > 5) {

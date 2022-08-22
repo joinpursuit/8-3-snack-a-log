@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './Edit.css';
 
 const URL = process.env.REACT_APP_API_URL;
 
@@ -20,7 +21,7 @@ export default function Edit() {
     axios
       .put(`${URL}/snacks/${id}`, updatedSnack)
       .then(() => {
-        navigate(`/snacks`);
+        navigate(`/snacks/${id}`);
       })
       .catch((error) => console.warn('catch', error));
   };
@@ -88,9 +89,9 @@ export default function Edit() {
             required
           />
           <div>
-            <input type='submit' />
+            <input id='editSubmit' type='submit' />
             <Link to={`/snacks/${id}`}>
-              <button>Back</button>
+              <button id='editBack'>Back</button>
             </Link>
           </div>
         </form>
