@@ -31,4 +31,19 @@
 .wordmark {
   color: rgb(235, 94, 40);
   text-decoration: none;
+    color:rgb(148, 58, 73);
+ 
+
+}
+
+.links {
+    color: rgb(235, 94, 40);
+    text-decoration: none;
+    align-items: center;
+    justify-content: space-evenly;
+  
+}
+
+h1 {
+    font-family: 'Carter One', cursive;
 }

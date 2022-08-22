@@ -35,24 +35,21 @@ const Show = () => {
 			});
 	};
 	
+	
 	return (
 		<section>
 		  <div>
 			<aside>
 			  <HeartHealth healthCheck={snack.is_healthy} />
 			</aside>
-			<h4>{snack.name}</h4>
-			<aside>
-			  <div className='img'>
-				{snack.is_healthy ? (
-				  <img src={snack.image} alt='healthy food' />
-				) : (
-				  <img src={snack.image} alt='unhealthy food' />
-				)}
-			  </div>
-			</aside>
+			<h3>{snack.name}</h3>
 		  </div>
+		
+		  <article>
+		<aside>
 		  <div>
+		  
+			<img src={snack.image} alt={snack.name}/>
 			<h5> Nutritional Information:</h5>
 		  </div>
 		  <div>Fiber: {snack.fiber}</div>
@@ -60,12 +57,14 @@ const Show = () => {
 		  <div>Added Sugar: {snack.added_sugar}</div>
 		  <div>
 			{snack.is_healthy ? (
-			  <h4>This is a healthy snack</h4>
+			  <h4>Healthy snack</h4>
 			) : (
-			  <h4>This is not a healthy snack</h4>
+			  <h4>Unhealthy snack</h4>
 			)}
-		  </div>
-		  <div>
+			 
+		
+		 
+		
 			<Link to='/snacks'>
 			  <button>Back</button>
 			</Link>
@@ -73,8 +72,12 @@ const Show = () => {
 			  <Link to={'/snacks/new'}>New</Link>
 			</button>
 			<button onClick={deleteSnack}>Delete</button>
-		  </div>
+			</div>
+		 
+		 </aside>
+		 </article>
 		  </section>
+		  
 	  );
 }
 

@@ -7,7 +7,7 @@ let id = 0;
 describe('Show Page', () => {
 	before(() => {
 		cy.request({
-			method: 'GET',
+			method: 'POST',
 			url: `${API}/snacks`,
 			body: {
 				name: 'Raspberries',
@@ -19,7 +19,7 @@ describe('Show Page', () => {
 			},
 			log: true,
 		}).then((newSnack) => {
-			id = newSnack.body.id;
+			id = newSnack.body.payload.id;
 			cy.visit(`${URL}/snacks/${id}`);
 		});
 	});
