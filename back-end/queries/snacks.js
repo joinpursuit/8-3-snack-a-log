@@ -1,5 +1,5 @@
 const db = require('../db/dbConfig.js');
-const nameFormatter = require('../Validation/Validation');
+const nameFormatter = require('../validation/validation');
 
 //GET all
 const getAllSnacks = async () => {
