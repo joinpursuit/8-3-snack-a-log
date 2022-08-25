@@ -4,7 +4,7 @@ import EditSnack from './Pages/edit';
 import HomeSnack from './Pages/home';
 import New from './Pages/new';
 import ErrorSnack from './Pages/error';
-import IndexSnack from './Pages/index';
+
 import ShowSnack from './Pages/show';
 
 function App() {
