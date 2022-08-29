@@ -1,11 +1,14 @@
 # Full Stack Application Pair Project
 
 ## Helpful Links
-*You and your partner should include links or images of the following resources in this section:*
+
+_You and your partner should include links or images of the following resources in this section:_
 
 - [Trello Board](https://trello.com/b/7gD0SD4z/snack-a-log)
 - [Wireframes](https://wireframe.cc/O22dps)
 - [ERDs](https://miro.com/app/board/uXjVPe1UJRw=/?share_link_id=275986048292)
+- [Backend] (https://fierce-badlands-55970.herokuapp.com/snacks)
+- [Frontend(Broken)] (https://iridescent-ganache-912b37.netlify.app/)
 
 ## Snack-a-log
 
@@ -24,7 +27,7 @@ For this project there are 40 features or functionality to build. To pass this p
 ## Expecatations
 
 - Each partner should commit and push their work at least once per day (for days we have class)
-- You should edit the *Helpful Links* section of this readme to include links for your relevant project planning resources
+- You should edit the _Helpful Links_ section of this readme to include links for your relevant project planning resources
 
 ## Submitting Your Work
 

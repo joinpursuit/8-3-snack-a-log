@@ -8,7 +8,9 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get(`${URL}/snacks`)
+      .get(
+        `https://fierce-badlands-55970.herokuapp.com/snacks` || `${URL}/snacks`,
+      )
       .then((response) => getAllSnacks(response.data.payload))
       .catch((error) => console.log(error.message));
   }, [URL]);

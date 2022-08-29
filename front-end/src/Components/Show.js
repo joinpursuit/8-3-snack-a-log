@@ -12,7 +12,10 @@ function Show() {
 
   useEffect(() => {
     axios
-      .get(`${URL}/snacks/${id}`)
+      .get(
+        `https://fierce-badlands-55970.herokuapp.com/snacks/${id}` ||
+          `${URL}/snacks/${id}`,
+      )
       .then((response) => getSnack(response.data.payload))
       .catch((error) => console.warn(error));
   }, [URL, id, navigate]);

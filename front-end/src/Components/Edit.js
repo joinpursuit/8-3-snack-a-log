@@ -19,7 +19,11 @@ export default function Edit() {
 
   const updateSnack = (updatedSnack) => {
     axios
-      .put(`${URL}/snacks/${id}`, updatedSnack)
+      .put(
+        `https://fierce-badlands-55970.herokuapp.com/snacks/${id}` ||
+          `${URL}/snacks/${id}`,
+        updatedSnack,
+      )
       .then(() => {
         navigate(`/`);
       })
@@ -27,10 +31,15 @@ export default function Edit() {
   };
 
   useEffect(() => {
-    axios.get(`${URL}/snacks/${id}`).then(
-      (res) => setSnack(res.data.payload),
-      (error) => navigate(`/not-found`),
-    );
+    axios
+      .get(
+        `https://fierce-badlands-55970.herokuapp.com/snacks/${id}` ||
+          `${URL}/snacks/${id}`,
+      )
+      .then(
+        (res) => setSnack(res.data.payload),
+        (error) => navigate(`/not-found`),
+      );
   }, [id, navigate]);
 
   /* handlebars */

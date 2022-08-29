@@ -17,7 +17,10 @@ export default function New() {
 
   const newSnack = (snack) => {
     axios
-      .post(`${URL}/snacks`, snack)
+      .post(
+        `https://fierce-badlands-55970.herokuapp.com/snacks` || `${URL}/snacks`,
+        snack,
+      )
       .then(() => {
         navigate(`/`);
       })
